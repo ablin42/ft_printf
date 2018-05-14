@@ -21,36 +21,6 @@ t_arg	*add_type_arg(t_arg *lst, char flag, const char * restrict format)
 	return (lst);
 }
 
-void	test(t_arg *lst)
-{
-	while (lst->next != NULL)
-	{
-		ft_putchar(lst->flag);
-		ft_putstr(" | ");
-		ft_putnbr(lst->id);
-		ft_putstr(" | ");
-		if (lst->flag == 'c')
-			ft_putchar(lst->type.c);
-		if (lst->flag == 's')
-			ft_putstr(lst->type.str);
-		if (lst->flag == 'u')
-			ft_putnbr(lst->type.u);
-		ft_putchar('\n');
-		lst = lst->next;
-	}
-		ft_putchar(lst->flag);
-		ft_putstr(" | ");
-		ft_putnbr(lst->id);
-		ft_putstr(" | ");
-		if (lst->flag == 'c')
-			ft_putchar(lst->type.c);
-		if (lst->flag == 's')
-			ft_putstr(lst->type.str);
-		if (lst->flag == 'u')
-			ft_putnbr(lst->type.u);
-		ft_putchar('\n');
-}
-
 void	lst_type_arg(t_arg **lst, const char * restrict format)
 {
 	int		i;
