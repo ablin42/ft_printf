@@ -19,6 +19,7 @@ typedef struct s_arg
 }				t_arg;
 
 void	test(t_arg *lst);
+void	test2(t_arg *lst);
 int		count_flags(const char * restrict format);
 int		ft_printf(const char * restrict format, ...);
 #endif
