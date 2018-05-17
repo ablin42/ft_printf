@@ -3,19 +3,22 @@
 #include "../libft/libft.h"
 #include <stdarg.h>
 
-typedef union u_type
+typedef union	u_type
 {
-	char	*str;
-	char	c;
-	int		u;
+	int			d;
+	char		c;
+	char		*str;
+	double		f;
+	long long	l;
+	unsigned long long z;
 }				t_type;
 
-typedef struct s_arg
+typedef struct	s_arg
 {
-	int		id;
-	char	flag;
-	t_type	type;
-	struct s_arg *next;
+	int			id;
+	char		flag;
+	t_type		type;
+	struct		s_arg *next;
 }				t_arg;
 
 void	test(t_arg *lst);

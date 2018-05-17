@@ -3,6 +3,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#include "print_format.c"
+
 void	test(t_arg *lst)
 {
 	while (lst->flag != 0)
@@ -15,8 +17,12 @@ void	test(t_arg *lst)
 			ft_putchar(lst->type.c);
 		if (lst->flag == 's' || lst->flag == 'q')
 			ft_putstr(lst->type.str);
-		if (lst->flag == 'u')
-			ft_putnbr(lst->type.u);
+		if (lst->flag == 'd')
+			ft_putnbr(lst->type.d);
+		if (lst->flag == 'l')
+			ft_putlong(lst->type.l);
+		if (lst->flag == 'z')
+			ft_putulong(lst->type.z);
 		ft_putchar('\n');
 		if (lst->next == NULL)
 			break;
@@ -32,8 +38,12 @@ void	test2(t_arg *lst)
 			ft_putchar(lst->type.c);
 		if (lst->flag == 's' || lst->flag == 'q')
 			ft_putstr(lst->type.str);
-		if (lst->flag == 'u')
-			ft_putnbr(lst->type.u);
+		if (lst->flag == 'd')
+			ft_putnbr(lst->type.d);
+		if (lst->flag == 'l')
+			ft_putlong(lst->type.l);
+		if (lst->flag == 'z')
+			ft_putulong(lst->type.z);
 		if (lst->next == NULL)
 			break;
 		lst = lst->next;
@@ -42,9 +52,9 @@ void	test2(t_arg *lst)
 
 int		main()
 {
-
-	ft_printf("[PTDR ]%s[ OK ]%c[ ]%u", "COWAAAAAAARDS!", '@', 42);
-//	printf("\n[PTDR ]%%s[ OK ]%%c[ ]%%u\n");
-	printf("\n[PTDR ]%s[ OK ]%c[ ]%u\n", "COWAAAAAAARDS!", '@', 42);
+	ft_putfloat(42.09);
+	printf("\n%f\n", 42.09);
+//	ft_printf("[PTDR ]%s[ OK ]%c[ ]%d", "COWAAAAAAARDS!", '@', 42);
+//	printf("\n[PTDR ]%s[ OK ]%c[ ]%d \n", "COWAAAAAAARDS!", '@', 42);
 	return (0);
 }

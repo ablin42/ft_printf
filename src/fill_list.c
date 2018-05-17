@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_list.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/17 21:23:59 by ablin             #+#    #+#             */
+/*   Updated: 2018/05/17 22:19:36 by ablin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/printf.h"
 
 t_arg	*add_type_arg(t_arg *lst, char flag, int id)
@@ -80,34 +92,19 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 	tmp = lst;
 	while (tmp->flag != 0) //moche
 	{
-		if (tmp->flag == 'c')
+		if (tmp->flag == 'c') //char
 			tmp->type.c = (char)va_arg(ap, int);
-		else if (tmp->flag == 'u')
-			tmp->type.u = (int)va_arg(ap, int);
-		else if (tmp->flag == 's')
+		else if (tmp->flag == 'd' || tmp->flag == 'i') //int
+			tmp->type.d = (signed int)va_arg(ap, int); //signed
+		else if (tmp->flag == 's') //string
 			tmp->type.str = (char *)va_arg(ap, char *);
+		else if (tmp->flag == 'l') //long long
+			tmp->type.l = (long long)va_arg(ap, long long);
+		else if (tmp->flag == 'z')//unsigned long long
+			tmp->type.z = (unsigned long long)va_arg(ap, unsigned long long);
 		if (tmp->next == NULL)
 			break;
 		tmp = tmp->next;
 	}
 	return (lst);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
