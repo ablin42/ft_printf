@@ -12,7 +12,7 @@
 
 #include "../includes/printf.h"
 
-t_arg	*add_type_arg(t_arg *lst, char flag, int id)
+t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 {
 	t_arg	*element;
 	t_arg	*tmp;
@@ -20,6 +20,7 @@ t_arg	*add_type_arg(t_arg *lst, char flag, int id)
 	if ((element = malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
 	tmp = lst;
+	element->wflag = wflag;
 	element->flag = flag;
 	element->id = id;
 	element->next = NULL;
@@ -39,6 +40,7 @@ t_arg	*add_string_noarg(t_arg *lst, const char * restrict format, int start, int
 	if ((element = malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
 	tmp = lst;
+	element->wflag = "NULL";//segfault here cause of printing condition 
 	element->flag = 'q';
 	element->id = id;
 	element->type.str = ft_strsub(format, start, (end - start)); //check for memory leaks
@@ -66,10 +68,13 @@ void	lst_type_arg(t_arg **lst, const char * restrict format)
 	{
 		if (format[i] == '%' && format[i] != '\0')
 		{
-			*lst = add_type_arg(*lst, format[i + 1], id);
-			//condition to go until end of flag aka the flag's letter
-			i = i + 2;
+			start = i + 1;
+			while (format[i] != 'd')//apply define
+				i++;
+			end = i;
+			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);
 			id++;
+			i++;
 		}
 		if (format[i] != '%' && format[i] != '\0')
 		{

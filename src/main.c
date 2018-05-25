@@ -4,57 +4,36 @@
 #include <stdio.h>
 
 #include "print_format.c"
-
-void	test(t_arg *lst)
-{
-	while (lst->flag != 0)
-	{
-		ft_putnbr(lst->id);
-		ft_putstr(" | ");
-		ft_putchar(lst->flag);
-		ft_putstr(" | ");
-		if (lst->flag == 'c')
-			ft_putchar(lst->type.c);
-		if (lst->flag == 's' || lst->flag == 'q')
-			ft_putstr(lst->type.str);
-		if (lst->flag == 'd')
-			ft_putnbr(lst->type.d);
-		if (lst->flag == 'l')
-			ft_putlong(lst->type.l);
-		if (lst->flag == 'z')
-			ft_putulong(lst->type.z);
-		ft_putchar('\n');
-		if (lst->next == NULL)
-			break;
-		lst = lst->next;
-	}
-}
-
-void	test2(t_arg *lst)
-{
-	while (lst->flag != 0)
-	{
-		if (lst->flag == 'c')
-			ft_putchar(lst->type.c);
-		if (lst->flag == 's' || lst->flag == 'q')
-			ft_putstr(lst->type.str);
-		if (lst->flag == 'd')
-			ft_putnbr(lst->type.d);
-		if (lst->flag == 'l')
-			ft_putlong(lst->type.l);
-		if (lst->flag == 'z')
-			ft_putulong(lst->type.z);
-		if (lst->next == NULL)
-			break;
-		lst = lst->next;
-	}
-}
+#include "padding.c"
+#include "print.c"
+#include "utils.c"
 
 int		main()
 {
-	ft_putfloat(42.09);
-	printf("\n%f\n", 42.09);
-//	ft_printf("[PTDR ]%s[ OK ]%c[ ]%d", "COWAAAAAAARDS!", '@', 42);
-//	printf("\n[PTDR ]%s[ OK ]%c[ ]%d \n", "COWAAAAAAARDS!", '@', 42);
+	//*/ FLAGS TESTS
+	ft_printf("<%05d><%05d>", 42, -42);
+	printf("\n<%05d><%05d>\n\n", 42, -42);
+
+	ft_printf("<%-+5d><%+5d>", 42, -42);
+	printf("\n<%-+5d><%+5d>\n\n", 42, -42);
+
+	ft_printf("<%0+5d><%0+5d>", 42, -42);
+	printf("\n<%0+5d><%0+5d>\n\n", 42, -42);
+
+	ft_printf("<%-+5d><%-+5d><%-+5d>", 0, +0, -0);
+	printf("\n<%-+5d><%-+5d><%-+5d>\n\n", 0, +0, -0);
+
+	ft_printf("<%+5d><%+5d><%+5d>", 0, +0, -0);
+	printf("\n<%+5d><%+5d><%+5d>\n\n", 0, +0, -0);
+
+	ft_printf("<%+---+5d><%--++5d>", 1998, -1998);
+	printf("\n<%+---+5d><%--++5d>\n\n", 1998, -1998);
+	
+	ft_printf("<%+4d><%+-4d>", 1998, -1998);
+	printf("\n<%+4d><%+-4d>\n\n", 1998, -1998);
+
+	ft_printf("<%+6d><%+-6d>", 1998, -1998);
+	printf("\n<%+6d><%+-6d>\n\n", 1998, -1998);
+	//*/
 	return (0);
 }

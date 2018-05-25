@@ -39,7 +39,7 @@ int		ft_printf(const char * restrict format, ...)
 	va_start(ap, format);
 	lst_type_arg(&lst, format);
 	lst = cycle_arg(lst, ap);
-	test(lst);
+//	test(lst);
 	test2(lst);
 	return (0);
 }

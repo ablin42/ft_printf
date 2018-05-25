@@ -11,13 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
-#include <stdio.h>
-
-void	ft_putfloat(float n)
-{
-	n += 1.000002;
-	printf("%f", n);//float addition is EXACTLY precise
-}
 
 void	ft_putlong(long long n)
 {
