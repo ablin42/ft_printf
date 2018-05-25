@@ -69,7 +69,7 @@ void	lst_type_arg(t_arg **lst, const char * restrict format)
 		if (format[i] == '%' && format[i] != '\0')
 		{
 			start = i + 1;
-			while (format[i] != 'd')//apply define
+			while (SPEC(format[i]))//apply define
 				i++;
 			end = i;
 			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);

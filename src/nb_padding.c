@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   padding.c                                          :+:      :+:    :+:   */
+/*   nb_padding.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -57,43 +57,6 @@ void		ft_nbpaddingdata(char *wflag, int nb)//int nb for now
 	toprint = ft_atoi_wflag(wflag) - divider;
 	ft_nbpadding(toprint, wflag, nbprint);
 }
-/*
-void		ft_nbpadding(char *wflag, int nb)//int nb for now
-{
-	int		divider;
-	int		toprint;
-	int		nbprint;
-
-	divider = 0;
-	nbprint = nb;
-	while (nb / 10)
-	{
-		nb /= 10;
-		divider++;
-	}
-	if (is_there(wflag, '+') || nbprint < 0)
-		divider++;
-	toprint = ft_atoi_wflag(wflag) - divider;
-
-	if (is_flag_zero(wflag) && is_there(wflag, '+') && nbprint > 0)
-		ft_putchar('+');
-	if (nbprint < 0 && toprint > 2)
-	{
-		ft_putchar('-');
-		nbprint *= -1;
-	}
-	while (toprint > 1)
-	{
-		if (is_flag_zero(wflag))
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		toprint--;
-	}
-//	if (!is_flag_zero(wflag))
-//		ft_putchar('+');
-	ft_putnbr(nbprint);
-}*/
 
 void		ft_leftjustify(char *wflag, int nb)//int nb for now
 {

@@ -4,13 +4,29 @@
 #include <stdio.h>
 
 #include "print_format.c"
-#include "padding.c"
+#include "nb_padding.c"
+#include "str_padding.c"
 #include "print.c"
 #include "utils.c"
 
 int		main()
 {
-	//*/ FLAGS TESTS
+	//*/ FLAGS TESTS STR
+	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
+	ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God.");
+	printf("\n<%10s><%10s><%-10s>\n\n", "Harbinger", "is their", "God.");
+	
+	ft_printf("<%5s><%1s><%-10s>", "Embrace", "", "entropy");
+	printf("\n<%5s><%1s><%-10s>\n\n", "Embrace", "", "entropy");
+
+	ft_printf("<%-5s><%10s><%-3s>", "Death comes", "at last", "...");
+	printf("\n<%-5s><%10s><%-3s>\n\n", "Death comes", "at last", "...");
+	
+	ft_printf("<This\tis\nan escape\\sequence.>");
+	printf("\n<This\tis\nan escape\\sequence.>\n\n");
+	//*/
+
+	/*/ FLAGS TESTS INT
 	ft_printf("<%+---+3d><%--++3d>", 123, -123);
 	printf("\n<%+---+3d><%--++3d>\n\n", 123, -123);
 	
@@ -31,7 +47,6 @@ int		main()
 
 	ft_printf("<%- 4d><%- 4d><%- 5d><%- 5d><%- 6d><%- 6d>", 1337, -1337, 1337, -1337, 1337, -1337);
 	printf("\n<%- 4d><%- 4d><%- 5d><%- 5d><%- 6d><%- 6d>\n\n", 1337, -1337, 1337, -1337, 1337, -1337);
-
 	//*/
 	return (0);
 }
