@@ -5,7 +5,7 @@
 
 # define SPEC(Value) (Value != 'c' && Value != 'd' && Value != 'e'\
 && Value != 'f' && Value != 'i' && Value != 'o' && Value != 's'\
-&& Value != 'u' && Value != 'x')//condition for %%
+&& Value != 'u' && Value != 'x' && Value != '%')//condition for %%
 
 typedef union	u_type
 {

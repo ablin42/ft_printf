@@ -10,11 +10,11 @@ void	test(t_arg *lst)
 		ft_putstr(" | ");
 		ft_putstr(lst->wflag);
 		ft_putstr(" | ");
-		if (lst->flag == 'c')
+		if (lst->flag == 'c' || lst->flag == '%')
 			ft_putchar(lst->type.c);
 		if (lst->flag == 's' || lst->flag == 'q')
 		{
-			if (lst->flag == 'q')
+			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
 				ft_putstr(lst->type.str);
 			else
 				ft_strpadding(lst->wflag, lst->type.str);
@@ -43,11 +43,11 @@ void	test2(t_arg *lst)
 {
 	while (lst->flag != 0)
 	{
-		if (lst->flag == 'c')
+		if (lst->flag == 'c' || lst->flag == '%')
 			ft_putchar(lst->type.c);
 		if (lst->flag == 's' || lst->flag == 'q')
 		{
-			if (lst->flag == 'q')
+			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
 				ft_putstr(lst->type.str);
 			else
 				ft_strpadding(lst->wflag, lst->type.str);

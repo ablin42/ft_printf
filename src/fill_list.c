@@ -22,6 +22,8 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	tmp = lst;
 	element->wflag = wflag;
 	element->flag = flag;
+	if (flag == '%')
+		element->type.c = '%';
 	element->id = id;
 	element->next = NULL;
 	if (lst == NULL)
@@ -68,7 +70,8 @@ void	lst_type_arg(t_arg **lst, const char * restrict format)
 	{
 		if (format[i] == '%' && format[i] != '\0')
 		{
-			start = i + 1;
+			i++;
+			start = i;
 			while (SPEC(format[i]))//apply define
 				i++;
 			end = i;
