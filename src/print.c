@@ -44,10 +44,13 @@ void	test2(t_arg *lst)
 			ft_putstr(lst->type.str);
 		if (lst->flag == 'd' || lst->flag == 'i')
 		{
-			if ((!is_there(lst->wflag, '-') && is_there(lst->wflag, '+')) || (lst->wflag[0] >= '0' && lst->wflag[0] <= '9'))
+			if (!is_there(lst->wflag, '-'))
 				ft_nbpaddingdata(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-'))
+			//&& (is_there(lst->wflag, '+') || is_there(lst->wflag, ' '))))
+			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' '))
 				ft_leftjustify(lst->wflag, lst->type.d);//int for now
+			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' '))
+				ft_leftjustifyblank(lst->wflag, lst->type.d);
 		}
 
 		if (lst->flag == 'l')
