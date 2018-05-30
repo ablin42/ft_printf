@@ -30,12 +30,12 @@ int		main()
 	printf("%d", printf("\n<this %s is 100%% aids>\n\n", "shit"));
 	//*/
 
-	/*/ FLAGS TESTS INT
-	printf("%d", ft_printf("<%+---+3d><%--++3d>", 123, -123);
-	printf("%d", printf("\n<%+---+3d><%--++3d>\n\n", 123, -123);
+	//*/ FLAGS TESTS INT
+	printf("%d", ft_printf("<%+---+3d><%--++3d>", 123, -123));
+	printf("%d", printf("\n<%+---+3d><%--++3d>\n\n", 123, -123));
 	
-	printf("%d", ft_printf("<%3d><%4d><%3d>", 42, -42, -42);
-	printf("%d", printf("\n<%3d><%4d><%3d>\n\n", 42, -42, -42);
+	printf("%d", ft_printf("<%3d><%4d><%3d>", 42, -42, -42));
+	printf("%d", printf("\n<%3d><%4d><%3d>\n\n", 42, -42, -42));
 
 	printf("%d", ft_printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0));
 	printf("%d", printf("\n<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>\n\n", 0, +0, -0, 0, +0, -0));
