@@ -11,7 +11,7 @@
 
 int		main()
 {
-	//*/ FLAGS TESTS STR
+	/*/ FLAGS TESTS STR
 	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
 	printf(" %d\n", ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
 	printf(" %d\n\n", printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
@@ -25,8 +25,8 @@ int		main()
 	printf(" %d\n", ft_printf("<This\tis\nan escape\\sequence.>"));
 	printf(" %d\n\n", printf("<This\tis\nan escape\\sequence.>"));
 
-	printf(" %d\n", ft_printf("<this %s is 100%% aids>", "shit"));
-	printf(" %d\n\n", printf("<this %s is 100%% aids>", "shit"));
+	printf(" %d\n", ft_printf("<this %s is 100%% aids %%%%>", "shit"));
+	printf(" %d\n\n", printf("<this %s is 100%% aids %%%%>", "shit"));
 	//*/
 
 	/*/ FLAGS TESTS INT

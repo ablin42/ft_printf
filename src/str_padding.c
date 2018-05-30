@@ -18,12 +18,12 @@ int		ft_strpadding(char *wflag, char *str)
 	int		retour;
 
 	retour = 0;
-	toprint = ft_atoi_wflag(wflag) - ft_strlen(str) + 1;//attention quand strlen renvoi 0
+	toprint = ft_atoi_wflag(wflag) - ft_strlen(str);//attention quand strlen renvoi 0
 	if (toprint >= 1)
-		retour = toprint - 1;
+		retour = toprint;
 	if (is_there(wflag, '-'))
 		ft_putstr(str);
-	while (toprint > 1)
+	while (toprint > 0)
 	{
 		ft_putchar(' ');
 		toprint--;

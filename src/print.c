@@ -61,11 +61,11 @@ void	test2(t_arg *lst, int *retour)
 		if (lst->flag == 'd' || lst->flag == 'i')
 		{
 			if (!is_there(lst->wflag, '-'))
-				ft_nbpaddingdata(lst->wflag, lst->type.d);
+				*retour += ft_nbpaddingdata(lst->wflag, lst->type.d);
 			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' '))
-				ft_leftjustify(lst->wflag, lst->type.d);//int for now
+				*retour += ft_leftjustify(lst->wflag, lst->type.d);
 			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' '))
-				ft_leftjustifyblank(lst->wflag, lst->type.d);
+				*retour += ft_leftjustifyblank(lst->wflag, lst->type.d);
 		}
 		if (lst->flag == 'l')
 			ft_putlong(lst->type.l);
