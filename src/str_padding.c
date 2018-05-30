@@ -12,11 +12,13 @@
 
 #include "../includes/printf.h"
 
-void	ft_strpadding(char *wflag, char *str)
+int		ft_strpadding(char *wflag, char *str)
 {
 	int		toprint;
+	int		retour;
 
 	toprint = ft_atoi_wflag(wflag) - ft_strlen(str) + 1;//attention quand strlen renvoi 0
+	retour = toprint + ft_strlen(str);
 	if (is_there(wflag, '-'))
 		ft_putstr(str);
 	while (toprint > 1)
@@ -26,4 +28,5 @@ void	ft_strpadding(char *wflag, char *str)
 	}
 	if (!is_there(wflag, '-'))
 		ft_putstr(str);
+	return (retour);
 }

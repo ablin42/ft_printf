@@ -13,28 +13,29 @@ int		main()
 {
 	//*/ FLAGS TESTS STR
 	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
-	ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God.");
-	printf("\n<%10s><%10s><%-10s>\n\n", "Harbinger", "is their", "God.");
-	
-	ft_printf("<%5s><%1s><%-10s>", "Embrace", "", "entropy");
-	printf("\n<%5s><%1s><%-10s>\n\n", "Embrace", "", "entropy");
 
-	ft_printf("<%-5s><%10s><%-3s>", "Death comes", "at last", "...");
-	printf("\n<%-5s><%10s><%-3s>\n\n", "Death comes", "at last", "...");
+	ft_putnbr(ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
+	ft_putnbr(printf("\n<%10s><%10s><%-10s>\n\n", "Harbinger", "is their", "God."));
 	
-	ft_printf("<This\tis\nan escape\\sequence.>");
-	printf("\n<This\tis\nan escape\\sequence.>\n\n");
+	ft_putnbr(ft_printf("<%5s><%1s><%-10s>", "Embrace", "", "entropy"));
+	ft_putnbr(printf("\n<%5s><%1s><%-10s>\n\n", "Embrace", "", "entropy"));
 
-	ft_printf("<this %s is 100%% aids>", "shit");
-	printf("\n<this %s is 100%% aids>\n\n", "shit");
+	ft_putnbr(ft_printf("<%-5s><%10s><%-3s>", "Death comes", "at last", "..."));
+	ft_putnbr(printf("\n<%-5s><%10s><%-3s>\n\n", "Death comes", "at last", "..."));
+	
+	ft_putnbr(ft_printf("<This\tis\nan escape\\sequence.>"));
+	ft_putnbr(printf("\n<This\tis\nan escape\\sequence.>\n\n"));
+
+	ft_putnbr(ft_printf("<this %s is 100%% aids>", "shit"));
+	ft_putnbr(printf("\n<this %s is 100%% aids>\n\n", "shit"));
 	//*/
 
 	/*/ FLAGS TESTS INT
 	ft_printf("<%+---+3d><%--++3d>", 123, -123);
 	printf("\n<%+---+3d><%--++3d>\n\n", 123, -123);
 	
-	ft_printf("<%3d><%3d><%5d>", 42, -42, 42);
-	printf("\n<%3d><%4d><%5d>\n\n", 42, -42, 42);
+	ft_printf("<%3d><%4d><%3d>", 42, -42, -42);
+	printf("\n<%3d><%4d><%3d>\n\n", 42, -42, -42);
 
 	ft_printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0);
 	printf("\n<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>\n\n", 0, +0, -0, 0, +0, -0);

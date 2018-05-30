@@ -31,7 +31,7 @@ typedef struct	s_arg
 }				t_arg;
 
 void	test(t_arg *lst);
-void	test2(t_arg *lst);
+void	test2(t_arg *lst, int *retour);
 
 int		is_there(char *wflag, char c);
 int		is_flag_zero(char *wflag);
