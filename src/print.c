@@ -44,7 +44,10 @@ void	test2(t_arg *lst, int *retour)
 	while (lst->flag != 0)
 	{
 		if (lst->flag == 'c' || lst->flag == '%')
+		{
 			ft_putchar(lst->type.c);
+			*retour += 1;
+		}
 		if (lst->flag == 's' || lst->flag == 'q')
 		{
 			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
@@ -53,7 +56,7 @@ void	test2(t_arg *lst, int *retour)
 				*retour += ft_strlen(lst->type.str);
 			}
 			else
-				*retour += ft_strpadding(lst->wflag, lst->type.str);
+				*retour += ft_strpadding(lst->wflag, lst->type.str) + ft_strlen(lst->type.str);
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 		{
