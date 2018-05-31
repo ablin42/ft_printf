@@ -17,7 +17,7 @@ void	test(t_arg *lst)
 			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
 				ft_putstr(lst->type.str);
 			else
-				ft_strpadding(lst->wflag, lst->type.str);
+				ft_strpadding(lst->wflag, ft_strprecision(lst->wflag, lst->type.str));
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 		{
@@ -56,15 +56,19 @@ void	test2(t_arg *lst, int *retour)
 				*retour += ft_strlen(lst->type.str);
 			}
 			else
-				*retour += ft_strpadding(lst->wflag, lst->type.str) + ft_strlen(lst->type.str);
+				*retour += ft_strpadding(lst->wflag, ft_strprecision(lst->wflag, lst->type.str)) + ft_strlen(ft_strprecision(lst->wflag, lst->type.str));//mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 		{
-			if (!is_there(lst->wflag, '-'))
+			if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) >= ft_atoi_wflag(lst->wflag))
+				*retour += ft_intprecision(lst->wflag, lst->type.d);
+			else if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) < ft_atoi_wflag(lst->wflag))
+				*retour += ft_flagandprecision(lst->wflag, lst->type.d);
+			else if (!is_there(lst->wflag, '-'))//else
 				*retour += ft_nbpaddingdata(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' '))
+			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
 				*retour += ft_leftjustify(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' '))
+			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
 				*retour += ft_leftjustifyblank(lst->wflag, lst->type.d);
 		}
 		if (lst->flag == 'l')

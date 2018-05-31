@@ -11,6 +11,14 @@
 
 int		main()
 {
+	/*/ PRECISION TEST STR
+	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
+	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
+	
+	printf(" %d\n\n", ft_printf("<%5.3s><%-5.3s><%13.8s>", "Oofballs", "theater", "assassinate"));
+	printf(" %d\n\n", printf("<%5.3s><%-5.3s><%13.8s>", "Oofballs", "theater", "assassinate"));
+	//*/
+
 	/*/ FLAGS TESTS STR
 	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
 	printf(" %d\n", ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
@@ -29,7 +37,19 @@ int		main()
 	printf(" %d\n\n", printf("<this %s is 100%% aids %%%%>", "shit"));
 	//*/
 
-	/*/ FLAGS TESTS INT
+	//*/ PRECISION TEST INT
+	printf(" %d\n", ft_printf("<%.0d><%.1d><%.2d><%.2d><%.3d><%.3d>", 42, 42, 42, -42, 42, -42));
+	printf(" %d\n\n", printf("<%.0d><%.1d><%.2d><%.2d><%.3d><%.3d>", 42, 42, 42, -42, 42, -42));
+
+	printf(" %d\n", ft_printf("<%5.5d><%5.5d><%3.4d><%4.3d>", 13, -13, -13, 13));
+	printf(" %d\n\n", printf("<%5.5d><%5.5d><%3.4d><%4.3d>", 13, -13, -13, 13));
+
+	printf(" %d\n", ft_printf("<%-.5d><%5.5d><%10.5d>", 42, -42, -42));
+	printf(" %d\n", printf("<%-.5d><%5.5d><%10.5d>", 42, -42, -42));
+	printf("\noublie pas le .0 / .*\n");
+	//*/
+
+	//*/ FLAGS TESTS INT
 	printf(" %d\n", ft_printf("<%+---+3d><%--++3d>", 123, -123));
 	printf(" %d\n\n", printf("<%+---+3d><%--++3d>", 123, -123));
 	

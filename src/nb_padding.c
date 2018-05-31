@@ -12,12 +12,84 @@
 
 #include "../includes/printf.h"
 
+int		ft_flagandprecision(char *wflag, int nb)
+{
+	int		toprint;
+	int		retour;
+	int		nbprint;
+
+	toprint = 0;
+	retour = 0;
+	nbprint = nb;
+	while (nb % 10)
+	{
+		nb = nb / 10;
+		retour++;
+	}
+	toprint = ft_atoi_wflag(wflag) - ft_atoi_precision(wflag);//prend pas en compte taille du nbr
+	if (nbprint < 0)
+		toprint--;
+	while (toprint > 0)
+	{
+		ft_putchar(' ');
+		toprint--;
+	}
+	if (nbprint < 0)
+	{
+		nbprint *= -1;
+//		retour++;
+		ft_putchar('-');
+	}
+	toprint = ft_atoi_precision(wflag) - retour;// - (ft_atoi_wflag(wflag) - ft_atoi_precision(wflag));
+	while (toprint > 0)
+	{
+		ft_putchar('0');
+		toprint--;
+	}
+	retour = ft_atoi_wflag(wflag);
+	ft_putnbr(nbprint);
+	return (retour);
+}
+
+int		ft_intprecision(char *wflag, int nb)
+{
+	int		toprint;
+	int		retour;
+	int		nbprint;
+
+	toprint = 0;
+	retour = 1;
+	nbprint = nb;
+
+	while (nb / 10)
+	{
+		nb = nb / 10;
+		retour++;
+	}
+	toprint = ft_atoi_precision(wflag) - retour;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nbprint *= -1;
+		retour++;
+	}
+	if (toprint > 0)
+		retour += toprint;
+	while (toprint > 0)
+	{
+		ft_putchar('0');
+		toprint--;
+	}
+	ft_putnbr(nbprint);
+	return (retour);
+}
+
 int		ft_count_printed_nb(char *wflag, int nb)
 {
 	int		retour;
 	int		nbr;
 
-nbr = nb;
+	nbr = nb;
 	retour = 1;
 	while (nb / 10)
 	{
@@ -51,7 +123,7 @@ int		ft_nbpadding(int toprint, char *wflag, int nb)
 	}
 	while (toprint > 1)
 	{
-		if (is_flag_zero(wflag))
+		if (is_flag_zero(wflag) || is_there(wflag, '.'))
 			ft_putchar('0');
 		else
 			ft_putchar(' ');

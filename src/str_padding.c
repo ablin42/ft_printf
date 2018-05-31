@@ -12,6 +12,22 @@
 
 #include "../includes/printf.h"
 
+char	*ft_strprecision(char *wflag, char *str)
+{
+	int		precision;
+//	int		len;
+	char *autist;///////////
+
+	if (!is_there(wflag, '.'))
+		return (str);
+	autist = ft_strdup(str);/////////
+	precision = ft_atoi_precision(wflag);
+//	len = ft_strlen(str);
+	if (autist != NULL)
+		autist[precision] = '\0';
+	return (autist);
+}
+
 int		ft_strpadding(char *wflag, char *str)
 {
 	int		toprint;

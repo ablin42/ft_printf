@@ -33,6 +33,10 @@ typedef struct	s_arg
 void	test(t_arg *lst);
 void	test2(t_arg *lst, int *retour);
 
+int		ft_atoi_precision(const char *str);
+
+char	*ft_strprecision(char *wflag, char *str);
+
 int		is_there(char *wflag, char c);
 int		is_flag_zero(char *wflag);
 int		ft_atoi_wflag(const char *str);
