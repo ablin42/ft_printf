@@ -6,7 +6,7 @@
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 21:24:08 by ablin             #+#    #+#             */
-/*   Updated: 2018/05/17 21:24:09 by ablin            ###   ########.fr       */
+/*   Updated: 2018/06/02 21:20:31 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../includes/printf.h"
 #include "fill_list.c"
 
-int		count_flags(const char * restrict format)
+int		count_flags(const char *restrict format)
 {
 	int		nbflags;
 
@@ -29,7 +29,7 @@ int		count_flags(const char * restrict format)
 	return (nbflags);
 }
 
-int		ft_printf(const char * restrict format, ...)
+int		ft_printf(const char *restrict format, ...)
 {
 	t_arg	*lst;
 	int		retour;

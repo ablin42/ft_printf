@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/02 23:26:08 by ablin             #+#    #+#             */
+/*   Updated: 2018/06/02 23:27:03 by ablin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int		is_there(char *wflag, char c)
 {
 	int		i;
@@ -14,19 +26,19 @@ int		is_there(char *wflag, char c)
 
 int		ft_atoi_wflag(const char *str)
 {
-	int i;
-	int signe;
-	int total;
+	int		i;
+	int		signe;
+	int		total;
 
 	i = 0;
 	signe = 1;
 	total = 0;
 	while (str[i] <= '0' || str[i] > '9')
-	{//
-		if (str[i] == '.')//
-			return (0);//
+	{
+		if (str[i] == '.')
+			return (0);
 		i++;
-	}//
+	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		total = total + str[i] - '0';
@@ -39,16 +51,15 @@ int		ft_atoi_wflag(const char *str)
 
 int		ft_atoi_precision(const char *str)
 {
-	int i;
-	int total;
+	int		i;
+	int		total;
 
 	i = 0;
 	total = 0;
 	while (str[i] != '\0' && str[i] != '.')
 		i++;
-	if (i - 1 < ft_strlen(str) || str[0] == '.')
+	if (i - 1 < (int)ft_strlen(str) || str[0] == '.')
 		i++;
-	//ft_putnbr(i);
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		total = total + str[i] - '0';
@@ -68,9 +79,10 @@ int		is_flag_zero(char *wflag)
 		return (1);
 	while (wflag[i] != '\0')
 	{
-		if (wflag[i] == '0' && i > 0 && (wflag[i - 1] < '0' || wflag[i - 1] > '9'))
+		if (wflag[i] == '0' && i > 0 && (wflag[i - 1] < '0' ||
+				wflag[i - 1] > '9'))
 			return (1);
-			i++;
+		i++;
 	}
 	return (0);
 }

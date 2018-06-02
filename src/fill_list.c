@@ -6,7 +6,7 @@
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 21:23:59 by ablin             #+#    #+#             */
-/*   Updated: 2018/05/17 22:19:36 by ablin            ###   ########.fr       */
+/*   Updated: 2018/06/02 21:25:51 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	return (lst);
 }
 
-t_arg	*add_string_noarg(t_arg *lst, const char * restrict format, int start, int end, int id)
+t_arg	*add_string_noarg(t_arg *lst, const char *restrict format,
+		int start, int end, int id)
 {
 	t_arg	*element;
 	t_arg	*tmp;
@@ -42,10 +43,11 @@ t_arg	*add_string_noarg(t_arg *lst, const char * restrict format, int start, int
 	if ((element = malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
 	tmp = lst;
-	element->wflag = "NULL";//segfault here cause of printing condition 
+	element->wflag = "NOFLAG";
 	element->flag = 'q';
 	element->id = id;
-	element->type.str = ft_strsub(format, start, (end - start)); //check for memory leaks
+	element->type.str = ft_strsub(format, start, (end - start));
+	//check for memoty leaks above
 	element->next = NULL;
 	if (lst == NULL)
 		return (element);
@@ -55,12 +57,12 @@ t_arg	*add_string_noarg(t_arg *lst, const char * restrict format, int start, int
 	return (lst);
 }
 
-void	lst_type_arg(t_arg **lst, const char * restrict format)
+void	lst_type_arg(t_arg **lst, const char *restrict format)
 {
 	static int id;
-	int		i;
-	int		start;
-	int		end;
+	int			i;
+	int			start;
+	int			end;
 
 	i = 0;
 	start = 0;
@@ -72,7 +74,7 @@ void	lst_type_arg(t_arg **lst, const char * restrict format)
 		{
 			i++;
 			start = i;
-			while (SPEC(format[i]))//apply define
+			while (SPEC(format[i]))
 				i++;
 			end = i;
 			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);
@@ -98,20 +100,21 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 
 	i = 0;
 	tmp = lst;
-	while (tmp->flag != 0) //moche
+	//condition while plutot moche
+	while (tmp->flag != 0)
 	{
-		if (tmp->flag == 'c') //char
+		if (tmp->flag == 'c')
 			tmp->type.c = (char)va_arg(ap, int);
-		else if (tmp->flag == 'd' || tmp->flag == 'i') //int
-			tmp->type.d = (signed int)va_arg(ap, int); //signed
-		else if (tmp->flag == 's') //string
+		else if (tmp->flag == 'd' || tmp->flag == 'i')
+			tmp->type.d = (signed int)va_arg(ap, int); //signed????
+		else if (tmp->flag == 's')
 			tmp->type.str = (char *)va_arg(ap, char *);
-		else if (tmp->flag == 'l') //long long
+		else if (tmp->flag == 'l')
 			tmp->type.l = (long long)va_arg(ap, long long);
-		else if (tmp->flag == 'z')//unsigned long long
+		else if (tmp->flag == 'z')
 			tmp->type.z = (unsigned long long)va_arg(ap, unsigned long long);
 		if (tmp->next == NULL)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	return (lst);

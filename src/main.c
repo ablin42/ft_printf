@@ -5,7 +5,7 @@
 
 #include "print_format.c"
 #include "nb_padding.c"
-#include "str_padding.c"
+#include "precision.c"
 #include "print.c"
 #include "utils.c"
 #include "utils2.c"
