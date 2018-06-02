@@ -28,11 +28,6 @@ int		count_flags(const char * restrict format)
 	}
 	return (nbflags);
 }
-/*
-void	ptdr(int *retour)
-{
-	*retour = 42;
-}*/
 
 int		ft_printf(const char * restrict format, ...)
 {
@@ -41,11 +36,10 @@ int		ft_printf(const char * restrict format, ...)
 	va_list ap;
 
 	retour = 0;
-//	ptdr(&retour);
 	va_start(ap, format);
 	lst_type_arg(&lst, format);
 	lst = cycle_arg(lst, ap);
-//	test(lst);
+//	test(lst, &retour);
 	test2(lst, &retour);
 	return (retour);
 }

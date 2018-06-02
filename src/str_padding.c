@@ -39,11 +39,7 @@ int		ft_strpadding(char *wflag, char *str)
 		retour = toprint;
 	if (is_there(wflag, '-'))
 		ft_putstr(str);
-	while (toprint > 0)
-	{
-		ft_putchar(' ');
-		toprint--;
-	}
+	to_print(' ', toprint);
 	if (!is_there(wflag, '-'))
 		ft_putstr(str);
 	return (retour);

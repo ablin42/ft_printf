@@ -8,10 +8,12 @@
 #include "str_padding.c"
 #include "print.c"
 #include "utils.c"
+#include "utils2.c"
+#include "hashtag.c"
 
 int		main()
 {
-	/*/ PRECISION TEST STR
+	//*/ PRECISION TEST STR
 	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	
@@ -19,7 +21,7 @@ int		main()
 	printf(" %d\n\n", printf("<%5.3s><%-5.3s><%13.8s>", "Oofballs", "theater", "assassinate"));
 	//*/
 
-	/*/ FLAGS TESTS STR
+	//*/ FLAGS TESTS STR
 	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
 	printf(" %d\n", ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
 	printf(" %d\n\n", printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
@@ -53,8 +55,8 @@ int		main()
 	printf(" %d\n", ft_printf("<%+---+3d><%--++3d>", 123, -123));
 	printf(" %d\n\n", printf("<%+---+3d><%--++3d>", 123, -123));
 	
-	printf(" %d\n", ft_printf("<%3d><%4d><%3d>", 42, -42, -42));
-	printf(" %d\n\n", printf("<%3d><%4d><%3d>", 42, -42, -42));
+	printf(" %d\n", ft_printf("<%3d><%4d><%3d>", 13, -42, -42));
+	printf(" %d\n\n", printf("<%3d><%4d><%3d>", 13, -42, -42));
 
 	printf(" %d\n", ft_printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0));
 	printf(" %d\n\n", printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0));

@@ -30,8 +30,9 @@ typedef struct	s_arg
 	struct		s_arg *next;
 }				t_arg;
 
-void	test(t_arg *lst);
+void	test(t_arg *lst, int *retour);
 void	test2(t_arg *lst, int *retour);
+
 
 int		ft_atoi_precision(const char *str);
 
@@ -40,6 +41,9 @@ char	*ft_strprecision(char *wflag, char *str);
 int		is_there(char *wflag, char c);
 int		is_flag_zero(char *wflag);
 int		ft_atoi_wflag(const char *str);
+
+int		ft_divide_nb(int nb, int divider);
+int		to_print(char c, int toprint);
 
 int		count_flags(const char * restrict format);
 int		ft_printf(const char * restrict format, ...);

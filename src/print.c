@@ -1,6 +1,21 @@
 #include "../includes/printf.h"
 
-void	test(t_arg *lst)
+int		print_integer(t_arg *lst, int retour)
+{
+	if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) >= ft_atoi_wflag(lst->wflag))
+		retour = ft_intprecision(lst->wflag, lst->type.d);
+	else if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) < ft_atoi_wflag(lst->wflag))
+		retour = ft_flagandprecision(lst->wflag, lst->type.d);
+	else if (!is_there(lst->wflag, '-'))//else
+		retour = ft_nbpaddingdata(lst->wflag, lst->type.d);
+	if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
+		retour = ft_leftjustify(lst->wflag, lst->type.d);
+	if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
+		retour = ft_leftjustifyblank(lst->wflag, lst->type.d);
+	return (retour);
+}
+
+void	test(t_arg *lst, int *retour)
 {
 	while (lst->flag != 0)
 	{
@@ -20,14 +35,7 @@ void	test(t_arg *lst)
 				ft_strpadding(lst->wflag, ft_strprecision(lst->wflag, lst->type.str));
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
-		{
-			if (!is_there(lst->wflag, '-'))
-				ft_nbpaddingdata(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' '))
-				ft_leftjustify(lst->wflag, lst->type.d);//int for now
-			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' '))
-				ft_leftjustifyblank(lst->wflag, lst->type.d);
-		}
+			*retour += print_integer(lst, *retour);
 		if (lst->flag == 'l')
 			ft_putlong(lst->type.l);
 		if (lst->flag == 'z')
@@ -59,18 +67,7 @@ void	test2(t_arg *lst, int *retour)
 				*retour += ft_strpadding(lst->wflag, ft_strprecision(lst->wflag, lst->type.str)) + ft_strlen(ft_strprecision(lst->wflag, lst->type.str));//mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
-		{
-			if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) >= ft_atoi_wflag(lst->wflag))
-				*retour += ft_intprecision(lst->wflag, lst->type.d);
-			else if (is_there(lst->wflag, '.') && ft_atoi_precision(lst->wflag) < ft_atoi_wflag(lst->wflag))
-				*retour += ft_flagandprecision(lst->wflag, lst->type.d);
-			else if (!is_there(lst->wflag, '-'))//else
-				*retour += ft_nbpaddingdata(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
-				*retour += ft_leftjustify(lst->wflag, lst->type.d);
-			if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' ') && ft_atoi_wflag(lst->wflag) > 0)
-				*retour += ft_leftjustifyblank(lst->wflag, lst->type.d);
-		}
+			*retour += print_integer(lst, *retour);
 		if (lst->flag == 'l')
 			ft_putlong(lst->type.l);
 		if (lst->flag == 'z')
@@ -80,3 +77,5 @@ void	test2(t_arg *lst, int *retour)
 		lst = lst->next;
 	}
 }
+
+
