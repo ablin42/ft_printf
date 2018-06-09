@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_divide_nb(int nb, int divider)
+#include "../includes/printf.h"
+
+int		divide_nb(int nb, int divider)
 {
 	int		i;
 

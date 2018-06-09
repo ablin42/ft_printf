@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/printf.h"
+
 int		is_there(char *wflag, char c)
 {
 	int		i;
@@ -24,7 +26,7 @@ int		is_there(char *wflag, char c)
 	return (0);
 }
 
-int		ft_atoi_wflag(const char *str)
+int		atoi_wflag(const char *str)
 {
 	int		i;
 	int		signe;
@@ -49,7 +51,7 @@ int		ft_atoi_wflag(const char *str)
 	return (total * signe);
 }
 
-int		ft_atoi_precision(const char *str)
+int		atoi_precision(const char *str)
 {
 	int		i;
 	int		total;

@@ -12,25 +12,25 @@
 
 #include "../includes/printf.h"
 
-int		ft_count_printed_nb(char *wflag, int nb)
+int		count_printed_nb(char *wflag, int nb)
 {
 	int		retour;
 	int		nbr;
 
 	nbr = nb;
-	retour = ft_divide_nb(nb, 10);
+	retour = divide_nb(nb, 10);
 	if (nbr < 0)
 		retour++;
-	if (ft_atoi_wflag(wflag) > retour)
-		return (ft_atoi_wflag(wflag));
-	if ((ft_atoi_wflag(wflag) - retour) > 0)
-		retour += ft_atoi_wflag(wflag) - retour;
+	if (atoi_wflag(wflag) > retour)
+		return (atoi_wflag(wflag));
+	if ((atoi_wflag(wflag) - retour) > 0)
+		retour += atoi_wflag(wflag) - retour;
 	if (nbr >= 0 && (is_there(wflag, '+') || is_there(wflag, ' ')))
 		retour++;
 	return (retour);
 }
 
-int		ft_nbpadding(int toprint, char *wflag, int nb)
+int		nbpadding(int toprint, char *wflag, int nb)
 {
 	int		nbprint;
 
@@ -51,61 +51,61 @@ int		ft_nbpadding(int toprint, char *wflag, int nb)
 	if (!is_flag_zero(wflag) && is_there(wflag, '+') && nbprint >= 0)
 		ft_putchar('+');
 	ft_putnbr(nb);
-	return (ft_count_printed_nb(wflag, nbprint));
+	return (count_printed_nb(wflag, nbprint));
 }
 
-int		ft_nbpaddingdata(char *wflag, int nb)//int nb for now
+int		nb_padding_data(char *wflag, int nb)//int nb for now
 {
 	int		divider;
 	int		toprint;
 	int		nbprint;
 
-	divider = ft_divide_nb(nb, 10);
+	divider = divide_nb(nb, 10);
 	nbprint = nb;
 	if (is_there(wflag, '+') || nbprint < 0)
 		divider++;
-	toprint = ft_atoi_wflag(wflag) - divider;
-	return (ft_nbpadding(toprint, wflag, nbprint));
+	toprint = atoi_wflag(wflag) - divider;
+	return (nbpadding(toprint, wflag, nbprint));
 }
 
-int		ft_leftjustify(char *wflag, int nb)//int nb for now
+int		leftjustify(char *wflag, int nb)//int nb for now
 {
 	int		divider;
 	int		toprint;
 	int		nbprint;
 
 	nbprint = nb;
-	divider = ft_divide_nb(nb, 10);
+	divider = divide_nb(nb, 10);
 	if (is_there(wflag, '+'))
 		divider++;
 	if (is_there(wflag, '+') && nb >= 0)//something in print first
 		ft_putchar('+');
 	if (is_there(wflag, '-'))
 		ft_putnbr(nbprint);
-	toprint = ft_atoi_wflag(wflag) - divider;
-	if (ft_atoi_wflag(wflag) < 0)
+	toprint = atoi_wflag(wflag) - divider;
+	if (atoi_wflag(wflag) < 0)
 		toprint *= -1;
 	to_print(' ', toprint);
-	return (ft_count_printed_nb(wflag, nbprint));
+	return (count_printed_nb(wflag, nbprint));
 }
 
-int		ft_leftjustifyblank(char *wflag, int nb)//int nb for now
+int		leftjustifyblank(char *wflag, int nb)//int nb for now
 {
 	int		divider;
 	int		toprint;
 	int		nbprint;
 
 	nbprint = nb;
-	divider = ft_divide_nb(nb, 10);
+	divider = divide_nb(nb, 10);
 	if (is_there(wflag, ' '))
 		divider++;
 	if (is_there(wflag, ' ') && nb >= 0)//something in print first
 		ft_putchar(' ');
 	if (is_there(wflag, '-'))
 		ft_putnbr(nbprint);
-	toprint = ft_atoi_wflag(wflag) - divider;
-	if (ft_atoi_wflag(wflag) < 0)
+	toprint = atoi_wflag(wflag) - divider;
+	if (atoi_wflag(wflag) < 0)
 		toprint *= -1;
 	to_print(' ', toprint);
-	return (ft_count_printed_nb(wflag, nbprint));
+	return (count_printed_nb(wflag, nbprint));
 }

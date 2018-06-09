@@ -15,20 +15,6 @@
 #include "../includes/printf.h"
 #include "fill_list.c"
 
-int		count_flags(const char *restrict format)
-{
-	int		nbflags;
-
-	nbflags = 0;
-	while (*format != '\0')
-	{
-		if (*format == '%')
-			nbflags++;
-		format++;
-	}
-	return (nbflags);
-}
-
 int		ft_printf(const char *restrict format, ...)
 {
 	t_arg	*lst;

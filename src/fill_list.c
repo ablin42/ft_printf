@@ -34,8 +34,7 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	return (lst);
 }
 
-t_arg	*add_string_noarg(t_arg *lst, const char *restrict format,
-		int start, int end, int id)
+t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id)
 {
 	t_arg	*element;
 	t_arg	*tmp;
@@ -87,7 +86,7 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 			while (format[i] != '%' && format[i] != '\0')
 				i++;
 			end = i;
-			*lst = add_string_noarg(*lst, format, start, end, id);
+			*lst = add_string_noarg(*lst, (char*)format, start, end, id);
 			id++;
 		}
 	}
@@ -109,6 +108,10 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 			tmp->type.d = (signed int)va_arg(ap, int); //signed????
 		else if (tmp->flag == 's')
 			tmp->type.str = (char *)va_arg(ap, char *);
+		else if (tmp->flag == 'x' || tmp->flag == 'X')
+			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
+		else if (tmp->flag == 'o')
+			tmp->type.o = (int)va_arg(ap, int);
 		else if (tmp->flag == 'l')
 			tmp->type.l = (long long)va_arg(ap, long long);
 		else if (tmp->flag == 'z')

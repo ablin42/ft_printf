@@ -15,19 +15,19 @@
 int		print_integer(t_arg *lst, int retour)
 {
 	if (is_there(lst->wflag, '.') &&
-			ft_atoi_precision(lst->wflag) >= ft_atoi_wflag(lst->wflag))
-		retour = ft_intprecision(lst->wflag, lst->type.d);
+			atoi_precision(lst->wflag) >= atoi_wflag(lst->wflag))
+		retour = int_precision(lst->wflag, lst->type.d);
 	else if (is_there(lst->wflag, '.')
-			&& ft_atoi_precision(lst->wflag) < ft_atoi_wflag(lst->wflag))
-		retour = ft_flagandprecision(lst->wflag, lst->type.d);
+			&& atoi_precision(lst->wflag) < atoi_wflag(lst->wflag))
+		retour = flag_and_precision(lst->wflag, lst->type.d);
 	else if (!is_there(lst->wflag, '-'))
-		retour = ft_nbpaddingdata(lst->wflag, lst->type.d);
+		retour = nb_padding_data(lst->wflag, lst->type.d);
 	if (is_there(lst->wflag, '-') && !is_there(lst->wflag, ' ') &&
-			ft_atoi_wflag(lst->wflag) > 0)
-		retour = ft_leftjustify(lst->wflag, lst->type.d);
+			atoi_wflag(lst->wflag) > 0)
+		retour = leftjustify(lst->wflag, lst->type.d);
 	if (is_there(lst->wflag, '-') && is_there(lst->wflag, ' ')
-			&& ft_atoi_wflag(lst->wflag) > 0)
-		retour = ft_leftjustifyblank(lst->wflag, lst->type.d);
+			&& atoi_wflag(lst->wflag) > 0)
+		retour = leftjustifyblank(lst->wflag, lst->type.d);
 	return (retour);
 }
 
@@ -48,8 +48,8 @@ void	test(t_arg *lst, int *retour)
 			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
 				ft_putstr(lst->type.str);
 			else
-				ft_strpadding(lst->wflag,
-						ft_strprecision(lst->wflag, lst->type.str));
+				str_padding(lst->wflag,
+						str_precisionx(lst->wflag, lst->type.str));
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 			*retour += print_integer(lst, *retour);
@@ -81,12 +81,16 @@ void	test2(t_arg *lst, int *retour)
 				*retour += ft_strlen(lst->type.str);
 			}
 			else
-				*retour += ft_strpadding(lst->wflag, ft_strprecision(lst->wflag,
-		lst->type.str)) + ft_strlen(ft_strprecision(lst->wflag, lst->type.str));
+				*retour += str_padding(lst->wflag, str_precisionx(lst->wflag,
+		lst->type.str)) + ft_strlen(str_precisionx(lst->wflag, lst->type.str));
 			//^mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 			*retour += print_integer(lst, *retour);
+		if (lst->flag == 'x' || lst->flag == 'X')
+			*retour += hex_oct_handler(lst->wflag, lst->type.x, lst->flag);
+		if (lst->flag == 'o')
+			*retour += hex_oct_handler(lst->wflag, lst->type.o, lst->flag);
 		if (lst->flag == 'l')
 			ft_putlong(lst->type.l);
 		if (lst->flag == 'z')

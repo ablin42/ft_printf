@@ -1,24 +1,29 @@
-SRC_NAME = ft_printf.c
-SRC_PATH = src
-OBJ_PATH = obj
+SRC_NAME = ft_printf.c fill_list.c ft_itoa_base.c hex_oct_handler.c nb_padding.c \
+precision.c print.c print_format.c utils.c utils2.c ft_hex_to_bin.c
+SRC_PATH = src/
+OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 NAME = libftprintf.a
+LDFLAGS = -Llibft
+LDLIBS = -lft
+LIBFT = libft/libft.a
 CC = gcc
 CFLAGS = -Werror -Wall -Wextra
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
+	libtool -static -o $@ $^
 	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 main: $(OBJ)
-	$(CC) $(CFLAGS) src/main.c $(OBJ)
+	$(CC) $(CFLAGS) src/main.c $(NAME)
 
-$(OBJ_PATH)/%.o: $(SRC)
-	@mkdir $(OBJ_PATH) 2> /dev/null
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:

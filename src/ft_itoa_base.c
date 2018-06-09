@@ -1,40 +1,62 @@
 #include "../includes/printf.h"
 
-char	*fillstr(int i, int n, int neg, char *str)
+int			divide_nb_base(unsigned int nb, int base)
 {
-	while (i >= 1)
+	int		ret;
+
+	ret = 0;
+	while (nb != 0)
 	{
-		i--;
-		str[i] = n % 10 + '0';
-		n = n / 10;
+		nb /= base;
+		ret++;
 	}
-	if (neg == 1)
-		str[0] = '-';
-	return (str);
+	return (ret);
 }
 
-char		*ft_itoa_base(int n, int base)
+char		*ft_itoa_base(unsigned int n, int base)
 {
 	int		i;
 	int		nb;
-	int		neg;
 	char	*str;
+	char	tab[17];
 
-	neg = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	i = 1;
-	nb = n;
-	while (nb /= 10)
-		i++;
-	if (n < 0)
-	{
-		n = n * -1;
-		i = i + 1;
-		neg = 1;
-	}
-	if ((str = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
+	nb = divide_nb_base(n, base);
+	ft_strcpy(tab, "0123456789abcdef");
+	if ((str = (char*)malloc(sizeof(char) * (nb + 1))) == NULL)
 		return (NULL);
-	str[i] = '\0';
-	return (fillstr(i, n, neg, str));
+	str[nb] = '\0';
+	while (n != 0)
+	{
+		str[nb - i] = tab[n % base];
+		n /= base;
+		i++;
+	}
+	return (str);
+}
+
+char		*ft_itoa_base_up(unsigned int n, int base)
+{
+	int		i;
+	int		nb;
+	char	*str;
+	char	tab[17];
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	i = 1;
+	nb = divide_nb_base(n, base);
+	ft_strcpy(tab, "0123456789ABCDEF");
+	if ((str = (char*)malloc(sizeof(char) * (nb + 1))) == NULL)
+		return (NULL);
+	str[nb] = '\0';
+	while (n != 0)
+	{
+		str[nb - i] = tab[n % base];
+		n /= base;
+		i++;
+	}
+	return (str);
 }

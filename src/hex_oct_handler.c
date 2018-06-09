@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtag.c                                          :+:      :+:    :+:   */
+/*   hex_oct_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,48 @@
 
 #include "../includes/printf.h"
 
-int		hashtag_handler(char *wflag, int nb)
+int		octal_handler(char *wflag, unsigned int nb, char flag)
 {
 	int		retour;
 
 	retour = 0;
-	if (nb > 0)
+	if (flag == 'o')
 	{
-		if (is_there(wflag, 'o'))
+		if (is_there(wflag, '#') && nb != 0)
+		{
+			retour += 1;
 			ft_putchar('0');
-		if (is_there(wflag, 'x'))
-			ft_putstr("0x");
-		if (is_there(wflag, 'X'))
-			ft_putstr("0X");
+		}
+		ft_putstr(ft_itoa_base(nb, 8));
+		retour += ft_strlen(ft_itoa_base(nb, 8));
 	}
+	return (retour);
+}
+
+int		hex_handler(char *wflag, unsigned int nb, char flag)
+{
+	int retour;
+
+	retour = 0;
+	if (flag == 'x' || flag == 'X')
+	{
+		if (flag == 'x')
+		{
+			if (is_there(wflag, '#') && nb != 0)
+				ft_putstr("0x");
+			ft_putstr(ft_itoa_base(nb, 16));
+		}
+		if (flag == 'X')
+		{
+			if (is_there(wflag, '#') && nb != 0)
+				ft_putstr("0X");
+			ft_putstr(ft_itoa_base_up(nb, 16));
+		}
+		retour += ft_strlen(ft_itoa_base(nb, 16));
+		if (is_there(wflag, '#') && nb != 0)
+			retour += 2;
+	}
+	if (flag == 'o')
+		retour += octal_handler(wflag, nb, flag);
 	return (retour);
 }

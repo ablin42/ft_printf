@@ -2,18 +2,83 @@
 #include "../libft/libft.h"
 #include <stdarg.h>
 #include <stdio.h>
-
+#include <locale.h>
+#include <stdlib.h>
+/*
 #include "print_format.c"
 #include "nb_padding.c"
 #include "precision.c"
 #include "print.c"
 #include "utils.c"
 #include "utils2.c"
-#include "hashtag.c"
+#include "ft_itoa_base.c"*/
+
 
 int		main()
 {
-	//*/ PRECISION TEST STR
+/*	wchar_t wch = L'\x3b1';
+	wchar_t happy[] = { 0x0061, 0x8161, 0 };
+	char unit[] = { 0x00, 0xC6, 0xB8 };
+	wchar_t uni[] = { 0x00, 0xC6, 0xB8 };
+	wchar_t unix = L'Y';
+	wchar_t *unix2 = L"nique ta mere\x3b1";
+	char	buffer[1];
+	char	buffer2[3];
+	//int		length;
+
+	setlocale(LC_ALL, "en_US.UTF-8");
+	wctomb(buffer, unix);
+	write(1, &unix, 1);
+	ft_putstr(" | ");
+	write(1, buffer, 1);
+	ft_putstr("\n");
+	 wcstombs(buffer2, unix2, 170);
+	write(1, unix2, 17);
+	ft_putstr(" | ");
+	ft_putstr(buffer2);ft_putchar('\\');
+//	write(1, buffer2, 17);
+	ft_putchar('\n');*/
+	
+
+	
+	ft_putstr(ft_hex_to_bin(0x0));
+	ft_putstr(" | ");
+	ft_putnbr(bin_size(0x0));
+	ft_putchar('\n');
+
+	ft_putstr(ft_hex_to_bin(0x17));
+	ft_putstr(" | ");
+	ft_putnbr(bin_size(0x17));
+	ft_putchar('\n');
+	
+	ft_putstr(ft_hex_to_bin(0x3B1));
+	ft_putstr(" | ");
+	ft_putnbr(bin_size(0x3B1));
+	ft_putchar('\n');
+	
+	ft_putstr(ft_hex_to_bin(0xF));
+	ft_putstr(" | ");
+	ft_putnbr(bin_size(0xF));
+	ft_putchar('\n');
+	
+	ft_putstr(ft_hex_to_bin(0x39AA));
+	ft_putstr(" | ");
+	ft_putnbr(bin_size(0x39AA));
+	ft_putchar('\n');
+
+
+//	printf(" %d\n", ft_printf("<%S> ", happy));
+//	printf(" %d\n", printf("<--%lc--><%ls>", unix, unix2));
+
+	/*/ OCTAL AND HEXADECIMAL TESTS
+	printf(" %d\n", ft_printf("<%#x><%#x><%x><%#X><%X> ", 0, 13, 42, 255, 2147483647));
+	printf(" %d\n\n", printf("<%#x><%#x><%x><%#X><%X> ", 0, 13, 42, 255, 2147483647));
+
+	printf(" %d\n", ft_printf("<%o><%#o> ", 42, 1998));
+	printf(" %d\n\n", printf("<%o><%#o> ", 42, 1998));
+	//*/
+
+	/*/ PRECISION TEST STR
 	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	
@@ -21,8 +86,7 @@ int		main()
 	printf(" %d\n\n", printf("<%5.3s><%-5.3s><%13.8s>", "Oofballs", "theater", "assassinate"));
 	//*/
 
-	//*/ FLAGS TESTS STR
-	//flags '0' & '+' & ' ' & maybe '#' results in undefined with %s
+	/*/ FLAGS TESTS STR
 	printf(" %d\n", ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
 	printf(" %d\n\n", printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
 	
@@ -39,7 +103,7 @@ int		main()
 	printf(" %d\n\n", printf("<this %s is 100%% aids %%%%>", "shit"));
 	//*/
 
-	//*/ PRECISION TEST INT
+	/*/ PRECISION TEST INT
 	printf(" %d\n", ft_printf("<%.0d><%.1d><%.2d><%.2d><%.3d><%.3d>", 42, 42, 42, -42, 42, -42));
 	printf(" %d\n\n", printf("<%.0d><%.1d><%.2d><%.2d><%.3d><%.3d>", 42, 42, 42, -42, 42, -42));
 
@@ -51,7 +115,7 @@ int		main()
 	printf("\noublie pas le .0 / .*\n");
 	//*/
 
-	//*/ FLAGS TESTS INT
+	/*/ FLAGS TESTS INT
 	printf(" %d\n", ft_printf("<%+---+3d><%--++3d>", 123, -123));
 	printf(" %d\n\n", printf("<%+---+3d><%--++3d>", 123, -123));
 	
