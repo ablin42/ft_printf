@@ -30,7 +30,7 @@ int		octal_handler(char *wflag, unsigned int nb, char flag)
 	return (retour);
 }
 
-int		hex_handler(char *wflag, unsigned int nb, char flag)
+int		hex_oct_handler(char *wflag, unsigned int nb, char flag)
 {
 	int retour;
 

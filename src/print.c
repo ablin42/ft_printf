@@ -73,6 +73,9 @@ void	test2(t_arg *lst, int *retour)
 			ft_putchar(lst->type.c);
 			*retour += 1;
 		}
+		if (lst->flag == 'C')
+			*retour += ft_putwchar(lst->type.d);
+		//*retour += print_wchar(lst->type.d);
 		if (lst->flag == 's' || lst->flag == 'q')
 		{
 			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)

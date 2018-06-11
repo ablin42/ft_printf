@@ -1,5 +1,5 @@
 SRC_NAME = ft_printf.c fill_list.c ft_itoa_base.c hex_oct_handler.c nb_padding.c \
-precision.c print.c print_format.c utils.c utils2.c ft_hex_to_bin.c
+precision.c print.c print_format.c utils.c utils2.c ft_hex_to_bin.c ft_putwchar.c
 SRC_PATH = src/
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)

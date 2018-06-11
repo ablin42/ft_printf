@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-# define SPEC(Value) (Value != 'c' && Value != 'd' && Value != 'e'\
+# define SPEC(Value) (Value != 'c' && Value != 'C' && Value != 'd' && Value != 'e'\
 && Value != 'f' && Value != 'i' && Value != 'o' && Value != 's'\
 && Value != 'u' && Value != 'x' && Value != 'X' && Value != '%')
 
@@ -83,4 +83,10 @@ char	*ft_itoa_base_up(unsigned int n, int base);
 //ft_hex_to_bin.c
 char	*ft_hex_to_bin(int hex);
 int		bin_size(int hex);
+int		print_wchar(int hex);
+char	*apply_mask(char *bin, int hex);
+int		bin_to_hex(char *bin);
+
+int		ft_putwchar(wchar_t c);
+
 #endif

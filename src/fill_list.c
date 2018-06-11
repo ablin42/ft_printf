@@ -104,6 +104,8 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 	{
 		if (tmp->flag == 'c')
 			tmp->type.c = (char)va_arg(ap, int);
+		else if (tmp->flag == 'C')
+			tmp->type.d = (signed int)va_arg(ap, wchar_t); //signed????
 		else if (tmp->flag == 'd' || tmp->flag == 'i')
 			tmp->type.d = (signed int)va_arg(ap, int); //signed????
 		else if (tmp->flag == 's')

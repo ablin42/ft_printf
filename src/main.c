@@ -40,35 +40,20 @@ int		main()
 	ft_putchar('\n');*/
 	
 
-	
-	ft_putstr(ft_hex_to_bin(0x0));
-	ft_putstr(" | ");
-	ft_putnbr(bin_size(0x0));
-	ft_putchar('\n');
+	setlocale(LC_ALL, "en_US.UTF-8");
+	//*/ WIDE CHAR TESTS
+	printf(" %d\n", ft_printf("<--%C-->", L'\x0041'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x0041'));
 
-	ft_putstr(ft_hex_to_bin(0x17));
-	ft_putstr(" | ");
-	ft_putnbr(bin_size(0x17));
-	ft_putchar('\n');
-	
-	ft_putstr(ft_hex_to_bin(0x3B1));
-	ft_putstr(" | ");
-	ft_putnbr(bin_size(0x3B1));
-	ft_putchar('\n');
-	
-	ft_putstr(ft_hex_to_bin(0xF));
-	ft_putstr(" | ");
-	ft_putnbr(bin_size(0xF));
-	ft_putchar('\n');
-	
-	ft_putstr(ft_hex_to_bin(0x39AA));
-	ft_putstr(" | ");
-	ft_putnbr(bin_size(0x39AA));
-	ft_putchar('\n');
+	printf(" %d\n", ft_printf("<--%C-->", L'\x0470'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x0470'));
 
-
-//	printf(" %d\n", ft_printf("<%S> ", happy));
-//	printf(" %d\n", printf("<--%lc--><%ls>", unix, unix2));
+	printf(" %d\n", ft_printf("<--%C-->", L'\x277A'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x277A'));
+	
+	printf(" %d\n", ft_printf("<--%C-->", L'\x1F92E'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x1F92E'));
+	//*/
 
 	/*/ OCTAL AND HEXADECIMAL TESTS
 	printf(" %d\n", ft_printf("<%#x><%#x><%x><%#X><%X> ", 0, 13, 42, 255, 2147483647));
