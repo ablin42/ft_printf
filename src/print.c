@@ -54,9 +54,9 @@ void	test(t_arg *lst, int *retour)
 		if (lst->flag == 'd' || lst->flag == 'i')
 			*retour += print_integer(lst, *retour);
 		if (lst->flag == 'l')
-			ft_putlong(lst->type.l);
-		if (lst->flag == 'z')
-			ft_putulong(lst->type.z);
+			ft_putlonglong(lst->type.l);
+		if (lst->flag == 'U')
+			ft_putulong(lst->type.U);
 		ft_putchar('\n');
 		if (lst->next == NULL)
 			break ;
@@ -81,23 +81,30 @@ void	test2(t_arg *lst, int *retour)
 			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
 			{
 				ft_putstr(lst->type.str);
-				*retour += ft_strlen(lst->type.str);
+				if (lst->type.str == NULL || lst->type.str == 0)
+					*retour += 6;
+				else
+					*retour += ft_strlen(lst->type.str);
 			}
 			else
 				*retour += str_padding(lst->wflag, str_precisionx(lst->wflag,
 		lst->type.str)) + ft_strlen(str_precisionx(lst->wflag, lst->type.str));
 			//^mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
 		}
+		if (lst->flag == 'S')
+			*retour += ft_putwstr(lst->type.S);
 		if (lst->flag == 'd' || lst->flag == 'i')
 			*retour += print_integer(lst, *retour);
+		if (lst->flag == 'D')
+			*retour += ft_putlonglong(lst->type.D);
+		if (lst->flag == 'u')
+			*retour += ft_putulong(lst->type.x);//+=retour
 		if (lst->flag == 'x' || lst->flag == 'X')
 			*retour += hex_oct_handler(lst->wflag, lst->type.x, lst->flag);
 		if (lst->flag == 'o')
 			*retour += hex_oct_handler(lst->wflag, lst->type.o, lst->flag);
-		if (lst->flag == 'l')
-			ft_putlong(lst->type.l);
-		if (lst->flag == 'z')
-			ft_putulong(lst->type.z);
+		if (lst->flag == 'U')
+			*retour += ft_putulong(lst->type.U);
 		if (lst->next == NULL)
 			break ;
 		lst = lst->next;

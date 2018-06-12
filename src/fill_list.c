@@ -108,16 +108,22 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 			tmp->type.d = (signed int)va_arg(ap, wchar_t); //signed????
 		else if (tmp->flag == 'd' || tmp->flag == 'i')
 			tmp->type.d = (signed int)va_arg(ap, int); //signed????
+		else if (tmp->flag == 'D')
+			tmp->type.D = (long int)va_arg(ap, long int); //signed????
+		else if (tmp->flag == 'u')
+			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
 		else if (tmp->flag == 's')
 			tmp->type.str = (char *)va_arg(ap, char *);
+		else if (tmp->flag == 'S')
+			tmp->type.S = (signed int*)va_arg(ap, wchar_t*); //signed????
 		else if (tmp->flag == 'x' || tmp->flag == 'X')
 			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
 		else if (tmp->flag == 'o')
 			tmp->type.o = (int)va_arg(ap, int);
 		else if (tmp->flag == 'l')
 			tmp->type.l = (long long)va_arg(ap, long long);
-		else if (tmp->flag == 'z')
-			tmp->type.z = (unsigned long long)va_arg(ap, unsigned long long);
+		else if (tmp->flag == 'U')
+			tmp->type.U = (unsigned long long)va_arg(ap, unsigned long long);
 		if (tmp->next == NULL)
 			break ;
 		tmp = tmp->next;

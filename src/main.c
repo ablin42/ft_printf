@@ -16,32 +16,30 @@
 
 int		main()
 {
-/*	wchar_t wch = L'\x3b1';
-	wchar_t happy[] = { 0x0061, 0x8161, 0 };
-	char unit[] = { 0x00, 0xC6, 0xB8 };
-	wchar_t uni[] = { 0x00, 0xC6, 0xB8 };
-	wchar_t unix = L'Y';
-	wchar_t *unix2 = L"nique ta mere\x3b1";
-	char	buffer[1];
-	char	buffer2[3];
-	//int		length;
-
-	setlocale(LC_ALL, "en_US.UTF-8");
-	wctomb(buffer, unix);
-	write(1, &unix, 1);
-	ft_putstr(" | ");
-	write(1, buffer, 1);
-	ft_putstr("\n");
-	 wcstombs(buffer2, unix2, 170);
-	write(1, unix2, 17);
-	ft_putstr(" | ");
-	ft_putstr(buffer2);ft_putchar('\\');
-//	write(1, buffer2, 17);
-	ft_putchar('\n');*/
+	printf(" %d\n", ft_printf("<%U><%U>", 0, 42));
+	printf(" %d\n\n", printf("<%U><%U>", 0, 42));
 	
 
+//	printf(" %d\n", ft_printf("<%-15Z>", 123));//invalid conv
+//	printf(" %d\n\n", printf("<%-15Z>", 123));
+	
+	//printf(" %d\n", ft_printf("<%D><%D>", LONG_MIN, LONG_MAX));
+	//printf(" %d\n\n", printf("<%D><%D>", LONG_MIN, LONG_MAX));
+	
+	//printf(" %d\n", ft_printf("<%D><%D><%D>", 42, -2147483648, 2147483647));
+	//printf(" %d\n\n", printf("<%D><%D><%D>", 42, -2147483648, 2147483647));
+
+
+//	printf(" %d\n", ft_printf("<%d><%d><%d>", 42, -42, 42));
+//	printf(" %d\n\n", printf("<%d><%d><%d>", 42, -42, 42));
+
+//	printf(" %d\n", ft_printf("%o, %ho, %hho", -42, -42, -42));
+//	printf(" %d\n\n", printf("%o, %ho, %hho", -42, -42, -42));
+//	printf(" %d\n", ft_printf("{%s}{%s}", 0, ""));
+//	printf(" %d\n\n", printf("{%s}{%s}", 0, ""));
+	
 	setlocale(LC_ALL, "en_US.UTF-8");
-	//*/ WIDE CHAR TESTS
+	/*/ WIDE CHAR TESTS
 	printf(" %d\n", ft_printf("<--%C-->", L'\x0041'));
 	printf(" %d\n\n", printf("<--%C-->", L'\x0041'));
 
@@ -53,6 +51,31 @@ int		main()
 	
 	printf(" %d\n", ft_printf("<--%C-->", L'\x1F92E'));
 	printf(" %d\n\n", printf("<--%C-->", L'\x1F92E'));
+	//*/
+
+	/*/ WIDE CHAR STRING TESTS
+	printf(" %d\n", ft_printf("<%S>", NULL));
+	printf(" %d\n\n", printf("<%S>", NULL));
+	
+	printf(" %d\n", ft_printf("<%S>", 0));
+	printf(" %d\n\n", printf("<%S>", 0));
+
+	printf(" %d\n", ft_printf("<--%S-->", L"flinguezmoi"));
+	printf(" %d\n\n", printf("<--%S-->", L"flinguezmoi"));
+
+	printf(" %d\n", ft_printf("<--%S-->", L"\x0041\x0470\x277A\x1F92E"));
+	printf(" %d\n\n", printf("<--%S-->", L"\x0041\x0470\x277A\x1F92E"));
+	
+	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
+	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
+	//*/
+
+	/*/ UNSIGNED INT TESTS
+	printf(" %d\n", ft_printf("<%u><%u><%lu>",  0, 42, 4294967295));
+	printf(" %d\n\n", printf("<%u><%u><%lu>",  0, 42, 4294967295));
+	
+	printf(" %d\n\n", ft_printf("<%u><%u><%u>", -1, -2, -3));
+	printf(" %d\n\n", printf("<%u><%u><%u>", -1, -2, -3));
 	//*/
 
 	/*/ OCTAL AND HEXADECIMAL TESTS

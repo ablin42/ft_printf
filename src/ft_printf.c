@@ -22,6 +22,8 @@ int		ft_printf(const char *restrict format, ...)
 	va_list ap;
 
 	retour = 0;
+	if (ft_strcmp(format, "") == 0)
+		return (0);
 	va_start(ap, format);
 	lst_type_arg(&lst, format);
 	lst = cycle_arg(lst, ap);

@@ -12,32 +12,39 @@
 
 #include "../includes/printf.h"
 
-void	ft_putlong(long long n)
+int		ft_putlonglong(long long n)
 {
-	if (n == -9223372036854775807)
+	int		ret;
+
+	ret = divide_ll(n);
+	if (n == LONG_MIN)
 	{
 		ft_putchar('-');
-		ft_putlong(922337203685477580);
-		ft_putchar('7');
+		ft_putlonglong(922337203685477580);
+		ft_putchar('8');
 	}
-	if (n < 0 && n != -9223372036854775807)
+	if (n < 0 && n != LONG_MIN)
 	{
 		ft_putchar('-');
 		n = -n;
 	}
 	if (n > 9)
 	{
-		ft_putlong(n / 10);
-		ft_putlong(n % 10);
+		ft_putlonglong(n / 10);
+		ft_putlonglong(n % 10);
 	}
-	else if (n != -9223372036854775807 && n <= 9)
+	else if (n != LONG_MIN && n <= 9)
 	{
 		ft_putchar(n + '0');
 	}
+	return (ret);
 }
 
-void	ft_putulong(unsigned long long n)
+int		ft_putulong(unsigned long long n)
 {
+	int ret;
+
+	ret = 0;
 	if (n > 9)
 	{
 		ft_putulong(n / 10);
@@ -47,4 +54,12 @@ void	ft_putulong(unsigned long long n)
 	{
 		ft_putchar(n + '0');
 	}
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n /= 10;
+		ret++;
+	}
+	return (ret);
 }

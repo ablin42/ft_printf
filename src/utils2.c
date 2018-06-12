@@ -27,6 +27,22 @@ int		divide_nb(int nb, int divider)
 	return (i);
 }
 
+int		divide_ll(long long n)
+{
+	int		ret;
+	ret = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		ret++;
+	while (n != 0)
+	{
+		n /= 10;
+		ret++;
+	}
+	return (ret);
+}
+
 int		to_print(char c, int toprint)
 {
 	while (toprint > 0)

@@ -3,21 +3,24 @@
 #include "../libft/libft.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 
-# define SPEC(Value) (Value != 'c' && Value != 'C' && Value != 'd' && Value != 'e'\
-&& Value != 'f' && Value != 'i' && Value != 'o' && Value != 's'\
-&& Value != 'u' && Value != 'x' && Value != 'X' && Value != '%')
+# define SPEC(Value) (Value != 'c' && Value != 'C' && Value != 'd' && Value != 'D' && Value != 'e'\
+&& Value != 'f' && Value != 'i' && Value != 'o' && Value != 'O' && Value != 's' && Value != 'S'\
+&& Value != 'u' && Value != 'U' && Value != 'x' && Value != 'X' && Value != '%')
 
 typedef union	u_type
 {
 	int				d;
+	long long		D;
 	char			c;
 	char			*str;
+	int				*S;
 	unsigned int	x;
 	int				o;
 	double			f;
 	long long		l;
-	unsigned long long z;
+	unsigned long long U;
 }				t_type;
 
 typedef struct	s_arg
@@ -62,8 +65,8 @@ int		str_padding(char *wflag, char *str);
 int		int_precision(char *wflag, int nb);
 
 //print_format.c
-void	ft_putlong(long long n);
-void	ft_putulong(unsigned long long n);
+int		ft_putlonglong(long long n);
+int		ft_putulong(unsigned long long n);
 
 //utils.c
 int		is_there(char *wflag, char c);
@@ -74,19 +77,10 @@ int		atoi_precision(const char *str);
 //utils2.c
 int		divide_nb(int nb, int divider);
 int		to_print(char c, int toprint);
-
-//ft_itoa_base.c
-int		divide_nb_base(unsigned int nb, int base);
-char	*ft_itoa_base(unsigned int n, int base);
-char	*ft_itoa_base_up(unsigned int n, int base);
+int		divide_ll(long long n);
 
 //ft_hex_to_bin.c
-char	*ft_hex_to_bin(int hex);
-int		bin_size(int hex);
-int		print_wchar(int hex);
-char	*apply_mask(char *bin, int hex);
 int		bin_to_hex(char *bin);
 
-int		ft_putwchar(wchar_t c);
 
 #endif
