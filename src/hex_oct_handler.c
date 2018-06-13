@@ -12,12 +12,30 @@
 
 #include "../includes/printf.h"
 
+int		O_handler(char *wflag, unsigned long nb, char flag)
+{
+	int		retour;
+
+	retour = 0;
+	if (flag == 'o' || flag == 'O')
+	{
+		if (is_there(wflag, '#') && nb != 0)
+		{
+			retour += 1;
+			ft_putchar('0');
+		}
+		ft_putstr(ft_itoa_base_long(nb, 8));
+		retour += ft_strlen(ft_itoa_base_long(nb, 8));
+	}
+	return (retour);
+}
+
 int		octal_handler(char *wflag, unsigned int nb, char flag)
 {
 	int		retour;
 
 	retour = 0;
-	if (flag == 'o')
+	if (flag == 'o' || flag == 'O')
 	{
 		if (is_there(wflag, '#') && nb != 0)
 		{
@@ -53,7 +71,7 @@ int		hex_oct_handler(char *wflag, unsigned int nb, char flag)
 		if (is_there(wflag, '#') && nb != 0)
 			retour += 2;
 	}
-	if (flag == 'o')
+	if (flag == 'o' || flag == 'O')
 		retour += octal_handler(wflag, nb, flag);
 	return (retour);
 }

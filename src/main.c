@@ -16,9 +16,11 @@
 
 int		main()
 {
-	printf(" %d\n", ft_printf("<%U><%U>", 0, 42));
-	printf(" %d\n\n", printf("<%U><%U>", 0, 42));
-	
+	printf(" %d\n", ft_printf("<%O><%O>", 42, LONG_MAX));
+	printf(" %d\n\n", printf("<%O><%O>", 42, LONG_MAX));
+
+	//printf(" %d\n", ft_printf("<%U><%U><%U>", 0, 42, ULONG_MAX));
+	//printf(" %d\n\n", printf("<%U><%U><%U>", 0, 42, ULONG_MAX));
 
 //	printf(" %d\n", ft_printf("<%-15Z>", 123));//invalid conv
 //	printf(" %d\n\n", printf("<%-15Z>", 123));

@@ -120,8 +120,8 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
 		else if (tmp->flag == 'o')
 			tmp->type.o = (int)va_arg(ap, int);
-		else if (tmp->flag == 'l')
-			tmp->type.l = (long long)va_arg(ap, long long);
+		else if (tmp->flag == 'O')
+			tmp->type.D = (unsigned long int)va_arg(ap, unsigned long int);
 		else if (tmp->flag == 'U')
 			tmp->type.U = (unsigned long long)va_arg(ap, unsigned long long);
 		if (tmp->next == NULL)

@@ -19,7 +19,7 @@ typedef union	u_type
 	unsigned int	x;
 	int				o;
 	double			f;
-	long long		l;
+	//long long		l;
 	unsigned long long U;
 }				t_type;
 
@@ -49,6 +49,7 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap);
 //hex_oct_handler.c
 int		hex_oct_handler(char *wflag, unsigned int nb, char flag);
 int		octal_handler(char *wflag, unsigned int nb, char flag);
+int		O_handler(char *wflag, unsigned long nb, char flag);
 
 //nb_padding.c
 int		nb_padding_data(char *wflag, int nb);

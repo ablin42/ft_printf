@@ -53,8 +53,6 @@ void	test(t_arg *lst, int *retour)
 		}
 		if (lst->flag == 'd' || lst->flag == 'i')
 			*retour += print_integer(lst, *retour);
-		if (lst->flag == 'l')
-			ft_putlonglong(lst->type.l);
 		if (lst->flag == 'U')
 			ft_putulong(lst->type.U);
 		ft_putchar('\n');
@@ -103,6 +101,8 @@ void	test2(t_arg *lst, int *retour)
 			*retour += hex_oct_handler(lst->wflag, lst->type.x, lst->flag);
 		if (lst->flag == 'o')
 			*retour += hex_oct_handler(lst->wflag, lst->type.o, lst->flag);
+		if (lst->flag == 'O')
+			*retour += O_handler(lst->wflag, lst->type.D, lst->flag);
 		if (lst->flag == 'U')
 			*retour += ft_putulong(lst->type.U);
 		if (lst->next == NULL)
