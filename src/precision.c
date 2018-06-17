@@ -43,53 +43,80 @@ int		str_padding(char *wflag, char *str)
 	return (retour);
 }
 
-int		flag_and_precision(char *wflag, int nb)
-{
-	int		toprint;
-	int		retour;
-	int		nbprint;
-
-	nbprint = nb;
-	retour = divide_nb(nb, 10);
-	toprint = atoi_wflag(wflag) - atoi_precision(wflag);//prend pas en compte taille du nbr
-	if (nbprint < 0)
-		toprint--;
-	while (toprint > 0)
-	{
-		ft_putchar(' ');
-		toprint--;
-	}
-	if (nbprint < 0)
-	{
-		nbprint *= -1;
-//		retour++;
-		ft_putchar('-');
-	}
-	toprint = atoi_precision(wflag) - retour;// - (ft_atoi_wflag(wflag) - ft_atoi_precision(wflag));
-	to_print('0', toprint);
-	retour = atoi_wflag(wflag);
-	ft_putnbr(nbprint);
-	return (retour);
-}
-
 int		int_precision(char *wflag, int nb)
 {
 	int		toprint;
 	int		retour;
-	int		nbprint;
+	int		totalprinted;
 
-	nbprint = nb;
+	totalprinted = 0;
 	retour = divide_nb(nb, 10);
-	toprint = atoi_precision(wflag) - retour;
-	if (nbprint < 0)
-	{
-		ft_putchar('-');
-		nbprint *= -1;
-		retour++;
-	}
+	toprint = atoi_wflag(wflag) - retour;
+	if (retour < atoi_precision(wflag))
+		toprint = atoi_wflag(wflag) - atoi_precision(wflag);
+	if (nb < 0)
+		toprint--;
 	if (toprint > 0)
-		retour += toprint;
+		totalprinted += toprint;
+	to_print(' ', toprint);
+	toprint = atoi_precision(wflag) - retour;
+	if (toprint > 0)
+		totalprinted += toprint;
+	if (nb < 0)
+	{
+		nb *= -1;
+		retour++;
+		ft_putchar('-');
+	}
 	to_print('0', toprint);
-	ft_putnbr(nbprint);
-	return (retour);
+	ft_putnbr(nb);
+	return (retour + totalprinted);
 }
+
+int		uint_precision(char *wflag, unsigned long long nb)
+{
+	int		toprint;
+	int		retour;
+	int		totalprinted;
+
+	if (nb == 0 && atoi_precision(wflag) == 0)
+		return (0);
+	totalprinted = 0;
+	retour = divide_ll(nb);
+	toprint = atoi_wflag(wflag) - retour;
+	if (retour < atoi_precision(wflag))
+		toprint = atoi_wflag(wflag) - atoi_precision(wflag);
+	if (toprint > 0)
+		totalprinted += toprint;
+	to_print(' ', toprint);
+	toprint = atoi_precision(wflag) - retour;
+	if (toprint > 0)
+		totalprinted += toprint;
+	to_print('0', toprint);
+	ft_putulong(nb);
+	return (retour + totalprinted);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

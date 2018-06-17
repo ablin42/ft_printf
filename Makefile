@@ -1,5 +1,5 @@
 SRC_NAME = ft_printf.c fill_list.c  hex_oct_handler.c nb_padding.c \
-precision.c print.c print_format.c utils.c utils2.c
+precision.c print.c print_format.c ft_print_memory.c utils.c utils2.c extra_padding.c
 SRC_PATH = src/
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -21,6 +21,7 @@ $(NAME): $(OBJ) $(LIBFT)
 
 main: $(OBJ)
 	$(CC) src/main.c $(NAME)
+#	clear
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true

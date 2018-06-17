@@ -19,7 +19,7 @@ int		divide_nb(int nb, int divider)
 	i = 0;
 	if (nb == 0)
 		return (1);
-	while (nb % divider)
+	while (nb != 0)
 	{
 		nb /= divider;
 		i++;
@@ -51,4 +51,17 @@ int		to_print(char c, int toprint)
 		toprint--;
 	}
 	return (toprint);
+}
+
+int		wchar_len(wchar_t c)
+{
+	if (c <= 0x7F)
+		return (1);
+	else if (c <= 0x7FF)
+		return (2);
+	else if (c <= 0xFFFF)
+		return (3);
+	else if (c <= 0x10FFFF)
+		return (4);
+	return (0);
 }
