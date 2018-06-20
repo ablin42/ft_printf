@@ -12,6 +12,76 @@
 
 #include "../includes/printf.h"
 
+int		hashtag_handler(char *wflag, long long int nb, int mode)
+{
+
+	if (is_there(wflag, '#') && nb != 0)
+	{
+		if (is_there(wflag, 'o'))
+		{
+			if (mode == 1)
+				ft_putchar('0');
+			return (1);
+		}
+		else if (is_there(wflag, 'x'))
+		{
+			if (mode == 1)
+				ft_putstr("0x");
+			return (2);
+		}
+		else if (is_there(wflag,'X'))
+		{
+			if (mode == 1)
+				ft_putstr("0X");
+			return (2);
+		}
+	}
+	return (0);
+}
+
+int		print_itoa(unsigned long long nb, char flag)
+{
+	int		retour;
+	int		base;
+
+	retour = 0;
+	base = 10;
+	if (flag == 'o')
+		base = 8;
+	else if (flag == 'x' || flag == 'X')
+		base = 16;
+	if (flag == 'X')
+		ft_putstr(ft_strtoupper(ft_itoa_base(nb, base)));//long
+	else
+		ft_putstr(ft_itoa_base(nb, base));//long
+	retour = ft_strlen(ft_itoa_base_up(nb, base));
+	return (retour);
+}
+
+int		test_precision(char *wflag, unsigned long long nb, char *(*print)(unsigned long long, int base), int base)
+{
+	int		toprint;
+	int		retour;
+	int		totalprinted;
+
+	if (nb == 0 && atoi_precision(wflag) == 0)
+		return (0);
+	totalprinted = 0;
+	retour = divide_ull(nb, base);
+	toprint = atoi_wflag(wflag) - retour;
+	if (retour < atoi_precision(wflag))
+		toprint = atoi_wflag(wflag) - atoi_precision(wflag);
+	if (toprint > 0)
+		totalprinted += toprint;
+	to_print(' ', toprint);
+	toprint = atoi_precision(wflag) - retour;
+	if (toprint > 0)
+		totalprinted += toprint;
+	to_print('0', toprint);
+	ft_putstr(print(nb, base));
+	return (retour + totalprinted);
+}
+
 char	*str_precisionx(char *wflag, char *str)
 {
 	int		precision;

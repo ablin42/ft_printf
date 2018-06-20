@@ -9,7 +9,6 @@
 && Value != 'f' && Value != 'i' && Value != 'o' && Value != 'O' && Value != 's' && Value != 'S'\
 && Value != 'u' && Value != 'U' && Value != 'x' && Value != 'X' && Value != 'p' && Value != '%')
 
-//# define SPEC(Value) (((Value < 65 && Value > 90) ||
 //# define SPEC(Value) (((Value < 97 && Value > 122)) && (Value != 104 || Value != 106 || Value != 108 || Value != 122))
 
 typedef union	u_type
@@ -55,11 +54,9 @@ int		octal_handler(char *wflag, unsigned int nb, char flag);
 int		O_handler(char *wflag, unsigned long nb, char flag);
 
 //nb_padding.c
-int		nb_padding_data(char *wflag, int nb);
-int		count_printed_nb(char *wflag, int nb);
-int		nb_padding_data(char *wflag, int nb);
-int		leftjustify(char *wflag, int nb);
-int		leftjustifyblank(char *wflag, int nb);
+int		padding(char *wflag, long long nb, int base);
+int		blank_and_sign(char *wflag, long long nb, int toprint);
+int		precision_and_zero(char *wflag, long long nb, int toprint, int base);
 
 //precision.c
 int		str_precision(char *wflag, int nb);
@@ -79,9 +76,10 @@ int		atoi_wflag(const char *str);
 int		atoi_precision(const char *str);
 
 //utils2.c
-int		divide_nb(int nb, int divider);
+int		divide_nb(long long nb, int divider);
 int		to_print(char c, int toprint);
 int		divide_ll(long long n);
+int		divide_ull(unsigned long long n, int base);
 int		wchar_len(wchar_t c);
 
 //ft_hex_to_bin.c
@@ -92,4 +90,8 @@ int		c_padding(char *wflag, char c);
 int		print_wstr(char *wflag, wchar_t *S);
 int		print_wchar(char *wflag, wchar_t c);
 int		hex_padding(char *wflag, char *nb, char *flag);
+
+int		test_precision(char *wflag, unsigned long long nb, char *(*print)(unsigned long long, int base), int base);
+
+int		hashtag_handler(char *wflag, long long int nb, int mode);
 #endif

@@ -26,6 +26,9 @@ int		main()
 	printf(" %d\n\n", printf("<%p><%p><%p><%p><%p>", &i, &c, &str, &ft_strlen, 0));
 */
 
+	printf(" %d\n", ft_printf("%X", 42));
+	printf(" %d\n", printf("%X", 42));
+
 //	printf(" %d\n", ft_printf("<%O><%O>", 42, LONG_MAX));
 //	printf(" %d\n\n", printf("<%O><%O>", 42, LONG_MAX));
 
@@ -38,16 +41,13 @@ int		main()
 	//printf(" %d\n", ft_printf("<%D><%D><%D>", 42, -2147483648, 2147483647));
 	//printf(" %d\n\n", printf("<%D><%D><%D>", 42, -2147483648, 2147483647));
 
-
-//	printf(" %d\n", ft_printf("<%d><%d><%d>", 42, -42, 42));
-//	printf(" %d\n\n", printf("<%d><%d><%d>", 42, -42, 42));
-
 //	printf(" %d\n", ft_printf("%o, %ho, %hho", -42, -42, -42));
 //	printf(" %d\n\n", printf("%o, %ho, %hho", -42, -42, -42));
 //	printf(" %d\n", ft_printf("{%s}{%s}", 0, ""));
 //	printf(" %d\n\n", printf("{%s}{%s}", 0, ""));
 	
 	/*/ WIDE CHAR TESTS
+	ft_printf("BASIC TESTS FOR WCHAR\n");
 	printf(" %d\n", ft_printf("<--%C-->", L'\x0041'));
 	printf(" %d\n\n", printf("<--%C-->", L'\x0041'));
 
@@ -62,6 +62,7 @@ int		main()
 	//*/
 
 	/*/ WIDE STRING TESTS
+	ft_printf("BASIC TESTS FOR WSTRING\n");
 	printf(" %d\n", ft_printf("<%S>", NULL));
 	printf(" %d\n\n", printf("<%S>", NULL));
 	
@@ -79,6 +80,7 @@ int		main()
 	//*/
 
 	/*/ UNSIGNED INT TESTS
+	ft_printf("BASIC TESTS FOR UNSIGNED INT\n");
 	printf(" %d\n", ft_printf("<%u><%u><%lu>",  0, 42, 4294967295));
 	printf(" %d\n\n", printf("<%u><%u><%lu>",  0, 42, 4294967295));
 	
@@ -87,6 +89,7 @@ int		main()
 	//*/
 
 	/*/ OCTAL AND HEXADECIMAL TESTS
+	ft_printf("BASIC TESTS FOR HEXADECIMAL AND OCTAL\n");
 	printf(" %d\n", ft_printf("<%#x><%#x><%x><%#X><%X> ", 0, 13, 42, 255, 2147483647));
 	printf(" %d\n\n", printf("<%#x><%#x><%x><%#X><%X> ", 0, 13, 42, 255, 2147483647));
 
@@ -95,6 +98,7 @@ int		main()
 	//*/
 
 	/*/ PRECISION TEST STR
+	ft_printf("PRECISION TESTS FOR STRINGS\n");
 	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	
@@ -102,12 +106,13 @@ int		main()
 	printf(" %d\n\n", printf("<%5.3s><%-5.3s><%13.8s>", "Oofballs", "theater", "assassinate"));
 	//*/
 
-/*/ PRECISION TEST INT
-	printf(" %d\n", ft_printf("<%.d><%.0d><%.d><%.0d>", 0, 0, 42, 42));
-	printf(" %d\n\n", printf("<%.d><%.0d><%.d><%.0d>", 0, 0, 42, 42));
+	/*/ PRECISION TESTS INT
+	ft_printf("PRECISION TESTS FOR INT\n");
+	printf(" %d\n", ft_printf("<%.d><%.0d><%5.d><%.d><%.0d>", 0, 0, 0, 42, 42));
+	printf(" %d\n\n", printf("<%.d><%.0d><%5.d><%.d><%.0d>", 0, 0, 0, 42, 42));
 
-//	printf(" %d\n", ft_printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
-//	printf(" %d\n\n", printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
+	printf(" %d\n", ft_printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
+	printf(" %d\n\n", printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
 	
 	printf(" %d\n", ft_printf("<%15.4d><%4.15d><%15.4d><%8.4d>", 424242, 424242424, -424242, -424242424));
 	printf(" %d\n\n", printf("<%15.4d><%4.15d><%15.4d><%8.4d>", 424242, 424242424, -424242, -424242424));
@@ -122,15 +127,16 @@ int		main()
 	printf(" %d\n\n", printf("<%-.5d><%5.5d><%10.5d>", 42, -42, -42));
 	//*/
 
-	/*/ PRECISION TEST UNSIGNED INT
+	/*/ PRECISION TESTS UNSIGNED INT
+	ft_printf("PRECISION TESTS FOR UNSIGNED INT\n");
 	printf(" %d\n", ft_printf("<%.15u>", 2147483648));
 	printf(" %d\n\n", printf("<%.15u>", 2147483648));
 
 	printf(" %d\n", ft_printf("<%.u><%.0u><%.u><%.0u>", 0, 0, 42, 42));
 	printf(" %d\n\n", printf("<%.u><%.0u><%.u><%.0u>", 0, 0, 42, 42));
 
-//	printf(" %d\n", ft_printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
-//	printf(" %d\n\n", printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
+	printf(" %d\n", ft_printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
+	printf(" %d\n\n", printf("<%-10.5d><%-6.3d><%-3.6d><%-5.10d>", 42, 42, -42, -42));
 	
 	printf(" %d\n", ft_printf("<%15.4u><%4.15u><%15.4u><%8.4u>", 424242, 424242424, 424242424, 77777));
 	printf(" %d\n\n", printf("<%15.4u><%4.15u><%15.4u><%8.4u>", 424242, 424242424, 424242424, 77777));
@@ -145,14 +151,17 @@ int		main()
 	printf(" %d\n\n", printf("<%-.5u><%5.5u><%10.5u>", 42, 422, 422));
 	//*/
 	
-	/*/ PRECISION TEST OCTAL
+	/*/ PRECISION TESTS OCTAL
+	ft_printf("PRECISION TESTS FOR OCTAL\n");
+	printf(" %d\n", ft_printf("<%#.4O><%#15.4O><%#4.15O><%#.0O>", 42, 42, 42, 0));
+	printf(" %d\n\n", printf("<%#.4O><%#15.4O><%#4.15O><%#.0O>", 42, 42, 42, 0));
+	
 	printf(" %d\n", ft_printf("<%.4O><%15.4O><%4.15O><%.0O>", 42, 42, 42, 0));
 	printf(" %d\n\n", printf("<%.4O><%15.4O><%4.15O><%.0O>", 42, 42, 42, 0));
 	
-	
 	printf(" %d\n", ft_printf("<%.o><%.0o><%.o><%.0o>", 0, 0, 42, 42));
 	printf(" %d\n\n", printf("<%.o><%.0o><%.o><%.0o>", 0, 0, 42, 42));
-	
+
 	printf(" %d\n", ft_printf("<%.4o><%.4o><%15.4o><%15.4o>", 42, 123456, 42, 123456));
 	printf(" %d\n\n", printf("<%.4o><%.4o><%15.4o><%15.4o>", 42, 123456, 42, 123456));
 
@@ -166,7 +175,8 @@ int		main()
 	printf(" %d\n\n", printf("<%-.5o><%5.5o><%10.5o>", 42, 422, 422));
 	//*/
 	
-	//*/ PRECISION TEST HEXADECIMAL
+	/*/ PRECISION TESTS HEXADECIMAL
+	ft_printf("PRECISION TESTS FOR HEXADECIMAL\n");
 	printf(" %d\n", ft_printf("<%.4X><%15.4X><%4.15X><%.0X>", 42, 42, 42, 0));
 	printf(" %d\n\n", printf("<%.4X><%15.4X><%4.15X><%.0X>", 42, 42, 42, 0));
 	
@@ -189,11 +199,13 @@ int		main()
 	//--------------------------WIDTH TESTS--------------------------//
 
 	/*/ SIMPLE CHAR TESTS
+	ft_printf("WIDTH TESTS FOR CHAR\n");
 	printf(" %d\n", ft_printf("<%10c><%-3c><%05c><%-05c><%2c>", '4', '2', 'A', 'B', 0));
 	printf(" %d\n\n", printf("<%10c><%-3c><%05c><%-05c><%2c>", '4', '2', 'A', 'B', 0));
 	//*/
 	
 	/*/ WIDE CHAR TESTS
+	ft_printf("WIDTH TESTS FOR WCHAR\n");
 	printf(" %d\n", ft_printf("<--%10C-->", L'\x0041'));
 	printf(" %d\n\n", printf("<--%10C-->", L'\x0041'));
 
@@ -208,6 +220,7 @@ int		main()
 	//*/
 
 	/*/ STR TESTS
+	ft_printf("WIDTH TESTS FOR STRINGS\n");
 	printf(" %d\n", ft_printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
 	printf(" %d\n\n", printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
 
@@ -228,6 +241,7 @@ int		main()
 	//*/
 
 	/*/ WIDE STRING TESTS
+	ft_printf("WIDTH TESTS FOR WSTRINGS\n");
 	printf(" %d\n", ft_printf("<%10S>", NULL));
 	printf(" %d\n\n", printf("<%10S>", NULL));
 	
@@ -245,6 +259,7 @@ int		main()
 	//*/
 	
 	/*/ INT TESTS
+	ft_printf("WIDTH TESTS FOR INT\n");
 	printf(" %d\n", ft_printf("<%10d><%4d><%30d><%10d>", 42, 10000, 10000, -42));
 	printf(" %d\n\n", printf("<%10d><%4d><%30d><%10d>", 42, 10000, 10000, -42));
 
@@ -257,8 +272,8 @@ int		main()
 	printf(" %d\n", ft_printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0));
 	printf(" %d\n\n", printf("<%+5d><%+5d><%+5d><%-+5d><%-+5d><%-+5d>", 0, +0, -0, 0, +0, -0));
 	
-	printf(" %d\n", ft_printf("<%+02d><%+02d><%+03d><%+03d><%+05d><%+05d>", 42, -42, 42, -42, 42, -42));
-	printf(" %d\n\n", printf("<%+02d><%+02d><%+03d><%+03d><%+05d><%+05d>", 42, -42, 42, -42, 42, -42));
+	printf(" %d\n", ft_printf("<%+02d><%+02d><%+03d><%+03d><%+05d><%+05d><% 04d>", 42, -42, 42, -42, 42, -42, 42));
+	printf(" %d\n\n", printf("<%+02d><%+02d><%+03d><%+03d><%+05d><%+05d><% 04d>", 42, -42, 42, -42, 42, -42, 42));
 
 	printf(" %d\n", ft_printf("<%+4d><%+4d><%+5d><%+5d><%+6d><%+6d>", 1998, -1998, 1998, -1998, 1998, -1998));
 	printf(" %d\n\n", printf("<%+4d><%+4d><%+5d><%+5d><%+6d><%+6d>", 1998, -1998, 1998, -1998, 1998, -1998));
@@ -274,6 +289,7 @@ int		main()
 	//*/
 
 	/*/ HEX TESTS
+	ft_printf("WIDTH TESTS FOR HEXADECIMAL\n");
 	printf(" %d\n", ft_printf("<%1x><%1X><%01x><%01X><%-1x><%-1X>", 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF));
 	printf(" %d\n\n", printf("<%1x><%1X><%01x><%01X><%-1x><%-1X>", 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF));
 	
@@ -294,6 +310,7 @@ int		main()
 	//*/
 
 	/*/ MEMORY ADDRESS TESTS
+	ft_printf("WIDTH TESTS FOR MEMORY ADDRESS\n");
 	printf(" %d\n", ft_printf("<%-33p><%025p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
 	printf(" %d\n\n", printf("<%-33p><%025p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
 

@@ -76,7 +76,8 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 			while (SPEC(format[i]))
 				i++;
 			end = i;
-			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);
+			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start + 1)), id);
+			//+1 au dessus donne le flag a la fin du wflag
 			id++;
 			i++;
 		}
