@@ -17,6 +17,33 @@
 int		main()
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
+	char *str;
+
+	//*/ FLAG PLUS TESTS
+//	printf(" %d\n", ft_printf("<%+C><%+o><%+o><%+O><%+O>", 0, 0, 42, 0, 0, 1));
+//	printf(" %d\n\n", printf("<%+C><%+o><%+o><%+O><%+O>", 0, 0, 42, 0, 0, 1));
+	
+	printf(" %d\n", ft_printf("<%+s><% s><%.s><%s>", NULL, NULL, NULL, NULL));
+	printf(" %d\n\n", printf("<%+s><% s><%.s><%s>", NULL, NULL, NULL, NULL));
+	
+	printf(" %d\n", ft_printf("<%+s><% s><%.s><%s>", 0, 0, 0, 0));
+	printf(" %d\n\n", printf("<%+s><% s><%.s><%s>", 0, 0, 0, 0));
+	
+	printf(" %d\n", ft_printf("<%+s><% s><%.s><%s>", "", "", "", ""));
+	printf(" %d\n\n", printf("<%+s><% s><%.s><%s>", "", "", "", ""));
+	//*/
+
+	/* UNDEFINED BEHAVIORS TESTS
+	printf(" %d\n", ft_printf("<% d><% d><% i><% i>", 9999, -9999, 9999, -9999));
+	printf(" %d\n\n", printf("<% d><% d><% i><% i>", 9999, -9999, 9999, -9999));
+
+	//voir string et space u ici
+	printf(" %d\n", ft_printf("<% u><% c><% c><% s><%s><%.s>", 9999, 0, 'a', NULL, NULL, NULL));
+	printf(" %d\n\n", printf("<% u><% c><% c><% s><%s><%.s>", 9999, 0, 'a', NULL, NULL, NULL));
+	
+	printf(" %d\n", ft_printf("<% s><% s><% C><% C>< %S>", "(null)", "", 0, L'a', L""));
+	printf(" %d\n\n", printf("<% s><% s><% C><% C>< %S>", "(null)", "", 0, L'a', L""));*/
+
 /*
 	int		i;
 	char	c;
@@ -25,10 +52,6 @@ int		main()
 	printf(" %d\n", ft_printf("<%p><%p><%p><%p><%p>", &i, &c, &str, &ft_strlen, 0));
 	printf(" %d\n\n", printf("<%p><%p><%p><%p><%p>", &i, &c, &str, &ft_strlen, 0));
 */
-
-	printf(" %d\n", ft_printf("%X", 42));
-	printf(" %d\n", printf("%X", 42));
-
 //	printf(" %d\n", ft_printf("<%O><%O>", 42, LONG_MAX));
 //	printf(" %d\n\n", printf("<%O><%O>", 42, LONG_MAX));
 
@@ -60,6 +83,21 @@ int		main()
 	printf(" %d\n", ft_printf("<--%C-->", L'\x1F92E'));
 	printf(" %d\n\n", printf("<--%C-->", L'\x1F92E'));
 	//*/
+	
+	/*/ WIDE CHAR TESTS
+	ft_printf("PRECISION TESTS FOR WCHAR\n");
+	printf(" %d\n", ft_printf("<--%.C-->", L'\x0041'));
+	printf(" %d\n\n", printf("<--%.C-->", L'\x0041'));
+
+	printf(" %d\n", ft_printf("<--%.5C-->", L'\x0470'));
+	printf(" %d\n\n", printf("<--%.5C-->", L'\x0470'));
+
+	printf(" %d\n", ft_printf("<--%10.5C--><-%010.5C--><--%-10.5C--><--%-010.5C-->", L'\x277A', L'\x277A', L'\x277A', L'\x277A'));
+	printf(" %d\n\n", printf("<--%10.5C--><-%010.5C--><--%-10.5C--><--%-010.5C-->", L'\x277A', L'\x277A', L'\x277A', L'\x277A'));
+	
+	printf(" %d\n", ft_printf("<--%5.10C-->", L'\x1F92E'));
+	printf(" %d\n\n", printf("<--%5.10C-->", L'\x1F92E'));
+	//*/
 
 	/*/ WIDE STRING TESTS
 	ft_printf("BASIC TESTS FOR WSTRING\n");
@@ -78,7 +116,26 @@ int		main()
 	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
 	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
 	//*/
-
+	
+	/*/ WIDE STRING TESTS
+	ft_printf("PRECISION TESTS FOR WSTRING\n");
+	
+	printf(" %d\n", ft_printf("%.4S", L"我是一只猫。"));
+	printf(" %d\n\n", printf("%.4S", L"我是一只猫。"));
+	
+	printf(" %d\n", ft_printf("<--%015.5S-->", L"\x0041\x0470\x277A\x1F92E"));
+	printf(" %d\n\n", printf("<--%015.5S-->", L"\x0041\x0470\x277A\x1F92E"));
+	
+	printf(" %d\n", ft_printf("<%.S><%.S><%.0S>", NULL, 0, 0));
+	printf(" %d\n\n", printf("<%.S><%.S><%.0S>", NULL, 0, 0));
+	
+	printf(" %d\n", ft_printf("<--%.5S--><--%.15S>", L"flinguezmoi", L"flinguezmoi"));
+	printf(" %d\n\n", printf("<--%.5S--><--%.15S>", L"flinguezmoi", L"flinguezmoi"));
+	
+	printf(" %d\n", ft_printf("<--%5.15S-->", L"flinguez \x1F92E  moi"));
+	printf(" %d\n\n", printf("<--%5.15S-->", L"flinguez \x1F92E  moi"));
+	//*/
+	//
 	/*/ UNSIGNED INT TESTS
 	ft_printf("BASIC TESTS FOR UNSIGNED INT\n");
 	printf(" %d\n", ft_printf("<%u><%u><%lu>",  0, 42, 4294967295));
@@ -224,11 +281,17 @@ int		main()
 	printf(" %d\n", ft_printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
 	printf(" %d\n\n", printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
 
-	printf(" %d\n", ft_printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
-	printf(" %d\n\n", printf("<%10s><%10s><%-10s>", "Harbinger", "is their", "God."));
+	printf(" %d\n", ft_printf("<%10.5s><%5.10s><%10.10s>", "42", "98", "13"));
+	printf(" %d\n\n", printf("<%10.5s><%5.10s><%10.10s>", "42", "98", "13"));
+
+	printf(" %d\n", ft_printf("<%10.5s><%5.10s><%10.10s>", "123456", "123456"));
+	printf(" %d\n\n", printf("<%10.5s><%5.10s><%10.10s>", "123456", "123456"));
+
+	printf(" %d\n", ft_printf("<%10s><%010s><%-10s>", "Harbinger", "is their", "God."));
+	printf(" %d\n\n", printf("<%10s><%010s><%-10s>", "Harbinger", "is their", "God."));
 	
-	printf(" %d\n", ft_printf("<%5s><%1s><%-10s>", "Embrace", "", "entropy"));
-	printf(" %d\n\n", printf("<%5s><%1s><%-10s>", "Embrace", "", "entropy"));
+	printf(" %d\n", ft_printf("<%5s><%1s><%0-10s>", "Embrace", "", "entropy"));
+	printf(" %d\n\n", printf("<%5s><%1s><%0-10s>", "Embrace", "", "entropy"));
 
 	printf(" %d\n", ft_printf("<%-5s><%10s><%-3s>", "Death comes", "at last", "..."));
 	printf(" %d\n\n", printf("<%-5s><%10s><%-3s>", "Death comes", "at last", "..."));
@@ -309,8 +372,41 @@ int		main()
 	printf(" %d\n\n", printf("<%#030X><%#30X><%#-30X>", 0xFFFF, 0xFFFF, 0xFFFF));
 	//*/
 
+	/*/ OCTAL TESTS
+	ft_printf("WIDTH TESTS FOR OCTAL\n");
+	printf(" %d\n", ft_printf("<%#.o><%#.0o><%#.x><%#.0x>", 0, 0, 0, 0));
+	printf(" %d\n\n", printf("<%#.o><%#.0o><%#.x><%#.0x>", 0, 0, 0, 0));
+
+	printf(" %d\n", ft_printf("<%#10x><%#10o><%#10o>", 0, 0, NULL));
+	printf(" %d\n\n", printf("<%#10x><%#10o><%#10o>", 0, 0, NULL));
+
+	printf(" %d\n", ft_printf("<%1o><%1O><%01o><%01O><%-1o><%-1O>", 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF));
+	printf(" %d\n\n", printf("<%1o><%1O><%01o><%01O><%-1o><%-1O>", 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF));
+	
+	printf(" %d\n", ft_printf("<%5.10o><%15.10o><%-.10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+	printf(" %d\n\n", printf("<%5.10o><%15.10o><%-.10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+	
+	printf(" %d\n", ft_printf("<%010o><%10o><%-10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+	printf(" %d\n\n", printf("<%010o><%10o><%-10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+
+	printf(" %d\n", ft_printf("<%010O><%10O><%-10O>", 0xFFFF, 0xFFFF, 0xFFFF));
+	printf(" %d\n\n", printf("<%010O><%10O><%-10O>", 0xFFFF, 0xFFFF, 0xFFFF));
+	
+	printf(" %d\n", ft_printf("<%#010o><%#10o><%#-10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+	printf(" %d\n\n", printf("<%#010o><%#10o><%#-10o>", 0xFFFF, 0xFFFF, 0xFFFF));
+	
+	printf(" %d\n", ft_printf("<%#010O><%#10O><%#-10O>", 0xFFFF, 0xFFFF, 0xFFFF));
+	printf(" %d\n\n", printf("<%#010O><%#10O><%#-10O>", 0xFFFF, 0xFFFF, 0xFFFF));
+	//*/
+	
 	/*/ MEMORY ADDRESS TESTS
 	ft_printf("WIDTH TESTS FOR MEMORY ADDRESS\n");
+	printf(" %d\n", ft_printf("<%.0p><%.p><%.p><%.5p>", 0, 0, &ft_putnbr, 0));
+	printf(" %d\n\n", printf("<%.0p><%.p><%.p><%.5p>", 0, 0, &ft_putnbr, 0));
+
+	printf(" %d\n", ft_printf("<%2.9p><%2.9p><%9.2p><%2.9p>", 123456, 133, &ft_putnbr, &ft_putnbr));
+	printf(" %d\n\n", printf("<%2.9p><%2.9p><%9.2p><%2.9p>", 123456, 133, &ft_putnbr, &ft_putnbr));
+	
 	printf(" %d\n", ft_printf("<%-33p><%025p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
 	printf(" %d\n\n", printf("<%-33p><%025p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
 

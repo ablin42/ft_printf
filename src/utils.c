@@ -37,7 +37,7 @@ int		atoi_wflag(const char *str)
 	total = 0;
 	if (str == NULL || ft_strcmp(str, "") == 0)
 		return (0);
-	while (str[i] <= '0' || str[i] > '9')
+	while ((str[i] <= '0' || str[i] > '9') && str[i] != '\0')
 	{
 		if (str[i] == '.')
 			return (0);

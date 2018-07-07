@@ -24,18 +24,14 @@ void	test(t_arg *lst, int *retour)
 		ft_putstr(" | ");
 		if (lst->flag == 'c' || lst->flag == '%')
 			ft_putchar(lst->type.c);
-		if (lst->flag == 's' || lst->flag == 'q')
-		{
-			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
-				ft_putstr(lst->type.str);
-			else
-				str_padding(lst->wflag,
-						str_precisionx(lst->wflag, lst->type.str));
-		}
-		if (lst->flag == 'd' || lst->flag == 'i')
-			*retour += padding(lst->wflag, lst->type.d, 10);
-		if (lst->flag == 'U')
+		else if (lst->flag == 's' || lst->flag == 'q')
+			ft_putstr(lst->type.str);
+		else if (lst->flag == 'd' || lst->flag == 'i')
+			*retour += padding(lst->wflag, lst->type.d, 10, lst->flag);
+		else if (lst->flag == 'U')
 			ft_putulong(lst->type.U);
+		else
+			ft_putstr(lst->type.str);
 		ft_putchar('\n');
 		if (lst->next == NULL)
 			break ;
@@ -43,69 +39,19 @@ void	test(t_arg *lst, int *retour)
 	}
 }
 
-/*void	test2(t_arg *lst, int *retour)
-{
-	while (lst->flag != 0)
-	{
-		if (lst->flag == 'c' || lst->flag == '%')
-			*retour += c_padding(lst->wflag, lst->type.c);
-		if (lst->flag == 'C')
-			*retour += print_wchar(lst->wflag, lst->type.d);
-		if (lst->flag == 's' || lst->flag == 'q')
-		{
-			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
-			{
-				ft_putstr(lst->type.str);
-				if (lst->type.str == NULL || lst->type.str == 0)
-					*retour += 6;
-				else
-					*retour += ft_strlen(lst->type.str);
-			}
-			else
-				*retour += str_padding(lst->wflag, str_precisionx(lst->wflag,
-		lst->type.str)) + ft_strlen(str_precisionx(lst->wflag, lst->type.str));
-			//^mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
-		}
-		if (lst->flag == 'S')
-			*retour += print_wstr(lst->wflag, lst->type.S);
-		if (lst->flag == 'd' || lst->flag == 'i')
-			*retour += print_integer(lst, *retour);
-		if (lst->flag == 'D')
-			*retour += ft_putlonglong(lst->type.D);
-		if (lst->flag == 'u' && !is_there(lst->wflag, '.'))
-			*retour += ft_putulong(lst->type.x);//+=retour
-		if (lst->flag == 'u' && is_there(lst->wflag, '.'))
-			*retour += test_precision(lst->wflag, lst->type.x, ft_itoa_base_long, 10);//+=retour
-			*retour += uint_precision(lst->wflag, lst->type.x);//+=retour
-		if (lst->flag == 'x' || lst->flag == 'X')
-			*retour += hex_oct_handler(lst->wflag, lst->type.x, lst->flag);
-		if (lst->flag == 'o')
-			*retour += test_precision(lst->wflag, lst->type.x, ft_itoa_base_long, 8);//+=retour
-			*retour += hex_oct_handler(lst->wflag, lst->type.o, lst->flag);
-		if (lst->flag == 'O')
-			*retour += test_precision(lst->wflag, lst->type.x, ft_itoa_base_long, 8);//+=retour
-			*retour += hex_oct_handler(lst->wflag, lst->type.D, lst->flag);
-		if (lst->flag == 'U')
-			*retour += ft_putulong(lst->type.U);
-		if (lst->flag == 'p')
-			*retour += print_addr(lst->wflag, lst->type.D);
-		if (lst->next == NULL)
-			break ;
-		lst = lst->next;
-	}
-}*/
-
 void	test2(t_arg *lst, int *retour)
 {
 	while (lst->flag != 0)
 	{
-		if (lst->flag == 'c' || lst->flag == '%')
+		if (lst->flag == 'c')
 			*retour += c_padding(lst->wflag, lst->type.c);
-		if (lst->flag == 'C')
+		else if (lst->flag == '%')
+			*retour += c_padding(lst->wflag, lst->flag);
+		else if (lst->flag == 'C')
 			*retour += print_wchar(lst->wflag, lst->type.d);
-		if (lst->flag == 's' || lst->flag == 'q')
+		else if (lst->flag == 's' || lst->flag == ' ')
 		{
-			if (lst->flag == 'q' || ft_strcmp(lst->wflag, "") == 0)
+		/*	if (lst->flag == ' ') //|| ft_strcmp(lst->wflag, "") == 0)
 			{
 				ft_putstr(lst->type.str);
 				if (lst->type.str == NULL || lst->type.str == 0)
@@ -113,32 +59,29 @@ void	test2(t_arg *lst, int *retour)
 				else
 					*retour += ft_strlen(lst->type.str);
 			}
-			else
-				*retour += str_padding(lst->wflag, str_precisionx(lst->wflag,
-		lst->type.str)) + ft_strlen(str_precisionx(lst->wflag, lst->type.str));
-			//^mettre ca dans strpadding ou a l'insertion des listes, check pour les leaks, double call
+			else*/
+				*retour += str_handler(lst->wflag, lst->type.str);
 		}
-		if (lst->flag == 'S')
+		else if (lst->flag == 'S')
 			*retour += print_wstr(lst->wflag, lst->type.S);
-		if (lst->flag == 'd' || lst->flag == 'i')
-			*retour += padding(lst->wflag, lst->type.d, 10);
-		if (lst->flag == 'D')
+		else if (lst->flag == 'd' || lst->flag == 'i')
+			*retour += padding(lst->wflag, lst->type.d, 10, lst->flag);
+		else if (lst->flag == 'D')
 			*retour += ft_putlonglong(lst->type.D);
-		if (lst->flag == 'u')
-			*retour += padding(lst->wflag, lst->type.x, 10);
-			//*retour += uint_precision(lst->wflag, lst->type.x);//+=retour
-		if (lst->flag == 'x' || lst->flag == 'X')
-			*retour += padding(lst->wflag, lst->type.d, 16);
-		if (lst->flag == 'o')
-			*retour += padding(lst->wflag, lst->type.d, 8);
-			//*retour += hex_oct_handler(lst->wflag, lst->type.o, lst->flag);
-		if (lst->flag == 'O')
-			*retour += padding(lst->wflag, lst->type.d, 8);
-			//*retour += hex_oct_handler(lst->wflag, lst->type.D, lst->flag);
-		if (lst->flag == 'U')
+		else if (lst->flag == 'u')
+			*retour += padding(lst->wflag, lst->type.x, 10, lst->flag);
+		else if (lst->flag == 'x' || lst->flag == 'X')
+			*retour += padding(lst->wflag, lst->type.x, 16, lst->flag);
+		else if (lst->flag == 'o')
+			*retour += padding(lst->wflag, lst->type.d, 8, lst->flag);
+		else if (lst->flag == 'O')
+			*retour += padding(lst->wflag, lst->type.D, 8, lst->flag);
+		else if (lst->flag == 'U')
 			*retour += ft_putulong(lst->type.U);
-		if (lst->flag == 'p')
-			*retour += print_addr(lst->wflag, lst->type.D);
+		else if (lst->flag == 'p')
+			*retour += padding(lst->wflag, lst->type.D, 16, lst->flag);
+		else
+			*retour += c_padding(lst->wflag, lst->type.c);
 		if (lst->next == NULL)
 			break ;
 		lst = lst->next;

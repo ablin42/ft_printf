@@ -11,14 +11,10 @@ int		c_padding(char *wflag, char c)
 	toprint = ret - 1;
 	if (is_there(wflag, '-'))
 		ft_putchar(c);
-	while (toprint > 0)
-	{
-		if (is_flag_zero(wflag) && !is_there(wflag, '-'))
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		toprint--;
-	}
+	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
+		to_print('0', toprint);
+	else
+		to_print(' ', toprint);
 	if (!is_there(wflag, '-'))
 		ft_putchar(c);
 	return (ret);
@@ -35,12 +31,34 @@ int		print_wchar(char *wflag, wchar_t c)
 		ret += toprint;
 	if (is_there(wflag, '-'))
 		ft_putwchar(c);
-	if (is_flag_zero(wflag))
+	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
 	if (!is_there(wflag, '-'))
 		ft_putwchar(c);
+	return (ret);
+}
+
+int		ft_putwstr_preci(wchar_t *str, char *wflag)
+{
+	int		i;
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	if ((str == NULL || str == 0) && !is_there(wflag, '.'))
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str != NULL && str[i] != '\0')
+	{
+		if (!is_there(wflag, '.') || (is_there(wflag, '.') &&
+			ret + wchar_len(str[i]) <= atoi_precision(wflag)))
+			ret += ft_putwchar(str[i]);
+		i++;
+	}
 	return (ret);
 }
 
@@ -52,71 +70,27 @@ int		print_wstr(char *wflag, wchar_t *S)
 
 	i = 0;
 	ret = 0;
-	if (S == NULL)
+	if ((S == NULL || S == 0) && !is_there(wflag, '.'))
 		ret = 6;
-	while (S != NULL && S[i] != '\0')
+	while (S != NULL && S[i] != '\0')// && (is_there(wflag, '.') && ret < atoi_precision(wflag)))
 	{
-		ret += wchar_len(S[i]);
+		if (!is_there(wflag, '.') || (is_there(wflag, '.') &&
+			ret + wchar_len(S[i]) <= atoi_precision(wflag)))
+			ret += wchar_len(S[i]);
 		i++;
 	}
 	toprint = atoi_wflag(wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
-	if (is_there(wflag, '-'))
-		ft_putwstr(S);
+	if (is_there(wflag, '-'))// && (is_there(wflag, '.')))// && atoi_precision(wflag) != 0))
+		ft_putwstr_preci(S, wflag);
+	//	ft_putwstr(S);
 	if (is_flag_zero(wflag))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
-	if (!is_there(wflag, '-'))
-		ft_putwstr(S);
+	if (!is_there(wflag, '-'))// && (is_there(wflag, '.') && atoi_precision(wflag) != 0))
+		ft_putwstr_preci(S, wflag);
+	//	ft_putwstr(S);
 	return (ret);
 }
-
-int		hex_padding(char *wflag, char *nb, char *flag)
-{
-	int		retour;
-	int		toprint;
-
-	retour = ft_strlen(nb);
-	if (is_there(wflag, '#') && (ft_strlen(nb) != 1 && nb[0] != 0)) //care segfault
-		retour += 2;
-	toprint = atoi_wflag(wflag) - retour;
-	retour -= ft_strlen(nb);
-	if (toprint > 0)
-		retour += toprint;
-	if ((is_flag_zero(wflag) || (toprint > 0 && is_there(wflag, '-'))
-		|| is_there(wflag, '-')) && is_there(wflag, '#')
-		&& (ft_strlen(nb) != 1 && nb[0] != 0))
-		ft_putstr(flag);
-	if (is_there(wflag, '-'))
-		ft_putstr(nb);
-	if (is_flag_zero(wflag))
-		to_print('0', toprint);
-	else
-		to_print(' ', toprint);
-	if (!is_there(wflag, '-') && is_there(wflag, '#') && !is_flag_zero(wflag)
-	&& (ft_strlen(nb) != 1 && nb[0] != 0))
-		ft_putstr(flag);
-	if (!is_there(wflag, '-'))
-		ft_putstr(nb);
-	return (retour);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

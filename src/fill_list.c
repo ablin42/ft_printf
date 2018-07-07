@@ -43,7 +43,7 @@ t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id)
 		return (NULL);
 	tmp = lst;
 	element->wflag = "NOFLAG";
-	element->flag = 'q';
+	element->flag = ' ';
 	element->id = id;
 	element->type.str = ft_strsub(format, start, (end - start));
 	//check for memoty leaks above
@@ -76,7 +76,7 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 			while (SPEC(format[i]))
 				i++;
 			end = i;
-			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start + 1)), id);
+			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);
 			//+1 au dessus donne le flag a la fin du wflag
 			id++;
 			i++;
@@ -120,13 +120,15 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 		else if (tmp->flag == 'x' || tmp->flag == 'X')
 			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
 		else if (tmp->flag == 'o')
-			tmp->type.o = (int)va_arg(ap, int);
+			tmp->type.d = (int)va_arg(ap, int);
 		else if (tmp->flag == 'O')
 			tmp->type.D = (unsigned long)va_arg(ap, unsigned long);//used to be unsigned long int
 		else if (tmp->flag == 'U')
 			tmp->type.U = (unsigned long long)va_arg(ap, unsigned long long);
 		else if (tmp->flag == 'p')
 			tmp->type.D = (unsigned long)va_arg(ap, void*);
+		else if (tmp->flag != ' ')
+			tmp->type.c = tmp->flag;
 		if (tmp->next == NULL)
 			break ;
 		tmp = tmp->next;
