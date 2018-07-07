@@ -12,111 +12,64 @@
 
 #include "../includes/printf.h"
 
-char	*str_precisionx(char *wflag, char *str)
+int		hashtag_handler(char *wflag, char flag, long long int nb, int mode)
 {
-	int		precision;
-	char	*dup;///////////
-
-	if (!is_there(wflag, '.'))
-		return (str);
-	dup = ft_strdup(str);//nul + leaks
-	precision = atoi_precision(wflag);
-	if (dup != NULL)
-		dup[precision] = '\0';
-	return (dup);
+	if (flag == 'p')
+	{
+		if (mode == 1)
+			ft_putstr("0x");
+		return (2);
+	}
+	if (is_there(wflag, '#'))
+	{
+		if ((flag == 'o' || flag == 'O') && (nb != 0 || (nb == 0 &&
+			is_there(wflag, '.') && atoi_precision(wflag) == 0)))
+		{
+			if (mode == 1)
+				ft_putchar('0');
+			return (1);
+		}
+		else if (flag == 'x' && nb != 0)
+		{
+			if (mode == 1)
+				ft_putstr("0x");
+			return (2);
+		}
+		else if (flag == 'X' && nb != 0)
+		{
+			if (mode == 1)
+				ft_putstr("0X");
+			return (2);
+		}
+	}
+	return (0);
 }
 
-int		str_padding(char *wflag, char *str)
+int		str_handler(char *wflag, char *str)
 {
 	int		toprint;
 	int		retour;
+	char	*dup;
 
+	if (str != NULL && str != 0)
+		dup = ft_strdup(str);
+	else
+		dup = ft_strnew(0);
+	if (dup != NULL && is_there(wflag, '.'))
+		dup[atoi_precision(wflag)] = '\0';
 	retour = 0;
-	toprint = atoi_wflag(wflag) - ft_strlen(str);//attention quand strlen renvoi 0
+	toprint = atoi_wflag(wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
 	if (toprint >= 1)
 		retour = toprint;
 	if (is_there(wflag, '-'))
-		ft_putstr(str);
-	to_print(' ', toprint);
+		ft_putstr(dup);
+	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
+		to_print('0', toprint);
+	else
+		to_print(' ', toprint);
 	if (!is_there(wflag, '-'))
-		ft_putstr(str);
+		ft_putstr(dup);
+	retour += ft_strlen(dup);
+	free(dup);
 	return (retour);
 }
-
-int		int_precision(char *wflag, int nb)
-{
-	int		toprint;
-	int		retour;
-	int		totalprinted;
-
-	totalprinted = 0;
-	retour = divide_nb(nb, 10);
-	toprint = atoi_wflag(wflag) - retour;
-	if (retour < atoi_precision(wflag))
-		toprint = atoi_wflag(wflag) - atoi_precision(wflag);
-	if (nb < 0)
-		toprint--;
-	if (toprint > 0)
-		totalprinted += toprint;
-	to_print(' ', toprint);
-	toprint = atoi_precision(wflag) - retour;
-	if (toprint > 0)
-		totalprinted += toprint;
-	if (nb < 0)
-	{
-		nb *= -1;
-		retour++;
-		ft_putchar('-');
-	}
-	to_print('0', toprint);
-	ft_putnbr(nb);
-	return (retour + totalprinted);
-}
-
-int		uint_precision(char *wflag, unsigned long long nb)
-{
-	int		toprint;
-	int		retour;
-	int		totalprinted;
-
-	if (nb == 0 && atoi_precision(wflag) == 0)
-		return (0);
-	totalprinted = 0;
-	retour = divide_ll(nb);
-	toprint = atoi_wflag(wflag) - retour;
-	if (retour < atoi_precision(wflag))
-		toprint = atoi_wflag(wflag) - atoi_precision(wflag);
-	if (toprint > 0)
-		totalprinted += toprint;
-	to_print(' ', toprint);
-	toprint = atoi_precision(wflag) - retour;
-	if (toprint > 0)
-		totalprinted += toprint;
-	to_print('0', toprint);
-	ft_putulong(nb);
-	return (retour + totalprinted);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

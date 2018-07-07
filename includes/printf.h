@@ -5,13 +5,12 @@
 #include <stdio.h>
 #include <limits.h>
 
-# define SPEC(Value) (Value != 'c' && Value != 'C' && Value != 'd' && Value != 'D' && Value != 'e'\
+//# define SPEC(Value) (Value != 'c' && Value != 'C' && Value != 'd' && Value != 'D' && Value != 'e'\
 && Value != 'f' && Value != 'i' && Value != 'o' && Value != 'O' && Value != 's' && Value != 'S'\
 && Value != 'u' && Value != 'U' && Value != 'x' && Value != 'X' && Value != 'p' && Value != '%')
 
-//# define SPEC(Value) (((Value < 65 && Value > 90) ||
-//# define SPEC(Value) (((Value < 97 && Value > 122)) && (Value != 104 || Value != 106 || Value != 108 || Value != 122))
-
+# define SPEC(Value) (((Value >= 0 && Value < 65) || (Value > 90 && Value < 97) || Value > 122) && Value != '%')
+//condition for %
 typedef union	u_type
 {
 	int				d;
@@ -48,25 +47,14 @@ t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id);
 void	lst_type_arg(t_arg **lst, const char *restrict format);
 t_arg	*cycle_arg(t_arg *lst, va_list ap);
 
-//hex_oct_handler.c
-int		print_addr(char *wflag, unsigned long p);
-int		hex_oct_handler(char *wflag, unsigned int nb, char flag);
-int		octal_handler(char *wflag, unsigned int nb, char flag);
-int		O_handler(char *wflag, unsigned long nb, char flag);
-
-//nb_padding.c
-int		nb_padding_data(char *wflag, int nb);
-int		count_printed_nb(char *wflag, int nb);
-int		nb_padding_data(char *wflag, int nb);
-int		leftjustify(char *wflag, int nb);
-int		leftjustifyblank(char *wflag, int nb);
+//padding.c
+int		padding(char *wflag, long long int nb, int base, char flag);
+int		blank_and_sign(char *wflag, char flag, long long int nb, int toprint);
+int		precision_and_zero(char *wflag, long long int nb, int base, char flag);
 
 //precision.c
-int		str_precision(char *wflag, int nb);
-char	*str_precisionx(char *wflag, char *str);
-int		str_padding(char *wflag, char *str);
-int		int_precision(char *wflag, int nb);
-int		uint_precision(char *wflag, unsigned long long nb);
+int		hashtag_handler(char *wflag, char flag, long long int nb, int mode);
+int		str_handler(char *wflag, char *str);
 
 //print_format.c
 int		ft_putlonglong(long long n);
@@ -79,17 +67,16 @@ int		atoi_wflag(const char *str);
 int		atoi_precision(const char *str);
 
 //utils2.c
-int		divide_nb(int nb, int divider);
+int		divide_nb(long long nb, int divider);
 int		to_print(char c, int toprint);
 int		divide_ll(long long n);
+int		divide_ull(unsigned long long n, int base);
 int		wchar_len(wchar_t c);
 
-//ft_hex_to_bin.c
-int		bin_to_hex(char *bin);
-
-int		print_paddress(unsigned char *p);
+//extra_padding.c
 int		c_padding(char *wflag, char c);
+int		ft_putwstr_preci(wchar_t *str, char *wflag);
 int		print_wstr(char *wflag, wchar_t *S);
 int		print_wchar(char *wflag, wchar_t c);
-int		hex_padding(char *wflag, char *nb, char *flag);
+
 #endif
