@@ -6,7 +6,7 @@
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 21:23:42 by ablin             #+#    #+#             */
-/*   Updated: 2018/06/02 23:27:30 by ablin            ###   ########.fr       */
+/*   Updated: 2018/07/08 01:31:01 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		str_handler(char *wflag, char *str)
 	else
 		dup = ft_strnew(0);
 	if (dup != NULL && is_there(wflag, '.'))
+	//if ((dup != NULL && is_there(wflag, '.')) || (str == NULL && !is_there(wflag, '.')))
 		dup[atoi_precision(wflag)] = '\0';
 	retour = 0;
 	toprint = atoi_wflag(wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
