@@ -39,6 +39,32 @@ void	test(t_arg *lst, int *retour)
 	}
 }
 
+long long int	modifier_handler(char *wflag, long long int nb, char flag)
+{/*
+	ft_putchar('{');
+	ft_putstr(ft_strchr(wflag, 'h'));
+	ft_putstr(" | ");
+	ft_putstr(ft_strrchr(ft_strchr(wflag, 'h'), 'h'));
+	ft_putchar('}');*/
+	if (((flag == 'd' || flag == 'i')) && ft_strrchr(wflag, 'h') != ft_strchr(wflag, 'h'))
+		return ((char)nb);
+	else if (((flag == 'd' || flag == 'i')) && is_there(wflag, 'h'))
+		return ((short)nb);
+	if (((flag == 'u' || flag == 'o' || flag == 'x' || flag == 'X')) && ft_strrchr(wflag, 'h') != ft_strchr(wflag, 'h'))
+		return ((unsigned char)nb);
+	else if (((flag == 'u' || flag == 'o' || flag == 'x' || flag == 'X')) && is_there(wflag, 'h'))
+		return ((unsigned short)nb);/*
+	if (((flag == 'd' || flag == 'i')) && ft_strrchr(wflag, 'l') != ft_strchr(wflag, 'l'))
+		return ((long long int)nb);
+	else if (((flag == 'd' || flag == 'i')) && is_there(wflag, 'l'))
+		return ((long int)nb);
+	if (((flag == 'u' || flag == 'o' || flag == 'x' || flag == 'X')) && ft_strrchr(wflag, 'h') != ft_strchr(wflag, 'h'))
+		return ((unsigned long long int)nb);
+	else if (((flag == 'u' || flag == 'o' || flag == 'x' || flag == 'X')) && is_there(wflag, 'h'))
+		return ((unsigned long int)nb);*/
+	return (nb);
+}
+
 void	test2(t_arg *lst, int *retour)
 {
 	while (lst->flag != 0)
@@ -65,15 +91,17 @@ void	test2(t_arg *lst, int *retour)
 		else if (lst->flag == 'S')
 			*retour += print_wstr(lst->wflag, lst->type.S);
 		else if (lst->flag == 'd' || lst->flag == 'i')
-			*retour += padding(lst->wflag, lst->type.d, 10, lst->flag);
+				*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.d, lst->flag), 10, lst->flag);
 		else if (lst->flag == 'D')
 			*retour += ft_putlonglong(lst->type.D);
 		else if (lst->flag == 'u')
-			*retour += padding(lst->wflag, lst->type.x, 10, lst->flag);
+			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.x, lst->flag), 10, lst->flag);
 		else if (lst->flag == 'x' || lst->flag == 'X')
-			*retour += padding(lst->wflag, lst->type.x, 16, lst->flag);
+			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.x, lst->flag), 16, lst->flag);
+	//		*retour += padding(lst->wflag, lst->type.x, 16, lst->flag);
 		else if (lst->flag == 'o')
-			*retour += padding(lst->wflag, lst->type.d, 8, lst->flag);
+			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.d, lst->flag), 8, lst->flag);
+			//*retour += padding(lst->wflag, lst->type.d, 8, lst->flag);
 		else if (lst->flag == 'O')
 			*retour += padding(lst->wflag, lst->type.D, 8, lst->flag);
 		else if (lst->flag == 'U')

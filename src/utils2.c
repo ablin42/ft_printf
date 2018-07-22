@@ -82,6 +82,18 @@ int		to_print(char c, int toprint)
 	return (toprint);
 }
 
+void		to_print_s(int toprint, char *wflag)
+{
+	while (toprint > 0)
+	{
+		if (is_flag_zero(wflag) && !is_there(wflag, '.'))
+			ft_putchar('0');
+		else
+			ft_putchar(' ');
+		toprint--;
+	}
+}
+
 int		wchar_len(wchar_t c)
 {
 	if (c <= 0x7F)

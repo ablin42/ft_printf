@@ -12,7 +12,7 @@
 
 #include "../includes/printf.h"
 
-t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
+t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag)
 {
 	t_arg	*element;
 	t_arg	*tmp;
@@ -24,7 +24,6 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	element->flag = flag;
 	if (flag == '%')
 		element->type.c = '%';
-	element->id = id;
 	element->next = NULL;
 	if (lst == NULL)
 		return (element);
@@ -34,7 +33,7 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	return (lst);
 }
 
-t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id)
+t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end)
 {
 	t_arg	*element;
 	t_arg	*tmp;
@@ -44,7 +43,6 @@ t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id)
 	tmp = lst;
 	element->wflag = "NOFLAG";
 	element->flag = ' ';
-	element->id = id;
 	element->type.str = ft_strsub(format, start, (end - start));
 	//check for memoty leaks above
 	element->next = NULL;
@@ -58,14 +56,10 @@ t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id)
 
 void	lst_type_arg(t_arg **lst, const char *restrict format)
 {
-	static int id;
 	int			i;
 	int			start;
-	int			end;
 
 	i = 0;
-	start = 0;
-	end = 0;
 	*lst = NULL;
 	while (format[i] != '\0')
 	{
@@ -75,10 +69,7 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 			start = i;
 			while (SPEC(format[i]))
 				i++;
-			end = i;
-			*lst = add_type_arg(*lst, format[end], ft_strsub(format, start, (end - start)), id);
-			//+1 au dessus donne le flag a la fin du wflag
-			id++;
+			*lst = add_type_arg(*lst, format[i], ft_strsub(format, start, (i - start)));
 			i++;
 		}
 		if (format[i] != '%' && format[i] != '\0')
@@ -86,9 +77,7 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 			start = i;
 			while (format[i] != '%' && format[i] != '\0')
 				i++;
-			end = i;
-			*lst = add_string_noarg(*lst, (char*)format, start, end, id);
-			id++;
+			*lst = add_string_noarg(*lst, (char*)format, start, i);
 		}
 	}
 }
@@ -106,11 +95,11 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 		if (tmp->flag == 'c')
 			tmp->type.c = (char)va_arg(ap, int);
 		else if (tmp->flag == 'C')
-			tmp->type.d = (signed int)va_arg(ap, wchar_t); //signed????
+			tmp->type.d = (int)va_arg(ap, wchar_t);
 		else if (tmp->flag == 'd' || tmp->flag == 'i')
-			tmp->type.d = (signed int)va_arg(ap, int); //signed????
+			tmp->type.d = (int)va_arg(ap, int);
 		else if (tmp->flag == 'D')
-			tmp->type.D = (long int)va_arg(ap, long int); //signed????
+			tmp->type.D = (long int)va_arg(ap, long int);
 		else if (tmp->flag == 'u')
 			tmp->type.x = (unsigned int)va_arg(ap, unsigned int);
 		else if (tmp->flag == 's')

@@ -52,8 +52,8 @@ int		precision_and_zero(char *wflag, long long int nb, int base, char flag)
 		nb *= -1;
 		ft_putchar('-');
 	}
-	if (is_flag_zero(wflag))
-		to_print('0', toprint);
+	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
+		to_print_s(toprint, wflag);
 	if (is_there(wflag, '.') && nb == 0 && atoi_precision(wflag) == 0)
 		return (hashtag_handler(wflag, flag, nb, 0));
 	toprint = atoi_precision(wflag) - divide_nb(nb, base);

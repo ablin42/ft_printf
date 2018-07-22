@@ -45,6 +45,20 @@ int		hashtag_handler(char *wflag, char flag, long long int nb, int mode)
 	return (0);
 }
 
+int		putstr_exc(char *dup, char *str, char *wflag)
+{
+	int		i;
+
+	i = 0;
+	if ((str == NULL || str == 0) && !is_there(wflag, '.'))
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	ft_putstr(dup);
+	return (0);
+}
+
 int		str_handler(char *wflag, char *str)
 {
 	int		toprint;
@@ -55,21 +69,20 @@ int		str_handler(char *wflag, char *str)
 		dup = ft_strdup(str);
 	else
 		dup = ft_strnew(0);
-	if (dup != NULL && is_there(wflag, '.'))
-	//if ((dup != NULL && is_there(wflag, '.')) || (str == NULL && !is_there(wflag, '.')))
+	if (str != NULL && is_there(wflag, '.'))
 		dup[atoi_precision(wflag)] = '\0';
 	retour = 0;
 	toprint = atoi_wflag(wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
 	if (toprint >= 1)
 		retour = toprint;
 	if (is_there(wflag, '-'))
-		ft_putstr(dup);
+		retour += putstr_exc(dup, str, wflag);
 	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
 	if (!is_there(wflag, '-'))
-		ft_putstr(dup);
+		retour += putstr_exc(dup, str, wflag);
 	retour += ft_strlen(dup);
 	free(dup);
 	return (retour);

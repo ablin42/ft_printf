@@ -9,11 +9,14 @@
 && Value != 'f' && Value != 'i' && Value != 'o' && Value != 'O' && Value != 's' && Value != 'S'\
 && Value != 'u' && Value != 'U' && Value != 'x' && Value != 'X' && Value != 'p' && Value != '%')
 
-# define SPEC(Value) (((Value >= 0 && Value < 65) || (Value > 90 && Value < 97) || Value > 122) && Value != '%')
+//# define SPEC(Value) (((Value >= 0 && Value < 65) || (Value > 90 && Value < 97) || Value > 122) && Value != '%' && Value != '\0')
+
+# define SPEC(Value) (((Value == ' ' || Value == '#' || Value == '*' || Value == '+' || Value == '-' || Value == '.' || Value == 'l' || Value == 'j' || Value == 'h' || Value == 'z') || (Value >= '0' && Value <= '9')) && Value != '\0')
+
 //condition for %
 typedef union	u_type
 {
-	int				d;
+	long long int				d;
 	long long		D;
 	char			c;
 	char			*str;
@@ -42,8 +45,8 @@ void	test(t_arg *lst, int *retour);
 void	test2(t_arg *lst, int *retour);
 
 //fill_list.c
-t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id);
-t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end, int id);
+t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag);
+t_arg	*add_string_noarg(t_arg *lst, char *format, int start, int end);
 void	lst_type_arg(t_arg **lst, const char *restrict format);
 t_arg	*cycle_arg(t_arg *lst, va_list ap);
 
@@ -69,6 +72,7 @@ int		atoi_precision(const char *str);
 //utils2.c
 int		divide_nb(long long nb, int divider);
 int		to_print(char c, int toprint);
+void	to_print_s(int toprint, char *wflag);
 int		divide_ll(long long n);
 int		divide_ull(unsigned long long n, int base);
 int		wchar_len(wchar_t c);
