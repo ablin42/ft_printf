@@ -98,10 +98,8 @@ void	test2(t_arg *lst, int *retour)
 			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.x, lst->flag), 10, lst->flag);
 		else if (lst->flag == 'x' || lst->flag == 'X')
 			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.x, lst->flag), 16, lst->flag);
-	//		*retour += padding(lst->wflag, lst->type.x, 16, lst->flag);
 		else if (lst->flag == 'o')
 			*retour += padding(lst->wflag, modifier_handler(lst->wflag, lst->type.d, lst->flag), 8, lst->flag);
-			//*retour += padding(lst->wflag, lst->type.d, 8, lst->flag);
 		else if (lst->flag == 'O')
 			*retour += padding(lst->wflag, lst->type.D, 8, lst->flag);
 		else if (lst->flag == 'U')

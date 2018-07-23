@@ -40,6 +40,12 @@ typedef struct	s_arg
 	struct		s_arg *next;
 }				t_arg;
 
+typedef struct	s_fun
+{
+	char		conv;
+	int			(*handle)(s_arg, va_list);
+}				t_fun;
+
 int		ft_printf(const char * restrict format, ...);
 void	test(t_arg *lst, int *retour);
 void	test2(t_arg *lst, int *retour);
