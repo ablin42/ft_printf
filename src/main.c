@@ -18,8 +18,14 @@ int		main()
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
 	char *str;
-
-	//*/ FLAG PLUS TESTS
+	
+//	printf(" %d\n", ft_printf("<%hhd><%hd><%lld><%ld><%jd><%zd>", 1, 2, 3, 4, 5, 6));
+//	printf(" %d\n", ft_printf("<%x><%x><%u><%u><%p>", 0, UINT_MAX, 0, UINT_MAX, &str));
+//	printf(" %d\n\n", printf("<%x><%x><%u><%u><%p>", 0, UINT_MAX, 0, UINT_MAX, &str));
+	
+//	printf(" %d\n", ft_printf("<%D><%U>", LONG_MIN, ULONG_MAX));
+//	printf(" %d\n\n", printf("<%D><%U>", LONG_MIN, ULONG_MAX));
+	/*/ FLAG PLUS TESTS
 //	printf(" %d\n", ft_printf("<%+C><%+o><%+o><%+O><%+O>", 0, 0, 42, 0, 0, 1));
 //	printf(" %d\n\n", printf("<%+C><%+o><%+o><%+O><%+O>", 0, 0, 42, 0, 0, 1));
 	
@@ -276,11 +282,12 @@ int		main()
 	printf(" %d\n\n", printf("<--%1C-->", L'\x1F92E'));
 	//*/
 
-	/*/ STR TESTS
+	//*/ STR TESTS
 	ft_printf("WIDTH TESTS FOR STRINGS\n");
-	printf(" %d\n", ft_printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
+	printf(" %d\n", ft_printf("{%-15Z}{%-15Ztr}{%10R}"));
 	printf(" %d\n\n", printf("{%-15Z}{%-15Ztr}{%10R}{%05s}", "abc"));
-
+	ft_putstr("{%-15Z}{%-15Ztr}{%10R}{%05abc}");
+/*
 	printf(" %d\n", ft_printf("<%10.5s><%5.10s><%10.10s>", "42", "98", "13"));
 	printf(" %d\n\n", printf("<%10.5s><%5.10s><%10.10s>", "42", "98", "13"));
 
@@ -300,7 +307,7 @@ int		main()
 	printf(" %d\n\n", printf("<This\tis\nan escape\\sequence.>"));
 
 	printf(" %d\n", ft_printf("<this %s is 100%% aids %%%%>", "shit"));
-	printf(" %d\n\n", printf("<this %s is 100%% aids %%%%>", "shit"));
+	printf(" %d\n\n", printf("<this %s is 100%% aids %%%%>", "shit"));*/
 	//*/
 
 	/*/ WIDE STRING TESTS

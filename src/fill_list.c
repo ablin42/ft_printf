@@ -22,6 +22,14 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag, int id)
 	tmp = lst;
 	element->wflag = wflag;
 	element->flag = flag;
+	ft_putchar('[');
+	ft_putchar(flag);
+	ft_putchar(']');
+	element->base = 10;
+	if (flag == 'x' || flag == 'X' || flag == 'p')
+		element->base = 16;
+	if (flag == 'o' || flag == 'O')
+		element->base = 8;
 	if (flag == '%')
 		element->type.c = '%';
 	element->id = id;

@@ -73,3 +73,39 @@ int		str_handler(char *wflag, char *str)
 	free(dup);
 	return (retour);
 }
+
+int		str_handler2(t_arg *lst, va_list ap)
+{
+	int		toprint;
+	int		retour;
+	char	*dup;
+	char	*str;
+	
+	if (lst->flag == ' ')
+	{//
+		ft_putstr(lst->type.str);//
+		return (ft_strlen(lst->type.str));//
+	}//
+	if (lst->flag != ' ')//
+		str = va_arg(ap, char *);
+	if (str != NULL && str != 0)
+		dup = ft_strdup(str);
+	else
+		dup = ft_strnew(0);
+	if (dup != NULL && is_there(lst->wflag, '.'))
+		dup[atoi_precision(lst->wflag)] = '\0';
+	retour = 0;
+	toprint = atoi_wflag(lst->wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
+	if (toprint >= 1)
+		retour = toprint;
+	if (is_there(lst->wflag, '-'))
+		ft_putstr(dup);
+	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+		to_print('0', toprint);
+	else
+		to_print(' ', toprint);
+	if (!is_there(lst->wflag, '-'))
+		ft_putstr(dup);
+	free(dup);
+	return (retour + ft_strlen(dup));
+}

@@ -22,7 +22,7 @@ void	test(t_arg *lst, int *retour)
 		ft_putstr(" | ");
 		ft_putstr(lst->wflag);
 		ft_putstr(" | ");
-		if (lst->flag == 'c' || lst->flag == '%')
+/*		if (lst->flag == 'c' || lst->flag == '%')
 			ft_putchar(lst->type.c);
 		else if (lst->flag == 's' || lst->flag == 'q')
 			ft_putstr(lst->type.str);
@@ -30,7 +30,7 @@ void	test(t_arg *lst, int *retour)
 			*retour += padding(lst->wflag, lst->type.d, 10, lst->flag);
 		else if (lst->flag == 'U')
 			ft_putulong(lst->type.U);
-		else
+		else*/
 			ft_putstr(lst->type.str);
 		ft_putchar('\n');
 		if (lst->next == NULL)
