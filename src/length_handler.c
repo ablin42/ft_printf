@@ -18,6 +18,8 @@ intmax_t	handle_length(t_arg *lst, va_list ap)
 		nb = (char)nb;
 	if (lst->mod == 2)
 		nb = (short)nb;
+	if ((lst->mod == 1 || lst->mod == 2) && lst->flag == 'D')
+		nb = (unsigned short)nb;
 	return (nb);
 }
 

@@ -31,13 +31,15 @@ int		main()
 	setlocale(LC_ALL, "en_US.UTF-8");
 	char *str;
 	
+	printf(" %d\n", ft_printf("%hD %hhD", USHRT_MAX, USHRT_MAX));
+	printf(" %d\n\n", printf("%hD %hhD", USHRT_MAX, USHRT_MAX));
+	
 	//printf(" %d\n", ft_printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
 	//printf(" %d\n\n", printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
 	//*/ D O U conv tests
 	ft_printf("TESTS for D O U conv\n");
 	printf(" %d\n", ft_printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
-	return (0);
 	printf(" %d\n", ft_printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
 	printf(" %d\n\n", printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
 	
