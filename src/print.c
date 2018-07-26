@@ -22,15 +22,7 @@ void	test(t_arg *lst, int *retour)
 		ft_putstr(" | ");
 		ft_putstr(lst->wflag);
 		ft_putstr(" | ");
-		if (lst->flag == 'c' || lst->flag == '%')
-			ft_putchar(lst->type.c);
-		else if (lst->flag == 's' || lst->flag == 'q')
-			ft_putstr(lst->type.str);
-		else if (lst->flag == 'd' || lst->flag == 'i')
-			*retour += padding(lst->wflag, lst->type.d, 10, lst->flag);
-		else if (lst->flag == 'U')
-			ft_putulong(lst->type.U);
-		else
+		if (lst->type.str != NULL)
 			ft_putstr(lst->type.str);
 		ft_putchar('\n');
 		if (lst->next == NULL)
@@ -64,7 +56,7 @@ long long int	modifier_handler(char *wflag, long long int nb, char flag)
 		return ((unsigned long int)nb);*/
 	return (nb);
 }
-
+/*
 void	test2(t_arg *lst, int *retour)
 {
 	while (lst->flag != 0)
@@ -77,7 +69,7 @@ void	test2(t_arg *lst, int *retour)
 			*retour += print_wchar(lst->wflag, lst->type.d);
 		else if (lst->flag == 's' || lst->flag == ' ')
 		{
-		/*	if (lst->flag == ' ') //|| ft_strcmp(lst->wflag, "") == 0)
+			if (lst->flag == ' ') //|| ft_strcmp(lst->wflag, "") == 0)
 			{
 				ft_putstr(lst->type.str);
 				if (lst->type.str == NULL || lst->type.str == 0)
@@ -85,7 +77,7 @@ void	test2(t_arg *lst, int *retour)
 				else
 					*retour += ft_strlen(lst->type.str);
 			}
-			else*/
+			else
 				*retour += str_handler(lst->wflag, lst->type.str);
 		}
 		else if (lst->flag == 'S')
@@ -112,4 +104,4 @@ void	test2(t_arg *lst, int *retour)
 			break ;
 		lst = lst->next;
 	}
-}
+}*/

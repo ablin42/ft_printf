@@ -30,32 +30,54 @@ int		main()
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
 	char *str;
-	printf(" %d\n", ft_printf("{%010d}", -42));
-	printf(" %d\n\n", printf("{%010d}", -42));
+	
+	//printf(" %d\n", ft_printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
+	//printf(" %d\n\n", printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
+	//*/ D O U conv tests
+	ft_printf("TESTS for D O U conv\n");
+	printf(" %d\n", ft_printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
+	printf(" %d\n\n", printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
+	return (0);
+	printf(" %d\n", ft_printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
+	printf(" %d\n\n", printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
+	
+	printf(" %d\n", ft_printf("%U", LONG_MAX));
+	printf(" %d\n\n", printf("%U", LONG_MAX));
+
+	//*/
 
 	//*/ hh modifier tests
-	ft_printf("TESTS for hh modifier\n");
+	ft_printf("TESTS for hh modifier (signed)\n");
 	printf(" %d\n", ft_printf("%hhd %hhd %hhi", CHAR_MAX, 128, 138));
 	printf(" %d\n\n", printf("%hhd %hhd %hhi", CHAR_MAX, 128, 138));
 	
 	printf(" %d\n", ft_printf("%hhd %hhd %hhd %hhd", -138, -128, -42, -367));
 	printf(" %d\n\n", printf("%hhd %hhd %hhd %hhd", -138, -128, -42, -367));
 	
+	printf(" %d\n", ft_printf("%hhD %hhD %hhO %hhO %hhU %hhU", 0, USHRT_MAX, 0, USHRT_MAX, 0, USHRT_MAX));
+	printf(" %d\n\n", printf("%hhD %hhD %hhO %hhO %hhU %hhU", 0, USHRT_MAX, 0, USHRT_MAX, 0, USHRT_MAX));
+	
+	ft_printf("TESTS for hh modifier (unsigned)\n");
 	printf(" %d\n", ft_printf("%hhu %hhu", 0, UCHAR_MAX));
 	printf(" %d\n\n", printf("%hhu %hhu", 0, UCHAR_MAX));
 
 	printf(" %d\n", ft_printf("%hho %hho", 0, UCHAR_MAX + 42));
 	printf(" %d\n\n", printf("%hho %hho", 0, UCHAR_MAX + 42));
+	
 	//*/
 	//
 	//*/ h modifier tests
-	ft_printf("TESTS for h modifier\n");
+	ft_printf("TESTS for h modifier (signed)\n");
 	printf(" %d\n", ft_printf("%hd %hd %hi", SHRT_MIN, SHRT_MAX, 42));
 	printf(" %d\n\n", printf("%hd %hd %hi", SHRT_MIN, SHRT_MAX, 42));
 	
 	printf(" %d\n", ft_printf("%hd %hd %hd %hd", -138, -128, -42, -367));
 	printf(" %d\n\n", printf("%hd %hd %hd %hd", -138, -128, -42, -367));
-	
+
+	printf(" %d\n", ft_printf("%hD %hD %hO %hO %hU %hU", 0, USHRT_MAX, 0, USHRT_MAX, 0, USHRT_MAX));
+	printf(" %d\n\n", printf("%hD %hD %hO %hO %hU %hU", 0, USHRT_MAX, 0, USHRT_MAX, 0, USHRT_MAX));
+
+	ft_printf("TESTS for hh modifier (unsigned)\n");
 	printf(" %d\n", ft_printf("%hu %hu", 0, USHRT_MAX));
 	printf(" %d\n\n", printf("%hu %hu", 0, USHRT_MAX));
 
@@ -63,7 +85,7 @@ int		main()
 	printf(" %d\n\n", printf("%ho %ho", 0, USHRT_MAX + 42));
 	//*/
 
-	//*/ l modifier tests
+	/*/ l modifier tests
 	ft_printf("TESTS for l modifier\n");
 	printf(" %d\n", ft_printf("%ld %ld %ld %li", 0, 42, (long)INT_MIN - 1, (long)INT_MAX + 1));
 	printf(" %d\n\n", printf("%ld %ld %ld %li", 0, 42, (long)INT_MIN - 1, (long)INT_MAX + 1));
@@ -71,11 +93,11 @@ int		main()
 	printf(" %d\n", ft_printf("%ld %li", LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", printf("%ld %li", LONG_MIN, LONG_MAX));
 	
-//	printf(" %d\n", ft_printf("%hu %hu", 0, USHRT_MAX));
-//	printf(" %d\n\n", printf("%hu %hu", 0, USHRT_MAX));
+	printf(" %d\n", ft_printf("%lu %lu", 0, ULONG_MAX));
+	printf(" %d\n\n", printf("%lu %lu", 0, ULONG_MAX));
 
-//	printf(" %d\n", ft_printf("%ho %ho", 0, USHRT_MAX + 42));
-//	printf(" %d\n\n", printf("%ho %ho", 0, USHRT_MAX + 42));
+	printf(" %d\n", ft_printf("%lo %lo", 0, ULONG_MAX));
+	printf(" %d\n\n", printf("%lo %lo", 0, ULONG_MAX));
 	//*/
 	//printf(" %d\n", ft_printf("<%0-3d><%03.2d>", 1, 1));
 	//printf(" %d\n\n", printf("<%0-3d><%03.2d>", 1, 1));
@@ -217,6 +239,7 @@ int		main()
 
 	/*/ PRECISION TEST STR
 	ft_printf("PRECISION TESTS FOR STRINGS\n");
+	printf("PRECISION TESTS FOR STRINGS\n");
 	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s>", "Oof", "theater", "assassinate"));
 	

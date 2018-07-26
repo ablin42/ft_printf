@@ -27,23 +27,26 @@ typedef union	u_type
 	unsigned long long U;
 }				t_type;
 
+typedef enum	s_mod
+{
+	NONE = 0, HH = 1, H = 2, L = 3, LL = 4, J = 5, Z = 6
+}				t_mod;
+
 typedef struct	s_arg
 {
 	int			id;
-	char		*wflag; //change name?
+	char		*wflag;
 	char		flag;
-	int			width;
-	int			precision;
-	char		length;
-	char		conv;
+	int			base;
 	t_type		type;
+	t_mod		mod;
 	struct		s_arg *next;
 }				t_arg;
 
 typedef struct	s_fun
 {
 	char		conv;
-	int			(*handle)(s_arg, va_list);
+	int			(*handler)(t_arg *, va_list);
 }				t_fun;
 
 int		ft_printf(const char * restrict format, ...);
@@ -57,17 +60,20 @@ void	lst_type_arg(t_arg **lst, const char *restrict format);
 t_arg	*cycle_arg(t_arg *lst, va_list ap);
 
 //padding.c
-int		padding(char *wflag, long long int nb, int base, char flag);
-int		blank_and_sign(char *wflag, char flag, long long int nb, int toprint);
-int		precision_and_zero(char *wflag, long long int nb, int base, char flag);
+int		blank_and_sign(t_arg *lst, uintmax_t size, int signe, int toprint);
+int		precision_and_zero(t_arg *lst, uintmax_t size, int signe);
 
 //precision.c
-int		hashtag_handler(char *wflag, char flag, long long int nb, int mode);
+int		htag(t_arg *lst, int signe, int mode);
 int		str_handler(char *wflag, char *str);
 
-//print_format.c
-int		ft_putlonglong(long long n);
-int		ft_putulong(unsigned long long n);
+//print_format.c obsolete
+int		ft_putlonglong(long long n);//obsolete
+int		ft_putulong(unsigned long long n);//obsolete
+
+//length_handler.c
+intmax_t	handle_length(t_arg *lst, va_list ap);
+uintmax_t	handle_ulength(t_arg *lst, va_list ap);
 
 //utils.c
 int		is_there(char *wflag, char c);
@@ -76,17 +82,24 @@ int		atoi_wflag(const char *str);
 int		atoi_precision(const char *str);
 
 //utils2.c
-int		divide_nb(long long nb, int divider);
+int		divide_nb(intmax_t nb, int divider);
 int		to_print(char c, int toprint);
 void	to_print_s(int toprint, char *wflag);
-int		divide_ll(long long n);
-int		divide_ull(unsigned long long n, int base);
+int		divide_unb(uintmax_t n, int base);
 int		wchar_len(wchar_t c);
 
 //extra_padding.c
-int		c_padding(char *wflag, char c);
+//int		c_padding(char *wflag, char c);
 int		ft_putwstr_preci(wchar_t *str, char *wflag);
-int		print_wstr(char *wflag, wchar_t *S);
-int		print_wchar(char *wflag, wchar_t c);
+//int		print_wstr(char *wflag, wchar_t *S);
+//int		print_wchar(char *wflag, wchar_t c);
+
+int		str_handler2(t_arg *lst, va_list ap);
+int		int_handler(t_arg *lst, va_list ap);
+int		hex_handler(t_arg *lst, va_list ap);
+int		c_padding(t_arg *lst, va_list ap);
+int		print_wstr(t_arg *lst, va_list ap);//wchar t wchar t*
+int		print_wchar(t_arg *lst, va_list ap);
+int		str_noflag(t_arg *lst, va_list ap);
 
 #endif

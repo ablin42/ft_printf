@@ -12,30 +12,30 @@
 
 #include "../includes/printf.h"
 
-int		hashtag_handler(char *wflag, char flag, long long int nb, int mode)
+int		htag(t_arg *lst, int signe, int mode)
 {
-	if (flag == 'p')
+	if (lst->flag == 'p')
 	{
 		if (mode == 1)
 			ft_putstr("0x");
 		return (2);
 	}
-	if (is_there(wflag, '#'))
+	if (is_there(lst->wflag, '#'))
 	{
-		if ((flag == 'o' || flag == 'O') && (nb != 0 || (nb == 0 &&
-			is_there(wflag, '.') && atoi_precision(wflag) == 0)))
+		if ((lst->flag == 'o' || lst->flag == 'O') && (signe != 0 || (signe == 0 &&
+			is_there(lst->wflag, '.') && atoi_precision(lst->wflag) == 0)))
 		{
 			if (mode == 1)
 				ft_putchar('0');
 			return (1);
 		}
-		else if (flag == 'x' && nb != 0)
+		else if (lst->flag == 'x' && signe != 0)
 		{
 			if (mode == 1)
 				ft_putstr("0x");
 			return (2);
 		}
-		else if (flag == 'X' && nb != 0)
+		else if (lst->flag == 'X' && signe != 0)
 		{
 			if (mode == 1)
 				ft_putstr("0X");
@@ -86,4 +86,42 @@ int		str_handler(char *wflag, char *str)
 	retour += ft_strlen(dup);
 	free(dup);
 	return (retour);
+}
+
+int		str_handler2(t_arg *lst, va_list ap)
+{
+	int		toprint;
+	int		retour;
+	char	*dup;
+	char	*str;
+
+	str = va_arg(ap, char *);
+	if (str != NULL && str != 0)
+		dup = ft_strdup(str);
+	else
+		dup = ft_strnew(0);
+	if (dup != NULL && is_there(lst->wflag, '.'))
+		dup[atoi_precision(lst->wflag)] = '\0';
+	retour = 0;
+	toprint = atoi_wflag(lst->wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
+	if (toprint >= 1)
+		retour = toprint;
+	if (is_there(lst->wflag, '-'))
+		retour += putstr_exc(dup, str, lst->wflag);
+	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+		to_print('0', toprint);
+	else
+		to_print(' ', toprint);
+	if (!is_there(lst->wflag, '-'))
+		retour += putstr_exc(dup, str, lst->wflag);
+	free(dup);
+	return (retour + ft_strlen(dup));
+}
+
+int		str_noflag(t_arg *lst, va_list ap)
+{
+	int		retour;
+
+	retour = putstr_exc(lst->type.str, lst->type.str, "NOFLAG");
+	return (ft_strlen(lst->type.str) + retour);
 }

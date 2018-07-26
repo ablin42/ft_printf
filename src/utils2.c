@@ -12,23 +12,7 @@
 
 #include "../includes/printf.h"
 
-int		ft_iputstr(char *s)
-{
-	int i;
-
-	i = 0;
-	if (s == NULL || s == 0)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
-	while (s[i] != '\0')
-		i++;
-	write(1, s, i);
-	return (i);
-}
-
-int		divide_nb(long long nb, int divider)
+int		divide_nb(intmax_t nb, int divider)
 {
 	int		i;
 
@@ -43,23 +27,7 @@ int		divide_nb(long long nb, int divider)
 	return (i);
 }
 
-int		divide_ll(long long n)
-{
-	int		ret;
-	ret = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		ret++;
-	while (n != 0)
-	{
-		n /= 10;
-		ret++;
-	}
-	return (ret);
-}
-
-int		divide_ull(unsigned long long n, int base)
+int		divide_unb(uintmax_t n, int base)
 {
 	int		ret;
 	ret = 0;
@@ -72,6 +40,7 @@ int		divide_ull(unsigned long long n, int base)
 	}
 	return (ret);
 }
+
 int		to_print(char c, int toprint)
 {
 	while (toprint > 0)

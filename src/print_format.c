@@ -16,7 +16,7 @@ int		ft_putlonglong(long long n)
 {
 	int		ret;
 
-	ret = divide_ll(n);
+	ret = divide_nb(n, 10);
 	if (n == LONG_MIN)
 	{
 		ft_putchar('-');

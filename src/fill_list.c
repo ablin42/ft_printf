@@ -22,6 +22,11 @@ t_arg	*add_type_arg(t_arg *lst, char flag, char *wflag)
 	tmp = lst;
 	element->wflag = wflag;
 	element->flag = flag;
+	element->base = 10;
+	if (flag == 'x' || flag == 'X' || flag == 'p')
+		element->base = 16;
+	if (flag == 'o' || flag == 'O')
+		element->base = 8;
 	if (flag == '%')
 		element->type.c = '%';
 	element->next = NULL;
@@ -81,7 +86,7 @@ void	lst_type_arg(t_arg **lst, const char *restrict format)
 		}
 	}
 }
-
+/*
 t_arg	*cycle_arg(t_arg *lst, va_list ap)
 {
 	int		i;
@@ -123,4 +128,4 @@ t_arg	*cycle_arg(t_arg *lst, va_list ap)
 		tmp = tmp->next;
 	}
 	return (lst);
-}
+}*/

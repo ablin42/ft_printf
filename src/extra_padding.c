@@ -12,42 +12,49 @@
 
 #include "../includes/printf.h"
 
-int		c_padding(char *wflag, char c)
+int		c_padding(t_arg *lst, va_list ap)
 {
 	int		toprint;
 	int		ret;
+	char	c;
 
-	ret = atoi_wflag(wflag);
+	if (lst->flag == 'c')
+		c = va_arg(ap, int);
+	else
+		c = lst->flag;
+	ret = atoi_wflag(lst->wflag);
 	if (ret == 0)
 		ret = 1;
 	toprint = ret - 1;
-	if (is_there(wflag, '-'))
+	if (is_there(lst->wflag, '-'))
 		ft_putchar(c);
-	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
+	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
-	if (!is_there(wflag, '-'))
+	if (!is_there(lst->wflag, '-'))
 		ft_putchar(c);
 	return (ret);
 }
 
-int		print_wchar(char *wflag, wchar_t c)
+int		print_wchar(t_arg *lst, va_list ap)
 {
 	int		toprint;
 	int		ret;
+	wchar_t		c;
 
+	c = va_arg(ap, wchar_t);
 	ret = wchar_len(c);
-	toprint = atoi_wflag(wflag) - ret;
+	toprint = atoi_wflag(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
-	if (is_there(wflag, '-'))
+	if (is_there(lst->wflag, '-'))
 		ft_putwchar(c);
-	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
+	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
-	if (!is_there(wflag, '-'))
+	if (!is_there(lst->wflag, '-'))
 		ft_putwchar(c);
 	return (ret);
 }
@@ -74,35 +81,35 @@ int		ft_putwstr_preci(wchar_t *str, char *wflag)
 	return (ret);
 }
 
-int		print_wstr(char *wflag, wchar_t *S)
+int		print_wstr(t_arg *lst, va_list ap)
 {
 	int		toprint;
 	int		ret;
 	int		i;
+	wchar_t		*S;
 
+	S = va_arg(ap, wchar_t *);
 	i = 0;
 	ret = 0;
-	if ((S == NULL || S == 0) && !is_there(wflag, '.'))
+	if ((S == NULL || S == 0) && !is_there(lst->wflag, '.'))
 		ret = 6;
 	while (S != NULL && S[i] != '\0')// && (is_there(wflag, '.') && ret < atoi_precision(wflag)))
 	{
-		if (!is_there(wflag, '.') || (is_there(wflag, '.') &&
-			ret + wchar_len(S[i]) <= atoi_precision(wflag)))
+		if (!is_there(lst->wflag, '.') || (is_there(lst->wflag, '.') &&
+			ret + wchar_len(S[i]) <= atoi_precision(lst->wflag)))
 			ret += wchar_len(S[i]);
 		i++;
 	}
-	toprint = atoi_wflag(wflag) - ret;
+	toprint = atoi_wflag(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
-	if (is_there(wflag, '-'))// && (is_there(wflag, '.')))// && atoi_precision(wflag) != 0))
-		ft_putwstr_preci(S, wflag);
-	//	ft_putwstr(S);
-	if (is_flag_zero(wflag))
+	if (is_there(lst->wflag, '-'))// && (is_there(wflag, '.')))// && atoi_precision(wflag) != 0))
+		ft_putwstr_preci(S, lst->wflag);
+	if (is_flag_zero(lst->wflag))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
-	if (!is_there(wflag, '-'))// && (is_there(wflag, '.') && atoi_precision(wflag) != 0))
-		ft_putwstr_preci(S, wflag);
-	//	ft_putwstr(S);
+	if (!is_there(lst->wflag, '-'))// && (is_there(wflag, '.') && atoi_precision(wflag) != 0))
+		ft_putwstr_preci(S, lst->wflag);
 	return (ret);
 }
