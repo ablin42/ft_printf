@@ -23,7 +23,7 @@ int		htag(t_arg *lst, int signe, int mode)
 	if (is_there(lst->wflag, '#'))
 	{
 		if ((lst->flag == 'o' || lst->flag == 'O') && (signe != 0 || (signe == 0 &&
-			is_there(lst->wflag, '.') && atoi_precision(lst->wflag) == 0)))
+			is_there(lst->wflag, '.') && get_preci(lst->wflag) == 0)))
 		{
 			if (mode == 1)
 				ft_putchar('0');
@@ -59,36 +59,7 @@ int		putstr_exc(char *dup, char *str, char *wflag)
 	return (0);
 }
 
-int		str_handler(char *wflag, char *str)
-{
-	int		toprint;
-	int		retour;
-	char	*dup;
-
-	if (str != NULL && str != 0)
-		dup = ft_strdup(str);
-	else
-		dup = ft_strnew(0);
-	if (str != NULL && is_there(wflag, '.'))
-		dup[atoi_precision(wflag)] = '\0';
-	retour = 0;
-	toprint = atoi_wflag(wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
-	if (toprint >= 1)
-		retour = toprint;
-	if (is_there(wflag, '-'))
-		retour += putstr_exc(dup, str, wflag);
-	if (is_flag_zero(wflag) && !is_there(wflag, '-'))
-		to_print('0', toprint);
-	else
-		to_print(' ', toprint);
-	if (!is_there(wflag, '-'))
-		retour += putstr_exc(dup, str, wflag);
-	retour += ft_strlen(dup);
-	free(dup);
-	return (retour);
-}
-
-int		str_handler2(t_arg *lst, va_list ap)
+int		str_handler(t_arg *lst, va_list ap)
 {
 	int		toprint;
 	int		retour;
@@ -101,9 +72,9 @@ int		str_handler2(t_arg *lst, va_list ap)
 	else
 		dup = ft_strnew(0);
 	if (dup != NULL && is_there(lst->wflag, '.'))
-		dup[atoi_precision(lst->wflag)] = '\0';
+		dup[get_preci(lst->wflag)] = '\0';
 	retour = 0;
-	toprint = atoi_wflag(lst->wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
+	toprint = get_pad(lst->wflag) - ft_strlen(dup);//attention quand strlen renvoi 0
 	if (toprint >= 1)
 		retour = toprint;
 	if (is_there(lst->wflag, '-'))

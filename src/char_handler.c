@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra_padding.c                                    :+:      :+:    :+:   */
+/*   char_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ int		c_padding(t_arg *lst, va_list ap)
 		c = va_arg(ap, int);
 	else
 		c = lst->flag;
-	ret = atoi_wflag(lst->wflag);
+	ret = get_pad(lst->wflag);
 	if (ret == 0)
 		ret = 1;
 	toprint = ret - 1;
@@ -45,7 +45,7 @@ int		print_wchar(t_arg *lst, va_list ap)
 
 	c = va_arg(ap, wchar_t);
 	ret = wchar_len(c);
-	toprint = atoi_wflag(lst->wflag) - ret;
+	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
 	if (is_there(lst->wflag, '-'))
@@ -74,7 +74,7 @@ int		ft_putwstr_preci(wchar_t *str, char *wflag)
 	while (str != NULL && str[i] != '\0')
 	{
 		if (!is_there(wflag, '.') || (is_there(wflag, '.') &&
-			ret + wchar_len(str[i]) <= atoi_precision(wflag)))
+			ret + wchar_len(str[i]) <= get_preci(wflag)))
 			ret += ft_putwchar(str[i]);
 		i++;
 	}
@@ -93,23 +93,23 @@ int		print_wstr(t_arg *lst, va_list ap)
 	ret = 0;
 	if ((S == NULL || S == 0) && !is_there(lst->wflag, '.'))
 		ret = 6;
-	while (S != NULL && S[i] != '\0')// && (is_there(wflag, '.') && ret < atoi_precision(wflag)))
+	while (S != NULL && S[i] != '\0')
 	{
 		if (!is_there(lst->wflag, '.') || (is_there(lst->wflag, '.') &&
-			ret + wchar_len(S[i]) <= atoi_precision(lst->wflag)))
+			ret + wchar_len(S[i]) <= get_preci(lst->wflag)))
 			ret += wchar_len(S[i]);
 		i++;
 	}
-	toprint = atoi_wflag(lst->wflag) - ret;
+	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
-	if (is_there(lst->wflag, '-'))// && (is_there(wflag, '.')))// && atoi_precision(wflag) != 0))
+	if (is_there(lst->wflag, '-'))
 		ft_putwstr_preci(S, lst->wflag);
 	if (is_flag_zero(lst->wflag))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
-	if (!is_there(lst->wflag, '-'))// && (is_there(wflag, '.') && atoi_precision(wflag) != 0))
+	if (!is_there(lst->wflag, '-'))
 		ft_putwstr_preci(S, lst->wflag);
 	return (ret);
 }

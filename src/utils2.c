@@ -27,15 +27,15 @@ int		divide_nb(intmax_t nb, int divider)
 	return (i);
 }
 
-int		divide_unb(uintmax_t n, int base)
+int		divide_unb(uintmax_t nb, int base)
 {
 	int		ret;
 	ret = 0;
-	if (n == 0)
+	if (nb == 0)
 		return (1);
-	while (n != 0)
+	while (nb != 0)
 	{
-		n /= base;
+		nb /= base;
 		ret++;
 	}
 	return (ret);

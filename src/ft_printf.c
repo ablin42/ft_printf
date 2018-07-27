@@ -23,17 +23,17 @@ int		get_handler(t_arg *lst, va_list ap)
 	retour = 0;
 	t_fun	(handle[16]) = {
 	{ .conv = '%', .handler = c_padding },
-	{ .conv = 's', .handler = str_handler2 },
-	{ .conv = ' ', .handler = str_noflag },//fuse ' ' into 's'
+	{ .conv = 's', .handler = str_handler },
+	{ .conv = ' ', .handler = str_noflag },
 	{ .conv = 'S', .handler = print_wstr },
 	{ .conv = 'p', .handler = hex_handler },
 	{ .conv = 'd', .handler = int_handler },
-	{ .conv = 'D', .handler = int_handler },//ft_putlonglong//padding
+	{ .conv = 'D', .handler = int_handler },
 	{ .conv = 'i', .handler = int_handler },
 	{ .conv = 'o', .handler = hex_handler },
 	{ .conv = 'O', .handler = hex_handler },
 	{ .conv = 'u', .handler = hex_handler },
-	{ .conv = 'U', .handler = hex_handler },//ft_putulong//padding
+	{ .conv = 'U', .handler = hex_handler },
 	{ .conv = 'x', .handler = hex_handler },
 	{ .conv = 'X', .handler = hex_handler },
 	{ .conv = 'c', .handler = c_padding },
@@ -81,6 +81,8 @@ void	get_length_mod(t_arg *lst)
 				tmp->mod = J;
 			if (ft_strchr(tmp->wflag, 'z'))
 				tmp->mod = Z;
+			if ((tmp->flag == 'c' || tmp->flag == 's') && tmp->mod == 3)
+				tmp->flag = ft_toupper(tmp->flag);
 		}
 		if (tmp->next == NULL)
 			break;
@@ -98,12 +100,9 @@ int		ft_printf(const char *restrict format, ...)
 	if (ft_strcmp(format, "") == 0)
 		return (0);
 	va_start(ap, format);
-	lst_type_arg(&lst, format);
-//	lst = cycle_arg(lst, ap);
+	fetch_arg(&lst, format);
 	get_length_mod(lst);
-//	test(lst, &retour);
 	retour = get_handler(lst, ap);
-//	test2(lst, &retour);
 	free(lst);
 	return (retour);
 }

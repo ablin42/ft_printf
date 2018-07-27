@@ -30,16 +30,24 @@ int		main()
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
 	char *str;
+
+	printf(" %d\n", ft_printf("<% x><%+x><% X><%+X>", 42, 42, 42, 42));
+	printf(" %d\n\n", printf("<% x><%+x><% X><%+X>", 42, 42, 42, 42));
+
+	printf(" %d\n", ft_printf("<% p><%+p>", 42, 42));
+	printf(" %d\n\n", printf("<% p><%+p>", 42, 42));
+
+	printf(" %d\n", ft_printf("<% o><%+o>", 42, 42));
+	printf(" %d\n\n", printf("<% o><%+o>", 42, 42));
 	
-	printf(" %d\n", ft_printf("%hD %hhD", USHRT_MAX, USHRT_MAX));
-	printf(" %d\n\n", printf("%hD %hhD", USHRT_MAX, USHRT_MAX));
-	
-	//printf(" %d\n", ft_printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
-	//printf(" %d\n\n", printf("<%.0p><%.5p><%.5d>", 0, 0, -424242));
-	//*/ D O U conv tests
+	//printf(" %d\n", ft_printf("<% u><%+u>", 42, 42));
+	//printf(" %d\n\n", printf("<% u><%+u>", 42, 42));
+
+	/*/ D O U conv tests
 	ft_printf("TESTS for D O U conv\n");
 	printf(" %d\n", ft_printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", printf("<%D><%D><%D><%D>", 0, -1L, LONG_MIN, LONG_MAX));
+	
 	printf(" %d\n", ft_printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
 	printf(" %d\n\n", printf("<%O><%O><%O>", 0, LONG_MAX, LONG_MIN));
 	
@@ -48,7 +56,7 @@ int		main()
 
 	//*/
 
-	//*/ hh modifier tests
+	/*/ hh modifier tests
 	ft_printf("TESTS for hh modifier (signed)\n");
 	printf(" %d\n", ft_printf("%hhd %hhd %hhi", CHAR_MAX, 128, 138));
 	printf(" %d\n\n", printf("%hhd %hhd %hhi", CHAR_MAX, 128, 138));
@@ -67,8 +75,8 @@ int		main()
 	printf(" %d\n\n", printf("%hho %hho", 0, UCHAR_MAX + 42));
 	
 	//*/
-	//
-	//*/ h modifier tests
+	
+	/*/ h modifier tests
 	ft_printf("TESTS for h modifier (signed)\n");
 	printf(" %d\n", ft_printf("%hd %hd %hi", SHRT_MIN, SHRT_MAX, 42));
 	printf(" %d\n\n", printf("%hd %hd %hi", SHRT_MIN, SHRT_MAX, 42));
@@ -89,6 +97,12 @@ int		main()
 
 	/*/ l modifier tests
 	ft_printf("TESTS for l modifier\n");
+	printf(" %d\n", ft_printf("%ld %li", LONG_MAX, LONG_MAX));
+	printf(" %d\n\n", printf("%ld %li", LONG_MAX, LONG_MAX));
+	
+	printf(" %d\n", ft_printf("%lc %ls", L'暖', L"لحم خنزير"));
+	printf(" %d\n\n", printf("%lc %ls", L'暖', L"لحم خنزير"));
+	
 	printf(" %d\n", ft_printf("%ld %ld %ld %li", 0, 42, (long)INT_MIN - 1, (long)INT_MAX + 1));
 	printf(" %d\n\n", printf("%ld %ld %ld %li", 0, 42, (long)INT_MIN - 1, (long)INT_MAX + 1));
 

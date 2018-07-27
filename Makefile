@@ -1,5 +1,5 @@
-SRC_NAME = ft_printf.c fill_list.c padding.c precision.c print.c \
-print_format.c utils.c utils2.c extra_padding.c length_handler.c
+SRC_NAME = ft_printf.c fill_list.c padding.c precision.c \
+utils.c utils2.c length_handler.c nb_handler.c char_handler.c
 SRC_PATH = src/
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
