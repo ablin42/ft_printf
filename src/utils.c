@@ -12,6 +12,10 @@
 
 #include "../includes/printf.h"
 
+/*
+ * this function checks if the character c is present in the string wflag
+*/
+
 int		is_there(char *wflag, char c)
 {
 	int		i;
@@ -25,6 +29,10 @@ int		is_there(char *wflag, char c)
 	}
 	return (0);
 }
+
+/*
+ * this function checks if the flag '0' is there
+*/
 
 int		is_flag_zero(char *wflag)
 {
@@ -42,6 +50,10 @@ int		is_flag_zero(char *wflag)
 	}
 	return (0);
 }
+
+/*
+ * this function fetch the width value in str
+*/
 
 int		get_pad(char *str)
 {
@@ -67,6 +79,10 @@ int		get_pad(char *str)
 	}
 	return (total);
 }
+
+/*
+ * this function fetch the precision value in str
+*/
 
 int		get_preci(char *str)
 {

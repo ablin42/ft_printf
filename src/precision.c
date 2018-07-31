@@ -12,6 +12,10 @@
 
 #include "../includes/printf.h"
 
+/*
+ * this function handle the '#' flag
+*/
+
 int		htag(t_arg *lst, int signe, int mode)
 {
 	if (lst->flag == 'p')
@@ -45,6 +49,10 @@ int		htag(t_arg *lst, int signe, int mode)
 	return (0);
 }
 
+/*
+ * this function prints strings and handle the NULL cases
+*/
+
 int		putstr_exc(char *dup, char *str, char *wflag)
 {
 	int		i;
@@ -58,6 +66,10 @@ int		putstr_exc(char *dup, char *str, char *wflag)
 	ft_putstr(dup);
 	return (0);
 }
+
+/*
+ * this function handle the flags and print the result for strings with args
+*/
 
 int		str_handler(t_arg *lst, va_list ap)
 {
@@ -88,6 +100,10 @@ int		str_handler(t_arg *lst, va_list ap)
 	free(dup);
 	return (retour + ft_strlen(dup));
 }
+
+/*
+ * this function prints strings without args
+*/
 
 int		str_noflag(t_arg *lst, va_list ap)
 {

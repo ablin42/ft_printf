@@ -1,5 +1,11 @@
 #include "../includes/printf.h"
 
+/*
+ * this function handle and print the width and call to the function that handle
+ * the other flags for signed nb
+ * this includes the conversion specifiers: (dD)
+*/
+
 int		int_handler(t_arg *lst, va_list ap)
 {
 	int		r;
@@ -29,6 +35,12 @@ int		int_handler(t_arg *lst, va_list ap)
 	minus_flag(lst, toprint);
 	return (r);
 }
+
+/*
+ * this function handle and print the width and call to the function that handle
+ * the other flags for unsigned nb
+ * this includes the conversion specifiers: (xXoOuUp)
+*/
 
 int		hex_handler(t_arg *lst, va_list ap)
 {

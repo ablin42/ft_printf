@@ -15,6 +15,10 @@
 #include "../includes/printf.h"
 #include "fill_list.c"
 
+/*
+ * this function assigns each conversion specifier to a function adress
+*/
+
 int		get_handler(t_arg *lst, va_list ap)
 {
 	int		retour;
@@ -60,6 +64,10 @@ int		get_handler(t_arg *lst, va_list ap)
 	return (retour);
 }
 
+/*
+ * this function fetches the length modifier and place it in our list
+*/
+
 void	get_length_mod(t_arg *lst)
 {
 	t_arg	*tmp;
@@ -90,6 +98,11 @@ void	get_length_mod(t_arg *lst)
 	}
 }
 
+/*
+ * this functoon calls the other main functions,free the list and return
+ * the total nb of characters printed
+*/
+
 int		ft_printf(const char *restrict format, ...)
 {
 	t_arg	*lst;
@@ -102,6 +115,7 @@ int		ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	fetch_arg(&lst, format);
 	get_length_mod(lst);
+	//cycle_list(lst, ap);
 	retour = get_handler(lst, ap);
 	free(lst);
 	return (retour);

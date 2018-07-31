@@ -12,6 +12,10 @@
 
 #include "../includes/printf.h"
 
+/*
+ * this function handle and print the flags for the c conversion specifier
+*/
+
 int		c_padding(t_arg *lst, va_list ap)
 {
 	int		toprint;
@@ -37,6 +41,11 @@ int		c_padding(t_arg *lst, va_list ap)
 	return (ret);
 }
 
+/*
+ * this function handle and print the flags for
+ * the C (wchar_t) conversion specifier
+*/
+
 int		print_wchar(t_arg *lst, va_list ap)
 {
 	int		toprint;
@@ -59,6 +68,10 @@ int		print_wchar(t_arg *lst, va_list ap)
 	return (ret);
 }
 
+/*
+ * this function prints wchar_t * and return the nb of char printed
+*/
+
 int		ft_putwstr_preci(wchar_t *str, char *wflag)
 {
 	int		i;
@@ -80,6 +93,10 @@ int		ft_putwstr_preci(wchar_t *str, char *wflag)
 	}
 	return (ret);
 }
+
+/*
+ * this function handle the flags for the S (wchar_t *) conversion specifier
+*/
 
 int		print_wstr(t_arg *lst, va_list ap)
 {
@@ -105,7 +122,7 @@ int		print_wstr(t_arg *lst, va_list ap)
 		ret += toprint;
 	if (is_there(lst->wflag, '-'))
 		ft_putwstr_preci(S, lst->wflag);
-	if (is_flag_zero(lst->wflag))
+	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);

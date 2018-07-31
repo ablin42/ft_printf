@@ -13,26 +13,8 @@
 #include "../includes/printf.h"
 
 /*
-t_arg	*add_noarg(t_arg *lst, char *format, int start, int end)
-{
-	t_arg	*element;
-	t_arg	*tmp;
-
-	if ((element = malloc(sizeof(t_arg))) == NULL)
-		return (NULL);
-	tmp = lst;
-	element->wflag = "NOFLAG";
-	element->flag = ' ';
-	element->type.str = ft_strsub(format, start, (end - start));
-	//check for memoty leaks above
-	element->next = NULL;
-	if (lst == NULL)
-		return (element);
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = element;
-	return (lst);
-}*/
+ * this function add each printf arg to a list with its corresponding flags
+*/
 
 t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 {
@@ -60,6 +42,10 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 	return (lst);
 }
 
+/*
+ * this function add non arguments from format to the list
+*/
+
 t_arg	*add_str(t_arg *lst, char *format, char *str)
 {
 	t_arg	*element;
@@ -80,6 +66,11 @@ t_arg	*add_str(t_arg *lst, char *format, char *str)
 	tmp->next = element;
 	return (lst);
 }
+
+/*
+ * this function cycle the printf arguments and call the corresponding function
+ * to place them in a list
+*/
 
 void	fetch_arg(t_arg **lst, const char *restrict format)
 {

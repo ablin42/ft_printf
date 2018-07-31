@@ -1,5 +1,10 @@
 #include "../includes/printf.h"
 
+/*
+ * this function cast the arguments with the corresponding type for signed nb
+ * it also handles the length modifiers
+*/
+
 intmax_t	handle_length(t_arg *lst, va_list ap)
 {
 	intmax_t	nb;
@@ -22,6 +27,11 @@ intmax_t	handle_length(t_arg *lst, va_list ap)
 		nb = (unsigned short)nb;
 	return (nb);
 }
+
+/*
+ * this function cast the arguments with the corresponding type for unsigned nb
+ * it also handles the length modifiers
+*/
 
 uintmax_t	handle_ulength(t_arg *lst, va_list ap)
 {

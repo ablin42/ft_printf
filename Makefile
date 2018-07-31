@@ -19,10 +19,6 @@ $(NAME): $(OBJ) $(LIBFT)
 	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-main: $(OBJ)
-	$(CC) src/main.c $(NAME)
-#	clear
-
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) -o $@ -c $<
@@ -39,8 +35,5 @@ re: fclean all
 norme:
 	norminette $(SRC)
 	norminette include/*.h
-
-xd: re main
-	clear
 
 .PHONY: all, clean, fclean, re

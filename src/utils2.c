@@ -12,6 +12,11 @@
 
 #include "../includes/printf.h"
 
+/*
+ * this function divide a nb by its divider and return the amount of time it
+ * can be divided by (intmax_t nb)
+*/
+
 int		divide_nb(intmax_t nb, int divider)
 {
 	int		i;
@@ -27,6 +32,11 @@ int		divide_nb(intmax_t nb, int divider)
 	return (i);
 }
 
+/*
+ * this function divide a nb by its divider and return the amount of time it
+ * can be divided by (uintmax_t nb)
+*/
+
 int		divide_unb(uintmax_t nb, int base)
 {
 	int		ret;
@@ -41,6 +51,10 @@ int		divide_unb(uintmax_t nb, int base)
 	return (ret);
 }
 
+/*
+ * this function prints the char c times toprint
+*/
+
 int		to_print(char c, int toprint)
 {
 	while (toprint > 0)
@@ -50,6 +64,10 @@ int		to_print(char c, int toprint)
 	}
 	return (toprint);
 }
+
+/*
+ * this function prints '0' or ' ' times toprint depending on the flags
+*/
 
 void		to_print_s(int toprint, char *wflag)
 {
@@ -62,6 +80,10 @@ void		to_print_s(int toprint, char *wflag)
 		toprint--;
 	}
 }
+
+/*
+ * this function returns the size of a wchar_t
+*/
 
 int		wchar_len(wchar_t c)
 {

@@ -4,6 +4,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <limits.h>
+#include <locale.h>
+#include <stdlib.h>
 
 # define SPEC(Value) (((Value == ' ' || Value == '#' || Value == '*' || Value == '+' || Value == '-' || Value == '.' || Value == 'l' || Value == 'j' || Value == 'h' || Value == 'z') || (Value >= '0' && Value <= '9')) && Value != '\0')
 
@@ -42,7 +44,6 @@ int		ft_printf(const char * restrict format, ...);
 //fill_list.c
 t_arg	*add_arg(t_arg *lst, char flag, char *wflag);
 t_arg	*add_str(t_arg *lst, char *format, char *str);
-t_arg	*add_noarg(t_arg *lst, char *format, int start, int end);//
 void	fetch_arg(t_arg **lst, const char *restrict format);
 
 //padding.c
