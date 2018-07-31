@@ -35,7 +35,7 @@ typedef struct	s_arg
 
 typedef struct	s_fun
 {
-	char		conv;
+	char		*conv;
 	int			(*handler)(t_arg *, va_list);
 }				t_fun;
 

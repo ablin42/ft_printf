@@ -16,13 +16,13 @@
 int		main()
 {
 	setlocale(LC_ALL, "en_US.UTF-8");////////voir macro mb_cur_max
-	
-//	conv_tests();
+
+	conv_tests();
 //	width_tests();
 //	preci_tests();
 //	length_mod_tests();
 //	mix_tests();
-	ub_tests();
+//	ub_tests();
 
 	return (0);
 }

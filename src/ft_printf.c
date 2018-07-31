@@ -17,51 +17,29 @@
 
 /*
  * this function assigns each conversion specifier to a function adress
+ * and calls to the corresponding function for each flag
 */
 
 int		get_handler(t_arg *lst, va_list ap)
 {
-	int		retour;
 	int		i;
+	t_fun	(handle[7]) = {
+	{ .conv = "c%", .handler = c_padding },
+	{ .conv = "s", .handler = str_handler },
+	{ .conv = " ", .handler = str_noflag },
+	{ .conv = "S", .handler = print_wstr },
+	{ .conv = "dDi", .handler = int_handler },
+	{ .conv = "oOuUxXp", .handler = hex_handler },
+	{ .conv = "C", .handler = print_wchar }};
 
-	retour = 0;
-	t_fun	(handle[16]) = {
-	{ .conv = '%', .handler = c_padding },
-	{ .conv = 's', .handler = str_handler },
-	{ .conv = ' ', .handler = str_noflag },
-	{ .conv = 'S', .handler = print_wstr },
-	{ .conv = 'p', .handler = hex_handler },
-	{ .conv = 'd', .handler = int_handler },
-	{ .conv = 'D', .handler = int_handler },
-	{ .conv = 'i', .handler = int_handler },
-	{ .conv = 'o', .handler = hex_handler },
-	{ .conv = 'O', .handler = hex_handler },
-	{ .conv = 'u', .handler = hex_handler },
-	{ .conv = 'U', .handler = hex_handler },
-	{ .conv = 'x', .handler = hex_handler },
-	{ .conv = 'X', .handler = hex_handler },
-	{ .conv = 'c', .handler = c_padding },
-	{ .conv = 'C', .handler = print_wchar }};
-
-	while (lst->flag != 0)
+	i = 0;
+	while (i < 7)
 	{
-		i = 0;
-		while (i < 16)
-		{
-			if (handle[i].conv == lst->flag)
-			{
-				retour += handle[i].handler(lst, ap);
-				break;
-			}
-			else if (i == 15)
-				retour += c_padding(lst, ap);
-			i++;
-		}
-		if (lst->next == NULL)
-			break;
-		lst = lst->next;
+		if (ft_strchr(handle[i].conv, lst->flag) != NULL)
+			return (handle[i].handler(lst, ap));
+		i++;
 	}
-	return (retour);
+	return (c_padding(lst, ap));
 }
 
 /*
@@ -99,7 +77,22 @@ void	get_length_mod(t_arg *lst)
 }
 
 /*
- * this functoon calls the other main functions,free the list and return
+ * this function cycle the list and calls to get handler for each list member
+*/
+
+void	cycle_arg(t_arg *lst, va_list ap, int *retour)
+{
+	while (lst->flag != 0)
+	{
+		*retour += get_handler(lst, ap);
+		if (lst->next == NULL)
+			break;
+		lst = lst->next;
+	}
+}
+
+/*
+ * this function calls the other main functions, free the list and return
  * the total nb of characters printed
 */
 
@@ -115,8 +108,7 @@ int		ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	fetch_arg(&lst, format);
 	get_length_mod(lst);
-	//cycle_list(lst, ap);
-	retour = get_handler(lst, ap);
+	cycle_arg(lst, ap, &retour);
 	free(lst);
 	return (retour);
 }
