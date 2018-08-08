@@ -15,14 +15,22 @@
 
 int		main()
 {
+int i;
+i = 0;
 	setlocale(LC_ALL, "en_US.UTF-8");////////voir macro mb_cur_max
 
-	conv_tests();
+//	conv_tests();
 //	width_tests();
 //	preci_tests();
 //	length_mod_tests();
 //	mix_tests();
-//	ub_tests();
+	ub_tests();
 
+/*	ft_printf("%s\\n", NULL);
+//	while (i == 0)
+//	{
+//		i = 0;
+//	}
+*/	
 	return (0);
 }

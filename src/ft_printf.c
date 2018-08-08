@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "../libft/libft.h"
 #include "../includes/printf.h"
 #include "fill_list.c"
 
@@ -20,26 +19,33 @@
  * and calls to the corresponding function for each flag
 */
 
-int		get_handler(t_arg *lst, va_list ap)
+void	get_handler(t_arg *lst, va_list ap, int *retour)
 {
+	int		ret;
 	int		i;
-	t_fun	(handle[7]) = {
+	t_fun	(handle[6]) = {
 	{ .conv = "c%", .handler = c_padding },
-	{ .conv = "s", .handler = str_handler },
-	{ .conv = " ", .handler = str_noflag },
+	{ .conv = "s ", .handler = str_handler },
 	{ .conv = "S", .handler = print_wstr },
 	{ .conv = "dDi", .handler = int_handler },
 	{ .conv = "oOuUxXp", .handler = hex_handler },
 	{ .conv = "C", .handler = print_wchar }};
 
 	i = 0;
-	while (i < 7)
+	ret = 0;
+	while (i < 6)
 	{
 		if (ft_strchr(handle[i].conv, lst->flag) != NULL)
-			return (handle[i].handler(lst, ap));
+		{
+			handle[i].handler(lst, ap, &ret);
+			*retour += ret;
+			return ;
+		}
 		i++;
 	}
-	return (c_padding(lst, ap));
+	c_padding(lst, ap, &ret);
+	*retour += ret;
+	return ;
 }
 
 /*
@@ -78,13 +84,19 @@ void	get_length_mod(t_arg *lst)
 
 /*
  * this function cycle the list and calls to get handler for each list member
+ * it frees the list after calling to get_handler
 */
 
 void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 {
 	while (lst->flag != 0)
 	{
-		*retour += get_handler(lst, ap);
+		get_handler(lst, ap, retour);
+		if (lst->flag != ' ')
+			free(lst->wflag);
+		else if (lst->flag == ' ')
+			free(lst->type.str);
+		free(lst);
 		if (lst->next == NULL)
 			break;
 		lst = lst->next;
@@ -100,7 +112,7 @@ int		ft_printf(const char *restrict format, ...)
 {
 	t_arg	*lst;
 	int		retour;
-	va_list ap;
+	va_list	ap;
 
 	retour = 0;
 	if (ft_strcmp(format, "") == 0)
@@ -109,6 +121,5 @@ int		ft_printf(const char *restrict format, ...)
 	fetch_arg(&lst, format);
 	get_length_mod(lst);
 	cycle_arg(lst, ap, &retour);
-	free(lst);
 	return (retour);
 }

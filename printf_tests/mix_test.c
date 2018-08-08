@@ -62,7 +62,7 @@ void	mix_tests()
 
 	printf(" %d\n", ft_printf("<%#.4O><%#15.4O><%#4.15O><%#.0O>", 42, 42, 42, 0));
 	printf(" %d\n\n", printf("<%#.4O><%#15.4O><%#4.15O><%#.0O>", 42, 42, 42, 0));
-	
+
 	printf(" %d\n", ft_printf("<%.4O><%15.4O><%4.15O><%.0O>", 42, 42, 42, 0));
 	printf(" %d\n\n", printf("<%.4O><%15.4O><%4.15O><%.0O>", 42, 42, 42, 0));
 
@@ -95,6 +95,6 @@ void	mix_tests()
 	// MEMORY ADRESS TESTS
 	ft_printf("MIX FLAGS TEST FOR MEMORY ADRESS\n");
 
-	printf(" %d\n", ft_printf("<%-9p><%9p><%-9p><%9p>", &ft_putstr, &ft_putstr, &ft_putnbr, &ft_putnbr));
-	printf(" %d\n\n", printf("<%-9p><%9p><%-9p><%9p>", &ft_putstr, &ft_putstr, &ft_putnbr, &ft_putnbr));
+	printf(" %d\n", ft_printf("<%-9p><%9p><%-9p><%9p>", &ft_putstr, &ft_putstr, &ft_strcmp, &ft_strcmp));
+	printf(" %d\n\n", printf("<%-9p><%9p><%-9p><%9p>", &ft_putstr, &ft_putstr, &ft_strcmp, &ft_strcmp));
 }

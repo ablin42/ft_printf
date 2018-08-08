@@ -3,7 +3,7 @@ ub_test.c
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 NAME = run_tests
-CC = gcc
+CC = gcc -g
 CFLAGS = -w
 SRC = $(SRC_NAME)
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
@@ -26,6 +26,7 @@ fclean: clean
 	rm -fv $(NAME)
 
 re: fclean all
+	cd .. && make re
 
 xd: re
 	clear

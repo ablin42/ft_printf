@@ -41,7 +41,7 @@ int		is_flag_zero(char *wflag)
 	i = 0;
 	if (wflag[0] == '0')
 		return (1);
-	while (wflag[i] != '\0')
+	while (wflag[i] != '\0' && wflag[i] != '.')
 	{
 		if (wflag[i] == '0' && i > 0 && (wflag[i - 1] < '0' ||
 				wflag[i - 1] > '9'))
@@ -105,4 +105,35 @@ int		get_preci(char *str)
 		i++;
 	}
 	return (total);
+}
+
+/*
+ * this function handle the '#' flag
+*/
+
+int		htag(t_arg *lst, int signe, int mode)
+{
+	if (is_there(lst->wflag, '#') || lst->flag == 'p')
+	{
+		if ((lst->flag == 'o' || lst->flag == 'O') && (signe != 0 || (signe == 0 &&
+			is_there(lst->wflag, '.') && get_preci(lst->wflag) == 0)))
+		{
+			if (mode == 1)
+				ft_putchar('0');
+			return (1);
+		}
+		else if ((lst->flag == 'x' && signe != 0) || lst->flag == 'p')
+		{
+			if (mode == 1)
+				ft_putstr("0x");
+			return (2);
+		}
+		else if (lst->flag == 'X' && signe != 0)
+		{
+			if (mode == 1)
+				ft_putstr("0X");
+			return (2);
+		}
+	}
+	return (0);
 }

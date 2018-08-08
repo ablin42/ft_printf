@@ -21,7 +21,7 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 	t_arg	*element;
 	t_arg	*tmp;
 
-	if ((element = malloc(sizeof(t_arg))) == NULL)
+	if ((element = (t_arg *)malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
 	tmp = lst;
 	element->wflag = wflag;
@@ -51,13 +51,12 @@ t_arg	*add_str(t_arg *lst, char *format, char *str)
 	t_arg	*element;
 	t_arg	*tmp;
 
-	if ((element = malloc(sizeof(t_arg))) == NULL)
+	if ((element = (t_arg *)malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
 	tmp = lst;
 	element->wflag = "NOFLAG";
 	element->flag = ' ';
 	element->type.str = str;
-	//check for memoty leaks above
 	element->next = NULL;
 	if (lst == NULL)
 		return (element);
@@ -74,8 +73,8 @@ t_arg	*add_str(t_arg *lst, char *format, char *str)
 
 void	fetch_arg(t_arg **lst, const char *restrict format)
 {
-	int			i;
-	int			st;
+	int		i;
+	int		st;
 
 	i = 0;
 	*lst = NULL;

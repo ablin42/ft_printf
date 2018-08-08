@@ -96,11 +96,11 @@ void	preci_tests()
 	// PRECISION TESTS FOR MEMORY ADRESS
 	ft_printf("PRECISION TESTS FOR MEMORY ADRESS (undefined behavior)\n");
 
-	printf(" %d\n", ft_printf("<%.0p><%.p><%.p>", 0, 0, &ft_putnbr));
-	printf(" %d\n\n", printf("<%.0p><%.p><%.p>", 0, 0, &ft_putnbr));
+	printf(" %d\n", ft_printf("<%.0p><%.p><%.p>", 0, 0, &ft_putstr));
+	printf(" %d\n\n", printf("<%.0p><%.p><%.p>", 0, 0, &ft_putstr));
 	
-	printf(" %d\n", ft_printf("<%.5p><%.10p><%.15p>", &ft_putstr, &ft_putchar, &ft_putnbr));
-	printf(" %d\n\n", printf("<%.5p><%.10p><%.15p>", &ft_putstr, &ft_putchar, &ft_putnbr));
+	printf(" %d\n", ft_printf("<%.5p><%.10p><%.15p>", &ft_putstr, &ft_putchar, &ft_strcmp));
+	printf(" %d\n\n", printf("<%.5p><%.10p><%.15p>", &ft_putstr, &ft_putchar, &ft_strcmp));
 
 	// PRECISION TESTS FOR D O U
 	ft_printf("PRECISION TESTS FOR D O U\n");
@@ -114,6 +114,6 @@ void	preci_tests()
 	printf(" %d\n", ft_printf("<%.5O><%.5O><%.35O><%.35O>", 0, LONG_MAX, LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", ft_printf("<%.5O><%.5O><%.35O><%.35O>", 0, LONG_MAX, LONG_MIN, LONG_MAX));
 	
-	printf(" %d\n", ft_printf("%.5U %.30U %.30U", 0, LONG_MAX, LONG_MAX));
-	printf(" %d\n\n", printf("%.5U %.30U %.30U", 0, LONG_MAX, LONG_MAX));
+	printf(" %d\n", ft_printf("<%.5U><%.25U><%.25U>", 0, LONG_MAX, LONG_MAX));
+	printf(" %d\n\n", printf("<%.5U><%.25U><%.25U>", 0, LONG_MAX, LONG_MAX));
 }

@@ -21,7 +21,11 @@ int		blank_and_sign(t_arg *lst, uintmax_t size, int signe, int toprint)
 	int		retour;
 
 	retour = 0;
-	if ((is_there(lst->wflag, '+')) || signe == -1 || is_there(lst->wflag, ' '))
+//	if (get_preci(lst->wflag) > size && is_there(lst->wflag, '#') &&
+//	(lst->flag == 'o' || lst->flag == 'O'))
+//		toprint++;
+	if (((is_there(lst->wflag, '+')) || signe == -1 ||
+	is_there(lst->wflag, ' ')) && FLAG_EXC)
 		toprint--;
 	if (is_there(lst->wflag, '+') && signe != -1 && is_flag_zero(lst->wflag)
 	&& FLAG_EXC)
@@ -31,7 +35,7 @@ int		blank_and_sign(t_arg *lst, uintmax_t size, int signe, int toprint)
 	if (is_there(lst->wflag, '+') && signe != -1 && !is_flag_zero(lst->wflag)
 	&& FLAG_EXC)
 		ft_putchar('+');
-	else if (is_there(lst->wflag, ' ') && signe != -1 && FLAG_EXC)
+	else if (is_there(lst->wflag, ' ') && !is_there(lst->wflag, '+') && signe != -1 && FLAG_EXC)
 		ft_putchar(' ');
 	if (toprint > 0)
 		retour += toprint;
@@ -63,7 +67,7 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 	get_preci(lst->wflag) == 0)
 		return (htag(lst, signe, 0));
 	toprint = get_preci(lst->wflag) - size;
-	if (lst->flag == 'o' && is_there(lst->wflag, '#'))
+	if ((lst->flag == 'o' || lst->flag == 'O') && is_there(lst->wflag, '#'))
 		toprint = get_preci(lst->wflag) - size - htag(lst, signe, 0);
 	to_print('0', toprint);
 	if (toprint > 0 && is_there(lst->wflag, '.'))
@@ -75,12 +79,18 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
  * this function handle the '-' flag
 */
 
-void	minus_flag(t_arg *lst, int toprint)
+int		minus_flag(t_arg *lst, int toprint, int signe)
 {
 	if (is_there(lst->wflag, '-'))
 	{
-		if (is_there(lst->wflag, '+') || is_there(lst->wflag, ' '))
-			toprint--;
+		if (htag(lst, signe, 0) == 0)
+			if (lst->flag != 'u' && lst->flag != 'U' && lst->flag != 'O' && (is_there(lst->wflag, '+') || is_there(lst->wflag, ' ')
+				|| signe == -1))
+				toprint--;
 		to_print(' ', toprint);
 	}
+	if (is_there(lst->wflag, '#') && htag(lst, signe, 0) != 0 && lst->flag != 'O' &&
+	(is_there(lst->wflag, '+') || is_there(lst->wflag, ' ')))
+		return (1);
+	return (0);
 }

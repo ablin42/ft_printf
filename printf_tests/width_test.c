@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
-#include "../libft/libft.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <locale.h>
-#include <stdlib.h>
 
 void		width_tests()
 {
@@ -145,11 +140,11 @@ void		width_tests()
 	// WIDTH MEMORY ADDRESS TESTS
 	ft_printf("WIDTH TESTS FOR MEMORY ADDRESS\n");
 	
-	printf(" %d\n", ft_printf("<%-33p><%25p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
-	printf(" %d\n\n", printf("<%-33p><%25p><%-21p><%2p>", &ft_putchar, &ft_putnbr, &ft_itoa_base, &ft_putstr));
+	printf(" %d\n", ft_printf("<%-33p><%25p><%-21p><%2p>", &ft_strlen, &ft_putwstr, &ft_putwchar, &ft_putstr));
+	printf(" %d\n\n", printf("<%-33p><%25p><%-21p><%2p>", &ft_strlen, &ft_putwstr, &ft_putwchar, &ft_putstr));
 
-	printf(" %d\n", ft_printf("<%5p><%-15p><%25p>", 0, 0, &ft_putnbr));
-	printf(" %d\n\n", printf("<%5p><%-15p><%25p>", 0, 0, &ft_putnbr));
+	printf(" %d\n", ft_printf("<%5p><%-15p><%25p>", 0, 0, &ft_putstr));
+	printf(" %d\n\n", printf("<%5p><%-15p><%25p>", 0, 0, &ft_putstr));
 
 	// D O U conv tests
 	ft_printf("BASIC TESTS FOR D O U\n");
