@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/09 02:48:30 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:48:46 by ablin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libfunc.h"
 
-int			divide_nb_ubase(uintmax_t nb, int base)
+int		divide_nb_ubase(uintmax_t nb, int base)
 {
 	int		ret;
 
@@ -15,10 +27,10 @@ int			divide_nb_ubase(uintmax_t nb, int base)
 
 void	pf_itoa_base(uintmax_t n, int base, char flag)
 {
-	int		i;
+	int			i;
 	uintmax_t	nb;
-	char	*str;
-	char	tab[17];
+	char		*str;
+	char		tab[17];
 
 	if (n == 0)
 		return (ft_putchar('0'));

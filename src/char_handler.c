@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   char_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/08 01:23:18 by ablin             #+#    #+#             */
-/*   Updated: 2018/07/08 01:23:20 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:36:00 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:36:02 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
 /*
- * this function handle and print the flags for the c conversion specifier
+** this function handle and print the flags for the c conversion specifier
 */
 
 void	c_padding(t_arg *lst, va_list ap, int *r)
@@ -42,7 +42,7 @@ void	c_padding(t_arg *lst, va_list ap, int *r)
 }
 
 /*
- * this function prints strings and handle the NULL cases
+** this function prints strings and handle the NULL cases
 */
 
 int		putstr_exc(char *str, char *wflag)
@@ -60,7 +60,7 @@ int		putstr_exc(char *str, char *wflag)
 }
 
 /*
- * this function handle the flags and print the result for strings with args
+** this function handle the flags and print the result for strings with args
 */
 
 void	str_handler(t_arg *lst, va_list ap, int *r)

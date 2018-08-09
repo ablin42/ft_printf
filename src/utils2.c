@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/02 23:27:50 by ablin             #+#    #+#             */
-/*   Updated: 2018/06/02 23:27:56 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:40:00 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:53:08 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
 /*
- * this function divide a nb by its divider and return the amount of time it
- * can be divided by (intmax_t nb)
+** this function divide a nb by its divider and return the amount of time it
+** can be divided by (intmax_t nb)
 */
 
 int		divide_nb(intmax_t nb, int divider, char *wflag)
@@ -37,8 +37,8 @@ int		divide_nb(intmax_t nb, int divider, char *wflag)
 }
 
 /*
- * this function divide a nb by its divider and return the amount of time it
- * can be divided by (uintmax_t nb)
+** this function divide a nb by its divider and return the amount of time it
+** can be divided by (uintmax_t nb)
 */
 
 int		divide_unb(uintmax_t nb, int base, char *wflag)
@@ -61,7 +61,7 @@ int		divide_unb(uintmax_t nb, int base, char *wflag)
 }
 
 /*
- * this function prints the char c times toprint
+** this function prints the char c times toprint
 */
 
 int		to_print(char c, int toprint)
@@ -75,10 +75,10 @@ int		to_print(char c, int toprint)
 }
 
 /*
- * this function prints '0' or ' ' times toprint depending on the flags
+** this function prints '0' or ' ' times toprint depending on the flags
 */
 
-void		to_print_s(int toprint, char *wflag)
+void	to_print_s(int toprint, char *wflag)
 {
 	while (toprint > 0)
 	{
@@ -91,7 +91,7 @@ void		to_print_s(int toprint, char *wflag)
 }
 
 /*
- * this function returns the size of a wchar_t
+** this function returns the size of a wchar_t
 */
 
 int		wchar_len(wchar_t c)

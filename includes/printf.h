@@ -52,7 +52,7 @@ void		fetch_arg(t_arg **lst, const char *restrict format);
 //padding.c
 int			blank_and_sign(t_arg *lst, uintmax_t size, int signe, int toprint);
 int			precision_and_zero(t_arg *lst, uintmax_t size, int signe);
-int			minus_flag(t_arg *lst, int toprint, int signe);
+void		minus_flag(t_arg *lst, int toprint, int signe);
 
 //length_handler.c
 intmax_t	handle_length(t_arg *lst, va_list ap);

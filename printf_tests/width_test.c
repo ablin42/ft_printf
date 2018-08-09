@@ -6,7 +6,7 @@
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 01:23:37 by ablin             #+#    #+#             */
-/*   Updated: 2018/07/08 01:23:38 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/09 01:58:13 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,6 @@ void		width_tests()
 	printf(" %d\n", ft_printf("<%+5O><%05O><%-35O><% 35O>", 0, LONG_MAX, LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", ft_printf("<%+5O><%05O><%-35O><% 35O>", 0, LONG_MAX, LONG_MIN, LONG_MAX));
 	
-	printf(" %d\n", ft_printf("%5U %-30U %030U", 0, LONG_MAX, LONG_MAX));
-	printf(" %d\n\n", printf("%5U %-30U %030U", 0, LONG_MAX, LONG_MAX));
+	printf(" %d\n", ft_printf("<%5U><%-30U><%030U>", 0, LONG_MAX, LONG_MAX));
+	printf(" %d\n\n", printf("<%5U><%-30U><%030U>", 0, LONG_MAX, LONG_MAX));
 }

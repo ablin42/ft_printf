@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/02 23:26:08 by ablin             #+#    #+#             */
-/*   Updated: 2018/06/02 23:27:03 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:39:31 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:47:00 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
 /*
- * this function checks if the character c is present in the string wflag
+** this function checks if the character c is present in the string wflag
 */
 
 int		is_there(char *wflag, char c)
@@ -31,7 +31,7 @@ int		is_there(char *wflag, char c)
 }
 
 /*
- * this function checks if the flag '0' is there
+** this function checks if the flag '0' is there
 */
 
 int		is_flag_zero(char *wflag)
@@ -52,7 +52,7 @@ int		is_flag_zero(char *wflag)
 }
 
 /*
- * this function fetch the width value in str
+** this function fetch the width value in str
 */
 
 int		get_pad(char *str)
@@ -81,7 +81,7 @@ int		get_pad(char *str)
 }
 
 /*
- * this function fetch the precision value in str
+** this function fetch the precision value in str
 */
 
 int		get_preci(char *str)
@@ -108,15 +108,15 @@ int		get_preci(char *str)
 }
 
 /*
- * this function handle the '#' flag
+** this function handle the '#' flag
 */
 
 int		htag(t_arg *lst, int signe, int mode)
 {
 	if (is_there(lst->wflag, '#') || lst->flag == 'p')
 	{
-		if ((lst->flag == 'o' || lst->flag == 'O') && (signe != 0 || (signe == 0 &&
-			is_there(lst->wflag, '.') && get_preci(lst->wflag) == 0)))
+		if ((lst->flag == 'o' || lst->flag == 'O') && (signe != 0 ||
+	(signe == 0 && is_there(lst->wflag, '.') && get_preci(lst->wflag) == 0)))
 		{
 			if (mode == 1)
 				ft_putchar('0');

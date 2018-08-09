@@ -44,7 +44,7 @@ void	preci_tests()
 	printf(" %d\n", ft_printf("<%.3s><%.3s><%.8s><%.5s>", "Oof", "theater", "assassinate", "XD"));
 	printf(" %d\n\n", printf("<%.3s><%.3s><%.8s><%.5s>", "Oof", "theater", "assassinate", "XD"));
 
-	ft_printf("PRECISION WITH CHAR RESULT IN UNDEFINED BEHAVIOR\n");
+	ft_printf("PRECISION TESTS FOR CHAR (undefined behavior)\n");
 	printf(" %d\n", ft_printf("<%.0c><%.c><%.1c><%.3c>", 0, 0, '4', '2'));
 	printf(" %d\n\n", printf("<%.0c><%.c><%.1c><%.3c>", 0, 0, '4', '2'));
 

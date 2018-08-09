@@ -26,13 +26,13 @@ void	conv_tests()
 	printf(" %d\n", ft_printf("<%d><%d><%d>",  -42, 0, 42));
 	printf(" %d\n\n", printf("<%d><%d><%d>", -42, 0, 42));
 	
-	printf(" %d\n\n", ft_printf("<%d><%d>", INT_MIN, INT_MAX));
+	printf(" %d\n", ft_printf("<%d><%d>", INT_MIN, INT_MAX));
 	printf(" %d\n\n", printf("<%d><%d>", INT_MIN, INT_MAX));
 
 	printf(" %d\n", ft_printf("<%i><%i><%i>",  -42, 0, 42));
 	printf(" %d\n\n", printf("<%i><%i><%i>", -42, 0, 42));
 	
-	printf(" %d\n\n", ft_printf("<%i><%i>", INT_MIN, INT_MAX));
+	printf(" %d\n", ft_printf("<%i><%i>", INT_MIN, INT_MAX));
 	printf(" %d\n\n", printf("<%i><%i>", INT_MIN, INT_MAX));
 
 	// UNSIGNED INT TESTS

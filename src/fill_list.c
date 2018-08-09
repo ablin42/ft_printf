@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fill_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 21:23:59 by ablin             #+#    #+#             */
-/*   Updated: 2018/06/02 21:25:51 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:36:14 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:36:30 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
 /*
- * this function add each printf arg to a list with its corresponding flags
+** this function add each printf arg to a list with its corresponding flags
 */
 
 t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
@@ -43,7 +43,7 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 }
 
 /*
- * this function add non arguments from format to the list
+** this function add non arguments from format to the list
 */
 
 t_arg	*add_str(t_arg *lst, char *format, char *str)
@@ -67,8 +67,8 @@ t_arg	*add_str(t_arg *lst, char *format, char *str)
 }
 
 /*
- * this function cycle the printf arguments and call the corresponding function
- * to place them in a list
+** this function cycle the printf arguments and call the corresponding function
+** to place them in a list
 */
 
 void	fetch_arg(t_arg **lst, const char *restrict format)

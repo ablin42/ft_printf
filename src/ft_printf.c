@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 21:24:08 by ablin             #+#    #+#             */
-/*   Updated: 2018/06/02 21:20:31 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:36:41 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:37:10 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "../includes/printf.h"
-#include "fill_list.c"
 
 /*
- * this function assigns each conversion specifier to a function adress
- * and calls to the corresponding function for each flag
+** this function assigns each conversion specifier to a function adress
+** and calls to the corresponding function for each flag
 */
 
 void	get_handler(t_arg *lst, va_list ap, int *retour)
@@ -49,7 +47,7 @@ void	get_handler(t_arg *lst, va_list ap, int *retour)
 }
 
 /*
- * this function fetches the length modifier and place it in our list
+** this function fetches the length modifier and place it in our list
 */
 
 void	get_length_mod(t_arg *lst)
@@ -83,8 +81,8 @@ void	get_length_mod(t_arg *lst)
 }
 
 /*
- * this function cycle the list and calls to get handler for each list member
- * it frees the list after calling to get_handler
+** this function cycle the list and calls to get handler for each list member
+** it frees the list after calling to get_handler
 */
 
 void	cycle_arg(t_arg *lst, va_list ap, int *retour)
@@ -104,8 +102,8 @@ void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 }
 
 /*
- * this function calls the other main functions, free the list and return
- * the total nb of characters printed
+** this function calls the other main functions, free the list and return
+** the total nb of characters printed
 */
 
 int		ft_printf(const char *restrict format, ...)

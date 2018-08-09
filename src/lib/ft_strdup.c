@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 04:18:39 by ablin             #+#    #+#             */
-/*   Updated: 2017/12/02 06:18:14 by ablin            ###   ########.fr       */
+/*   Created: 2018/08/09 02:50:38 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:52:33 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libfunc.h"
+
 char	*ft_strdup(const char *s1)
 {
 	int		i;
@@ -23,7 +24,7 @@ char	*ft_strdup(const char *s1)
 		dest = ft_strcpy(dest, "(null)");
 		return (dest);
 	}
-	if ((dest = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + 1))) == NULL)// || s1 == NULL || s1 == 0)
+	if ((dest = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + 1))) == NULL)
 		return (NULL);
 	while (s1[i] != '\0')
 	{

@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   length_handler.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/09 02:37:53 by ablin             #+#    #+#             */
+/*   Updated: 2018/08/09 02:38:13 by ablin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/printf.h"
 
 /*
- * this function cast the arguments with the corresponding type for signed nb
- * it also handles the length modifiers
+** this function cast the arguments with the corresponding type for signed nb
+** it also handles the length modifiers
 */
 
 intmax_t	handle_length(t_arg *lst, va_list ap)
 {
 	intmax_t	nb;
-	
+
 	if (lst->mod == 3)
 		nb = va_arg(ap, long);
 	else if (lst->mod == 4 || lst->flag == 'D')
@@ -29,14 +41,14 @@ intmax_t	handle_length(t_arg *lst, va_list ap)
 }
 
 /*
- * this function cast the arguments with the corresponding type for unsigned nb
- * it also handles the length modifiers
+** this function cast the arguments with the corresponding type for unsigned nb
+** it also handles the length modifiers
 */
 
 uintmax_t	handle_ulength(t_arg *lst, va_list ap)
 {
 	uintmax_t	nb;
-	
+
 	if (lst->mod == 3 || lst->flag == 'U' || lst->flag == 'O'
 		|| lst->flag == 'p')
 		nb = va_arg(ap, unsigned long);

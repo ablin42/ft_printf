@@ -1,7 +1,7 @@
 #include "../includes/printf.h"
 
 void	ub_tests()
-{/*
+{
 	// CHAR AND STR UB TESTS
 	ft_printf("\x1B[32mUB TESTS FOR CHAR AND STR\x1B[0m\n");
 
@@ -45,8 +45,9 @@ void	ub_tests()
 
 	printf(" %d\n", ft_printf("<% x><%+x><% X><%+X>", 42, 42, 42, 42));
 	printf(" %d\n\n", printf("<% x><%+x><% X><%+X>", 42, 42, 42, 42));
-//	printf(" %d\n", ft_printf("<% p><%+p><%+#-0 10.3p><%+#-0 10.3p>", 42, 42, 42, &ft_putstr));
-//	printf(" %d\n\n", printf("<% p><%+p><%+#-0 10.3p><%+#-0 10.3p>", 42, 42, 42, &ft_putstr));
+
+	printf(" %d\n", ft_printf("<% p><%+p><%+#-0 10.3p><%+#-0 10.3p>", 42, 42, 42, &ft_putstr));
+	printf(" %d\n\n", printf("<% p><%+p><%+#-0 10.3p><%+#-0 10.3p>", 42, 42, 42, &ft_putstr));
 
 	printf(" %d\n", ft_printf("<% o><%+o><%+#-0 10.3o><%+++#-0 10.3o>", 42, 42, 256, 1234567));
 	printf(" %d\n\n", printf("<% o><%+o><%+#-0 10.3o><%+++#-0 10.3o>", 42, 42, 256, 1234567));
@@ -79,48 +80,36 @@ void	ub_tests()
 	
 	printf(" %d\n", ft_printf("<%+#-0 8.3U><%+#-0 3.8U><%+#0 3.8U><%+#-0 15.3U>", 0, -42, LONG_MIN, LONG_MAX));
 	printf(" %d\n\n", printf("<%+#-0 8.3U><%+#-0 3.8U><%+#0 3.8U><%+#-0 15.3U>", 0, -42, LONG_MIN, LONG_MAX));
-*/
+
 	//*/ INCOMPATIBLE VALUES TESTS
 	ft_printf("UB TESTS FOR INCOMPATIBLE VALUES AND LENGTH MOD HELL\n");
 	
-	printf(" %d\n", ft_printf("<%c><%c><%c>", 42, "OK", &ft_putstr));
-	printf(" %d\n\n", printf("<%c><%c><%c>", 42, "OK", &ft_putstr));
-
-	printf(" %d\n", ft_printf("<%s><%s><%s>", 42, 'c', &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%s><%s><%s>", 42, 'c', &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%C><%C><%C>", 42, "OK", &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%C><%C><%C>", 42, "OK", &ft_putstr, 42));
+	printf(" %d\n", ft_printf("<%d><%d><%d><%d>", LONG_MIN, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%d><%d><%d><%d>", LONG_MIN, "42", '4', LONG_MAX,  42));
 	
-	printf(" %d\n", ft_printf("<%S><%S><%S>", 42, 'c', &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%S><%S><%S>", 42, 'c', &ft_putstr, 42));
+	printf(" %d\n", ft_printf("<%D><%D><%D><%D>", LONG_MIN, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%D><%D><%D><%D>", LONG_MIN, "42", '4', LONG_MAX, 42));
 
-	printf(" %d\n", ft_printf("<%d><%d><%d><%d><%d>", LONG_MIN, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%d><%d><%d><%d><%d>", LONG_MIN, "42", '4', LONG_MAX, &ft_putstr, 42));
+	printf(" %d\n", ft_printf("<%u><%u><%u><%u>", -42, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%u><%u><%u><%u>", -42, "42", '4', LONG_MAX, 42));
+
+	printf(" %d\n", ft_printf("<%U><%U><%U><%U>", -42, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%U><%U><%U><%U>", -42, "42", '4', LONG_MAX, 42));
+
+	printf(" %d\n", ft_printf("<%x><%x><%x><%x>", -42, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%x><%x><%x><%x>", -42, "42", '4', LONG_MAX, 42));
+
+	printf(" %d\n", ft_printf("<%X><%X><%X><%X>", -42, "42", '4', LONG_MAX,  42));
+	printf(" %d\n\n", printf("<%X><%X><%X><%X>", -42, "42", '4', LONG_MAX,  42));
+
+	printf(" %d\n", ft_printf("<%o><%o><%o><%o>", -42, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%o><%o><%o><%o>", -42, "42", '4', LONG_MAX, 42));
+
+	printf(" %d\n", ft_printf("<%O><%O><%O><%O>", -42, "42", '4', LONG_MAX, 42));
+	printf(" %d\n\n", printf("<%O><%O><%O><%O>", -42, "42", '4', LONG_MAX, 42));
 	
-	printf(" %d\n", ft_printf("<%D><%D><%D><%D><%D>", LONG_MIN, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%D><%D><%D><%D><%D>", LONG_MIN, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%u><%u><%u><%u><%u>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%u><%u><%u><%u><%u>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%U><%U><%U><%U><%U>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%U><%U><%U><%U><%U>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%x><%x><%x><%x><%x>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%x><%x><%x><%x><%x>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%X><%X><%X><%X><%X>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%X><%X><%X><%X><%X>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%o><%o><%o><%o><%o>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%o><%o><%o><%o><%o>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-
-	printf(" %d\n", ft_printf("<%O><%O><%O><%O><%O>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	printf(" %d\n\n", printf("<%O><%O><%O><%O><%O>", -42, "42", '4', LONG_MAX, &ft_putstr, 42));
-	
-	printf(" %d\n", ft_printf("<%p><%p><%p><%p>", 42, "42", '4', -42, 42));
-	printf(" %d\n\n", printf("<%p><%p><%p><%p>", 42, "42", '4', -42, 42));
+	printf(" %d\n", ft_printf("<%p><%p><%p>", 42, "42", '4', -42, 42));
+	printf(" %d\n\n", printf("<%p><%p><%p>", 42, "42", '4', -42, 42));
 
 	printf(" %d\n", ft_printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
 	printf(" %d\n\n", printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
