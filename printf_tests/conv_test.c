@@ -1,7 +1,7 @@
 #include "../includes/printf.h"
 
 void	conv_tests()
-{
+{/*
 	char *str;
 
 	// CHAR AND STR TESTS
@@ -64,7 +64,7 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("%U %U", 0, LONG_MAX));
 	printf(" %d\n\n", printf("%U %U", 0, LONG_MAX));
-
+*/
 	// WIDE CHAR TESTS
 	ft_printf("BASIC TESTS FOR WCHAR\n");
 
@@ -100,4 +100,43 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
 	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
+	
+	setlocale(LC_ALL, "en_US.UTF-8");////////voir macro mb_cur_max
+	ft_printf("NOW WITH SETLOCALE\n");
+	// WIDE CHAR TESTS
+	ft_printf("BASIC TESTS FOR WCHAR\n");
+
+	printf(" %d\n", ft_printf("<--%C-->", NULL));
+	printf(" %d\n\n", printf("<--%C-->", NULL));
+	
+	printf(" %d\n", ft_printf("<--%C-->", L'\x0041'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x0041'));
+
+	printf(" %d\n", ft_printf("<--%C-->", L'\x0470'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x0470'));
+
+	printf(" %d\n", ft_printf("<--%C-->", L'\x277A'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x277A'));
+	
+	printf(" %d\n", ft_printf("<--%C-->", L'\x1F92E'));
+	printf(" %d\n\n", printf("<--%C-->", L'\x1F92E'));
+	
+	// WIDE STRING TESTS
+	ft_printf("BASIC TESTS FOR WSTRING\n");
+	
+	printf(" %d\n", ft_printf("<%S>", NULL));
+	printf(" %d\n\n", printf("<%S>", NULL));
+	
+	printf(" %d\n", ft_printf("<%S>", 0));
+	printf(" %d\n\n", printf("<%S>", 0));
+
+	printf(" %d\n", ft_printf("<--%S-->", L"flinguezmoi"));
+	printf(" %d\n\n", printf("<--%S-->", L"flinguezmoi"));
+
+	printf(" %d\n", ft_printf("<--%S-->", L"\x0041\x0470\x277A\x1F92E"));
+	printf(" %d\n\n", printf("<--%S-->", L"\x0041\x0470\x277A\x1F92E"));
+	
+	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
+	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
+
 }

@@ -17,7 +17,6 @@ int		main()
 {
 int i;
 i = 0;
-	setlocale(LC_ALL, "en_US.UTF-8");////////voir macro mb_cur_max
 
 //	conv_tests();
 //	width_tests();
@@ -26,7 +25,39 @@ i = 0;
 //	mix_tests();
 //	ub_tests();
 
+	printf(" %d\n", ft_printf("<%00+10.4d>", 0));
+	printf(" %d\n\n", printf("<%00+10.4d>", 0));
 	
+	printf(" %d\n", ft_printf("<%00+10.4d>", 1234));
+	printf(" %d\n\n", printf("<%00+10.4d>", 1234));
+
+	printf(" %d\n", ft_printf("toto et %02u coco %-5lu mimi", 19, (unsigned long)-20));
+	printf(" %d\n\n", printf("toto et %02u coco %-5lu mimi", 19, (unsigned long)-20));
+
+	printf(" %d\n", ft_printf("%#-8.3o", 0));
+	printf(" %d\n\n", printf("%#-8.3o", 0));
+	
+	printf(" %d\n", ft_printf("%#2o", 0));
+	printf(" %d\n\n", printf("%#2o", 0));
+
+	printf(" %d\n", ft_printf("%04.2o", 0));
+	printf(" %d\n\n", printf("%04.2o", 0));
+	
+	printf(" %d\n", ft_printf("%#1.2o", 0));
+	printf(" %d\n\n", printf("%#1.2o", 0));
+
+	printf(" %d\n", ft_printf("%0#14.0oo", 12587499));
+	printf(" %d\n\n", printf("%0#14.0oo", 12587499));
+	
+	printf(" %d\n", ft_printf("%#08x", 42));
+	printf(" %d\n\n", printf("%#08x", 42));
+	
+	printf(" %d\n", ft_printf("%#8x", 42));
+	printf(" %d\n\n", printf("%#8x", 42));
+
+	printf(" %d\n", ft_printf("test%#.4o et %02o %0#14.0o!!", 012, 036, 12587499));
+	printf(" %d\n\n", printf("test%#.4o et %02o %0#14.0o!!", 012, 036, 12587499));
+/*	
 	printf(" %d u\n", ft_printf("<%u><%.u><%+-0 8.3u><%+#-0 8.3u>", 0, 0, 42, 42));
 	printf(" %d u\n\n", printf("<%u><%.u><%+-0 8.3u><%+#-0 8.3u>", 0, 0, 42, 42));
 
@@ -58,7 +89,7 @@ i = 0;
 	printf(" %d\n\n", printf("<%+#-0 10.3o>", 256));
 
 	printf(" %d\n", ft_printf("<%+++#-0 10.3o>", 1234567));
-	printf(" %d\n\n", printf("<%+++#-0 10.3o>", 1234567));
+	printf(" %d\n\n", printf("<%+++#-0 10.3o>", 1234567));*/
 	
 /*	ft_printf("%s\\n", NULL);
 	while (i == 0)

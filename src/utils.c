@@ -34,7 +34,7 @@ int		is_there(char *wflag, char c)
 ** this function checks if the flag '0' is there
 */
 
-int		is_flag_zero(char *wflag)
+int		is_z(char *wflag)
 {
 	int		i;
 

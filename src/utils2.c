@@ -82,7 +82,7 @@ void	to_print_s(int toprint, char *wflag)
 {
 	while (toprint > 0)
 	{
-		if (is_flag_zero(wflag) && !is_there(wflag, '.'))
+		if (is_z(wflag) && !is_there(wflag, '.'))
 			ft_putchar('0');
 		else
 			ft_putchar(' ');
@@ -104,5 +104,7 @@ int		wchar_len(wchar_t c)
 		return (3);
 	else if (c <= 0x10FFFF)
 		return (4);
+	if (wchar_len(c) > MB_CUR_MAX)//
+		return (-1);//
 	return (0);
 }

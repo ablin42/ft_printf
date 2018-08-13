@@ -32,7 +32,7 @@ void	c_padding(t_arg *lst, va_list ap, int *r)
 	toprint = ret - 1;
 	if (is_there(lst->wflag, '-'))
 		ft_putchar(c);
-	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
@@ -79,7 +79,7 @@ void	str_handler(t_arg *lst, va_list ap, int *r)
 		*r += toprint;
 	if (is_there(lst->wflag, '-'))
 		*r += putstr_exc(str, lst->wflag) + ft_strlen(str);
-	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);

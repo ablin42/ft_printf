@@ -57,7 +57,7 @@ void	get_length_mod(t_arg *lst)
 	tmp = lst;
 	while (tmp->flag != 0)
 	{
-		if (lst->flag != ' ')
+		if (tmp->flag != ' ')
 		{
 			if (ft_strchr(tmp->wflag, 'h'))
 				tmp->mod = H;

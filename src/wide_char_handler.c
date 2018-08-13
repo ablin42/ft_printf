@@ -30,13 +30,15 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 		ret += toprint;
 	if (is_there(lst->wflag, '-'))
 		ft_putwchar(c);
-	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);
 	if (!is_there(lst->wflag, '-'))
 		ft_putwchar(c);
 	*r += ret;
+	if (wchar_len(c) == -1)//
+		*r = -1;//
 }
 
 /*
@@ -86,7 +88,7 @@ void	print_wstr(t_arg *lst, va_list ap, int *r)
 		ret += toprint;
 	if (is_there(lst->wflag, '-'))
 		ft_putwstr_preci(s, lst->wflag, ft_putwchar);
-	if (is_flag_zero(lst->wflag) && !is_there(lst->wflag, '-'))
+	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
 		to_print('0', toprint);
 	else
 		to_print(' ', toprint);

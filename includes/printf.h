@@ -74,7 +74,7 @@ int			ft_putwstr_preci(wchar_t *str, char *wflag, int (*func)(wchar_t));
 
 //utils.c
 int			is_there(char *wflag, char c);
-int			is_flag_zero(char *wflag);
+int			is_z(char *wflag);
 int			get_pad(char *str);
 int			get_preci(char *str);
 int			htag(t_arg *lst, int signe, int mode);
