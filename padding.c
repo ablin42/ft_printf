@@ -73,6 +73,8 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 	if ((lst->flag == 'o' || lst->flag == 'O') && is_there(lst->wflag, '#'))
 		toprint = get_preci(lst->wflag) - size - htag(lst, signe, 0);//
 	to_print('0', toprint);
+//	if (signe == 0 && get_preci(lst->wflag) != 0 && is_there(lst->wflag, '#'))
+//		toprint--;
 	if (toprint > 0 && is_there(lst->wflag, '.'))
 		return (toprint);
 	return (0);

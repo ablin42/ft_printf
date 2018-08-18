@@ -25,7 +25,10 @@ i = 0;
 //	mix_tests();
 //	ub_tests();
 
-	printf(" %d\n", ft_printf("<%00+10.4d>", 0));
+	printf(" %d\n", ft_printf("%0#10.0x", 12345));
+	printf(" %d\n\n", printf("%0#10.0x", 12345));
+
+	/*printf(" %d\n", ft_printf("<%00+10.4d>", 0));
 	printf(" %d\n\n", printf("<%00+10.4d>", 0));
 	
 	printf(" %d\n", ft_printf("<%00+10.4d>", 1234));
@@ -56,7 +59,7 @@ i = 0;
 	printf(" %d\n\n", printf("%#8x", 42));
 
 	printf(" %d\n", ft_printf("test%#.4o et %02o %0#14.0o!!", 012, 036, 12587499));
-	printf(" %d\n\n", printf("test%#.4o et %02o %0#14.0o!!", 012, 036, 12587499));
+	printf(" %d\n\n", printf("test%#.4o et %02o %0#14.0o!!", 012, 036, 12587499));*/
 /*	
 	printf(" %d u\n", ft_printf("<%u><%.u><%+-0 8.3u><%+#-0 8.3u>", 0, 0, 42, 42));
 	printf(" %d u\n\n", printf("<%u><%.u><%+-0 8.3u><%+#-0 8.3u>", 0, 0, 42, 42));
