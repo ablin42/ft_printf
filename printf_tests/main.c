@@ -6,12 +6,13 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:23:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/09 02:25:13 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/19 00:45:52 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 #include "main_test.h"
+#include <wchar.h>
 
 int		main()
 {
@@ -24,9 +25,39 @@ i = 0;
 //	length_mod_tests();
 //	mix_tests();
 //	ub_tests();
+	
+	printf(" %d\n", ft_printf("%C", 0xdfff));
+	printf(" %d\n\n", printf("%C", 0xdfff));
 
-	printf(" %d\n", ft_printf("%0#10.0x", 12345));
-	printf(" %d\n\n", printf("%0#10.0x", 12345));
+	printf(" %d\n", ft_printf("%C", 0xbffe));
+	printf(" %d\n\n", printf("%C", 0xbffe));
+
+	setlocale(LC_ALL, "");
+
+	printf(" %d\n", ft_printf("%C", (wint_t)-2));
+	printf(" %d\n\n", printf("%C", (wint_t)-2));
+	
+	printf(" %d\n", ft_printf("%C", 0xd800));
+	printf(" %d\n\n", printf("%C", 0xd800));
+
+	printf(" %d\n", ft_printf("%C", 0xdb02));
+	printf(" %d\n\n", printf("%C", 0xdb02));
+
+	printf(" %d\n\n", printf("%C", 0x11ffff));
+	printf(" %d\n", ft_printf("%C", 0x11ffff));
+
+/* NEED TO FIX WCHAR FIRST
+	printf(" %d\n", ft_printf("%-+-12.7Dt", 125));
+	printf(" %d\n\n", printf("%-+-12.7Dt", 125));
+
+	printf(" %d\n", ft_printf("%0 4i", 124));
+	printf(" %d\n\n", printf("%0 4i", 124));
+
+	printf(" %d\n", ft_printf("%04.2% et"));
+	printf(" %d\n\n", printf("%04.2% et"));
+	
+	printf(" %d\n", ft_printf("%lc titi", 256));
+	printf(" %d\n\n", printf("%lc titi", 256));*/
 
 	/*printf(" %d\n", ft_printf("<%00+10.4d>", 0));
 	printf(" %d\n\n", printf("<%00+10.4d>", 0));

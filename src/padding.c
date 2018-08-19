@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:39:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/09 02:58:55 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/19 00:34:54 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,13 @@ int		blank_and_sign(t_arg *lst, uintmax_t size, int s, int toprint)
 	int		retour;
 
 	retour = 0;
-	if (get_preci(lst->wflag) > size && is_there(lst->wflag, '#') &&
-	(lst->flag == 'o' || lst->flag == 'O'))
-		toprint++;
 	if (((is_there(lst->wflag, '+')) || s == -1 ||
 	is_there(lst->wflag, ' ')) && FLAG_EXC)
 		toprint--;
 	if (is_there(lst->wflag, '+') && s != -1 && is_z(lst->wflag)
 	&& FLAG_EXC && get_preci(lst->wflag) <= 0)
 		ft_putchar('+');
-	if (!is_there(lst->wflag, '-') && !is_z(lst->wflag))
+	if (!is_there(lst->wflag, '-') && !is_z(lst->wflag))//here +1
 		to_print(' ', toprint);
 	if (is_there(lst->wflag, '+') && s != -1 && !is_z(lst->wflag) && FLAG_EXC)
 		ft_putchar('+');
@@ -58,11 +55,9 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 		toprint = get_pad(lst->wflag) - get_preci(lst->wflag);
 	if (is_there(lst->wflag, '+') || signe < 0 || is_there(lst->wflag, ' '))
 		toprint--;
-	htag(lst, signe, 1);
 	if (signe < 0)
 		ft_putchar('-');
-	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
-		to_print_s(toprint, lst->wflag);
+	to_print_s(lst, toprint, signe);
 	if (is_there(lst->wflag, '+') && signe != -1 && is_z(lst->wflag)
 	&& FLAG_EXC && get_preci(lst->wflag) > 0)
 		ft_putchar('+');

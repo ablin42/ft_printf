@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:00 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/09 02:53:08 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/19 00:16:10 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,27 @@ int		to_print(char c, int toprint)
 ** this function prints '0' or ' ' times toprint depending on the flags
 */
 
-void	to_print_s(int toprint, char *wflag)
+void	to_print_s(t_arg *lst, int toprint, int signe)
 {
-	while (toprint > 0)
+	int		printed;
+
+	printed = 0;
+	if (is_z(lst->wflag) && (!is_there(lst->wflag, '.') || (is_there(lst->wflag, '.') && get_preci(lst->wflag) != 0)))
 	{
-		if (is_z(wflag) && !is_there(wflag, '.'))
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		toprint--;
+		printed = 1;
+		htag(lst, signe, 1);
 	}
+	if (is_z(lst->wflag) && !is_there(lst->wflag, '-'))
+		while (toprint > 0)
+		{
+			if (is_z(lst->wflag) && !is_there(lst->wflag, '.'))
+				ft_putchar('0');
+			else
+				ft_putchar(' ');
+			toprint--;
+		}
+	if (printed == 0)
+		htag(lst, signe, 1);
 }
 
 /*

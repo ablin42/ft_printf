@@ -83,7 +83,7 @@ int			htag(t_arg *lst, int signe, int mode);
 int			divide_nb(intmax_t nb, int divider, char *wflag);
 int			divide_unb(uintmax_t nb, int base, char *wflag);
 int			to_print(char c, int toprint);
-void		to_print_s(int toprint, char *wflag);
+void		to_print_s(t_arg *lst, int toprint, int signe);
 int			wchar_len(wchar_t c);
 
 #endif
