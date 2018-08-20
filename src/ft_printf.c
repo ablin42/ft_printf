@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:41 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 23:11:08 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/21 00:51:47 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,20 @@ void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 	}
 }
 
+void	test(t_arg *lst)
+{
+	while (lst->flag != 0)
+	{
+		ft_putstr("{");
+		ft_putchar(lst->flag);
+		ft_putstr("}");
+		ft_putchar('\n');
+		if (lst->next == NULL)
+			break ;
+		lst = lst->next;
+	}
+}
+
 /*
 ** this function calls the other main functions, free the list and return
 ** the total nb of characters printed
@@ -112,6 +126,7 @@ int		ft_printf(const char *restrict format, ...)
 		return (0);
 	va_start(ap, format);
 	fetch_arg(&lst, format);
+	test(lst);
 	get_length_mod(lst);
 	cycle_arg(lst, ap, &retour);
 	return (retour);

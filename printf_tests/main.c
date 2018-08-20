@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:23:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 23:45:51 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/21 01:05:07 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,14 @@ i = 0;
 //	mix_tests();
 //	ub_tests();
 
-//	printf(" %d\n", ft_printf("yo%2C%-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
-//	printf(" %d\n\n", printf("yo%2C%-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
+	//printf(" %d\n", ft_printf("%lc", 254));
+	//printf(" %d\n\n", printf("%lc", 254));
+
+	//printf(" %d\n", ft_printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
+	//printf(" %d\n\n", printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
+
+	printf(" %d\n", ft_printf("yo%2C xd %-12C et %C titi %C tyty", 'u', 254, 256, 'a'));
+	printf(" %d\n\n", printf("yo%2C xd %-12C et %C titi %C tyty", 'u', 254, 256, 'a'));//lc on 2nd
 
 //	printf(" %d\n", ft_printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
 //	printf(" %d\n\n", printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
@@ -45,24 +51,26 @@ i = 0;
 	printf(" %d\n", ft_printf("%C", 0xbffe));
 	printf(" %d\n\n", printf("%C", 0xbffe));*/
 	setlocale(LC_ALL, "");
+//	printf(" %d\n", ft_printf("%---8C et coco %1C titi", 3250, 0x11ffff));
+	//printf(" %d\n\n", printf("%---8C et coco %1C titi", 3250, 0x11ffff));
 
-//	printf(" %d\n", ft_printf("%.3ls", L"\x53\x3abc\x81000\0"));
-//	printf(" %d\n\n", printf("%.3ls", L"\x53\x3abc\x81000\0"));
+	/*printf(" %d\n", ft_printf("%.3ls", L"\x53\x3abc\x81000\0"));
+	printf(" %d\n\n", printf("%.3ls", L"\x53\x3abc\x81000\0"));
 
 	printf(" %d\n", ft_printf("%8C et coco", 3250));
 	printf(" %d\n\n", printf("%8C et coco", 3250));
 	
-	printf(" %d\n", ft_printf("%8C et MERDE", 0xd800));
-	printf(" %d\n\n", printf("%8C et MERDE", 0xd800));
+//	printf(" %d\n", ft_printf("%8C et MERDE", 0xd800));
+//	printf(" %d\n\n", printf("%8C et MERDE", 0xd800));
 
 	printf(" %d\n", ft_printf("%8C et coco %s titi %lc", 3250, "xd", 'a'));
-	printf(" %d\n\n", printf("%8C et coco %s titi %lc", 3250, "xd", 'a'));
+	printf(" %d\n\n", printf("%8C et coco %s titi %lc", 3250, "xd", 'a'));*/
 
-	printf(" %d\n", ft_printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
-	printf(" %d\n\n", printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
+//	printf(" %d\n", ft_printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
+//	printf(" %d\n\n", printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
 	
-	printf(" %d\n", ft_printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
-	printf(" %d\n\n", printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
+//	printf(" %d\n", ft_printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
+//	printf(" %d\n\n", printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
 	/*
 	printf(" %d\n", ft_printf("%C", (wint_t)-2));
 	printf(" %dwint_t\n\n", printf("%C", (wint_t)-2));

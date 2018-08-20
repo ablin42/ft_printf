@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:13:03 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 22:51:38 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/21 00:14:26 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ typedef enum		e_mod
 
 typedef struct		s_arg
 {
+	int				id;
 	char			*wflag;
+	char			*noarg;//
 	char			flag;
 	int				base;
 	t_type			type;

@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:33 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 23:59:01 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/21 00:57:09 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 		*r = -1;
 		return ;
 	}
+	if (lst->noarg != NULL)
+		ft_putstr(lst->noarg);
 	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
