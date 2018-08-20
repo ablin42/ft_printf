@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:41 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 02:18:41 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 23:11:08 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,9 @@
 
 void	get_handler(t_arg *lst, va_list ap, int *retour)
 {
-	int		ret;
-	int		i;
-	t_fun	(handle[6]) = {
-	{ .conv = "c%", .handler = c_padding },
-	{ .conv = "s ", .handler = str_handler },
-	{ .conv = "S", .handler = print_wstr },
-	{ .conv = "dDi", .handler = int_handler },
-	{ .conv = "oOuUxXp", .handler = hex_handler },
-	{ .conv = "C", .handler = print_wchar }};
+	int					ret;
+	int					i;
+	static	const t_fun	handle[6] = {INT, HEX, C, CC, S, SS};
 
 	i = 0;
 	ret = 0;

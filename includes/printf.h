@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:13:03 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 01:56:07 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 22:51:38 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 # define FLAG_EXC lst->flag != 'o' && lst->flag != 'O' && lst->flag != 'x' F2
 # define F2 && lst->flag != 'X' && lst->flag != 'u' && lst->flag != 'U' && F3
 # define F3 lst->flag != 'p'
+
+#define C { "c%", c_padding }
+#define CC { "C", print_wchar }
+#define S { "s ", str_handler }
+#define SS { "S", print_wstr }
+#define INT { "dDi", int_handler }
+#define HEX { "oOuUxXp", hex_handler }
 
 typedef union		u_type
 {
