@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:23:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/19 00:45:52 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 02:02:36 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,34 @@ i = 0;
 //	length_mod_tests();
 //	mix_tests();
 //	ub_tests();
+
+	printf(" %d\n", ft_printf("yo%2C%-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
+	printf(" %d\n\n", printf("yo%2C%-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
+
+/*	printf(" %d\n", ft_printf("%lc", 254));
+	printf(" %d\n\n", printf("%lc", 254));
+	
+	printf(" %d\n", ft_printf("%lc", 128));
+	printf(" %d\n\n", printf("%lc", 128));
 	
 	printf(" %d\n", ft_printf("%C", 0xdfff));
 	printf(" %d\n\n", printf("%C", 0xdfff));
 
 	printf(" %d\n", ft_printf("%C", 0xbffe));
-	printf(" %d\n\n", printf("%C", 0xbffe));
-
+	printf(" %d\n\n", printf("%C", 0xbffe));*/
 	setlocale(LC_ALL, "");
 
+//	printf(" %d\n", ft_printf("%.3ls", L"\x53\x3abc\x81000\0"));
+//	printf(" %d\n\n", printf("%.3ls", L"\x53\x3abc\x81000\0"));
+
+	printf(" %d\n", ft_printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
+	printf(" %d\n\n", printf("%8C et coco %C titi %lc", 3250, 0x11ffff, 'a'));
+	
+	printf(" %d\n", ft_printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
+	printf(" %d\n\n", printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
+	/*
 	printf(" %d\n", ft_printf("%C", (wint_t)-2));
-	printf(" %d\n\n", printf("%C", (wint_t)-2));
+	printf(" %dwint_t\n\n", printf("%C", (wint_t)-2));
 	
 	printf(" %d\n", ft_printf("%C", 0xd800));
 	printf(" %d\n\n", printf("%C", 0xd800));
@@ -43,8 +60,8 @@ i = 0;
 	printf(" %d\n", ft_printf("%C", 0xdb02));
 	printf(" %d\n\n", printf("%C", 0xdb02));
 
-	printf(" %d\n\n", printf("%C", 0x11ffff));
 	printf(" %d\n", ft_printf("%C", 0x11ffff));
+	printf(" %d\n\n", printf("%C", 0x11ffff));*/
 
 /* NEED TO FIX WCHAR FIRST
 	printf(" %d\n", ft_printf("%-+-12.7Dt", 125));

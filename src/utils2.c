@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:00 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/19 00:16:10 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 01:01:11 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	to_print_s(t_arg *lst, int toprint, int signe)
 	int		printed;
 
 	printed = 0;
-	if (is_z(lst->wflag) && (!is_there(lst->wflag, '.') || (is_there(lst->wflag, '.') && get_preci(lst->wflag) != 0)))
+	if (is_z(lst->wflag) && (!is_there(lst->wflag, '.') ||
+	(is_there(lst->wflag, '.') && get_preci(lst->wflag) != 0)))
 	{
 		printed = 1;
 		htag(lst, signe, 1);
@@ -107,15 +108,13 @@ void	to_print_s(t_arg *lst, int toprint, int signe)
 
 int		wchar_len(wchar_t c)
 {
-	if (c <= 0x7F)
+	if (c <= 0xFF && MB_CUR_MAX >= 1)
 		return (1);
-	else if (c <= 0x7FF)
+	else if (c <= 0x7FF && MB_CUR_MAX >= 2)
 		return (2);
-	else if (c <= 0xFFFF)
+	else if (c <= 0xFFFF && MB_CUR_MAX >= 3)
 		return (3);
-	else if (c <= 0x10FFFF)
+	else if (c <= 0x10FFFF && MB_CUR_MAX >= 4)
 		return (4);
-	if (wchar_len(c) > MB_CUR_MAX)//
-		return (-1);//
-	return (0);
+	return (-1);
 }

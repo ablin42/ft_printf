@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:37:53 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/09 02:38:13 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 00:57:40 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ intmax_t	handle_length(t_arg *lst, va_list ap)
 uintmax_t	handle_ulength(t_arg *lst, va_list ap)
 {
 	uintmax_t	nb;
-	
+
 	if (lst->mod == 3 || lst->flag == 'U' || lst->flag == 'O'
 		|| lst->flag == 'p')
 		nb = va_arg(ap, unsigned long);

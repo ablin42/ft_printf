@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:39:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/19 00:34:54 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 01:02:12 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		blank_and_sign(t_arg *lst, uintmax_t size, int s, int toprint)
 	if (is_there(lst->wflag, '+') && s != -1 && is_z(lst->wflag)
 	&& FLAG_EXC && get_preci(lst->wflag) <= 0)
 		ft_putchar('+');
-	if (!is_there(lst->wflag, '-') && !is_z(lst->wflag))//here +1
+	if (!is_there(lst->wflag, '-') && !is_z(lst->wflag))
 		to_print(' ', toprint);
 	if (is_there(lst->wflag, '+') && s != -1 && !is_z(lst->wflag) && FLAG_EXC)
 		ft_putchar('+');
@@ -66,7 +66,7 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 		return (htag(lst, signe, 0));
 	toprint = get_preci(lst->wflag) - size;
 	if ((lst->flag == 'o' || lst->flag == 'O') && is_there(lst->wflag, '#'))
-		toprint = get_preci(lst->wflag) - size - htag(lst, signe, 0);//
+		toprint = get_preci(lst->wflag) - size - htag(lst, signe, 0);
 	to_print('0', toprint);
 	if (toprint > 0 && is_there(lst->wflag, '.'))
 		return (toprint);
@@ -79,13 +79,11 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 
 void	minus_flag(t_arg *lst, int toprint, int signe)
 {
-//	pf_itoa_base(toprint, 10, '@');
 	if (is_there(lst->wflag, '-'))
 	{
 		if ((is_there(lst->wflag, '+') || is_there(lst->wflag, ' ')) &&
-				(lst->flag != 'd' && lst->flag != 'i' && lst->flag != 'D'))
+		(lst->flag != 'd' && lst->flag != 'i' && lst->flag != 'D'))
 			toprint++;
-		//if (htag(lst, signe, 0) == 0 || htag(lst, signe, 0) == 2)
 		if ((is_there(lst->wflag, '+') || is_there(lst->wflag, ' ')
 		|| signe == -1))
 			toprint--;

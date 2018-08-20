@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:38:24 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/09 03:01:19 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 01:01:26 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	hex_handler(t_arg *lst, va_list ap, int *r)
 		- htag(lst, signe, 0);
 	*r += blank_and_sign(lst, divide_unb(nb, lst->base, lst->wflag)
 		, signe, toprint);
-	//pf_itoa_base(*r, 10, '@');
 	*r += precision_and_zero(lst, divide_unb(nb, lst->base, lst->wflag), signe);
 	if (!is_there(lst->wflag, '.') || get_preci(lst->wflag) != 0 || nb != 0)
 		pf_itoa_base(nb, lst->base, lst->flag);

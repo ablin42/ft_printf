@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:41 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/19 00:49:33 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/20 02:18:41 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	get_handler(t_arg *lst, va_list ap, int *retour)
 		if (ft_strchr(handle[i].conv, lst->flag) != NULL)
 		{
 			handle[i].handler(lst, ap, &ret);
+			if (ret == -1)
+				*retour = 0;
 			*retour += ret;
 			return ;
 		}
@@ -52,31 +54,28 @@ void	get_handler(t_arg *lst, va_list ap, int *retour)
 
 void	get_length_mod(t_arg *lst)
 {
-	t_arg	*tmp;
-
-	tmp = lst;
-	while (tmp->flag != 0)
+	while (lst->flag != 0)
 	{
-		if (tmp->flag != ' ')
+		if (lst->flag != ' ')
 		{
-			if (ft_strchr(tmp->wflag, 'h'))
-				tmp->mod = H;
-			if (ft_strstr(tmp->wflag, "hh"))
-				tmp->mod = HH;
-			if (ft_strchr(tmp->wflag, 'l'))
-				tmp->mod = L;
-			if (ft_strstr(tmp->wflag, "ll"))
-				tmp->mod = LL;
-			if (ft_strchr(tmp->wflag, 'j'))
-				tmp->mod = J;
-			if (ft_strchr(tmp->wflag, 'z'))
-				tmp->mod = Z;
-			if ((tmp->flag == 'c' || tmp->flag == 's') && tmp->mod == 3)
-				tmp->flag = ft_toupper(tmp->flag);
+			if (ft_strchr(lst->wflag, 'h'))
+				lst->mod = H;
+			if (ft_strstr(lst->wflag, "hh"))
+				lst->mod = HH;
+			if (ft_strchr(lst->wflag, 'l'))
+				lst->mod = L;
+			if (ft_strstr(lst->wflag, "ll"))
+				lst->mod = LL;
+			if (ft_strchr(lst->wflag, 'j'))
+				lst->mod = J;
+			if (ft_strchr(lst->wflag, 'z'))
+				lst->mod = Z;
+			if ((lst->flag == 'c' || lst->flag == 's') && lst->mod == 3)
+				lst->flag = ft_toupper(lst->flag);
 		}
-		if (tmp->next == NULL)
-			break;
-		tmp = tmp->next;
+		if (lst->next == NULL)
+			break ;
+		lst = lst->next;
 	}
 }
 
@@ -89,6 +88,8 @@ void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 {
 	while (lst->flag != 0)
 	{
+		if (*retour == -1)
+			return ;
 		get_handler(lst, ap, retour);
 		if (lst->flag != ' ')
 			free(lst->wflag);
@@ -96,7 +97,7 @@ void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 			free(lst->type.str);
 		free(lst);
 		if (lst->next == NULL)
-			break;
+			break ;
 		lst = lst->next;
 	}
 }
