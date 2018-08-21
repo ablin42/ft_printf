@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:13:03 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/21 00:14:26 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 00:53:02 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@
 # define F2 && lst->flag != 'X' && lst->flag != 'u' && lst->flag != 'U' && F3
 # define F3 lst->flag != 'p'
 
-#define C { "c%", c_padding }
-#define CC { "C", print_wchar }
-#define S { "s ", str_handler }
-#define SS { "S", print_wstr }
-#define INT { "dDi", int_handler }
-#define HEX { "oOuUxXp", hex_handler }
+# define C { "c%", c_padding }
+# define CC { "C", print_wchar }
+# define S { "s ", str_handler }
+# define SS { "S", print_wstr }
+# define INT { "dDi", int_handler }
+# define HEX { "oOuUxXp", hex_handler }
+
+# define BUFF_EXC lst != NULL && ft_strcmp(tmp->wflag, "NOFLAG") == 0 && B2
+# define B2 (flag == 'C' || (flag == 'c' && is_there(wflag, 'l')))
 
 typedef union		u_type
 {
@@ -48,9 +51,7 @@ typedef enum		e_mod
 
 typedef struct		s_arg
 {
-	int				id;
 	char			*wflag;
-	char			*noarg;//
 	char			flag;
 	int				base;
 	t_type			type;
@@ -75,6 +76,7 @@ void				get_length_mod(t_arg *lst);
 /*
 ** fill_list.c
 */
+t_arg				*add_buffer(t_arg *lst, char flag, char *wflag);
 t_arg				*add_arg(t_arg *lst, char flag, char *wflag);
 t_arg				*add_str(t_arg *lst, char *format, char *str);
 void				fetch_arg(t_arg **lst, const char *restrict format);

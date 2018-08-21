@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:33 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/21 00:57:09 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 00:29:12 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 
 	c = va_arg(ap, wchar_t);
 	ret = wchar_len(c);
-	if (ret == -1 || (c >= 55296 && c <= 57343) || c < 0)
+	if (ret == -1 || (c >= 55296 && c <= 57343) || c < 0 || c > 0x10FFFF)
 	{
 		*r = -1;
 		return ;
 	}
-	if (lst->noarg != NULL)
-		ft_putstr(lst->noarg);
+	if (lst->type.str != NULL)
+		ft_putstr(lst->type.str);
 	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
@@ -43,7 +43,7 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 		to_print(' ', toprint);
 	if (!is_there(lst->wflag, '-'))
 		ft_putwchar(c);
-	*r += ret;
+	*r += ret + ft_strlen(lst->type.str);
 }
 
 /*
