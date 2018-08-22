@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:33 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 00:29:12 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 02:19:52 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 		*r = -1;
 		return ;
 	}
-	if (lst->type.str != NULL)
-		ft_putstr(lst->type.str);
+	if (lst->buf != NULL)
+		ft_putstr(lst->buf);
 	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
@@ -43,7 +43,7 @@ void	print_wchar(t_arg *lst, va_list ap, int *r)
 		to_print(' ', toprint);
 	if (!is_there(lst->wflag, '-'))
 		ft_putwchar(c);
-	*r += ret + ft_strlen(lst->type.str);
+	*r += ret + ft_strlen(lst->buf);
 }
 
 /*
@@ -67,7 +67,7 @@ int		ft_putwstr_preci(wchar_t *str, char *wflag, int (*func)(wchar_t))
 	while (str != NULL && str[i] != '\0')
 	{
 		if ((wchar_len(str[i]) == -1 || (str[i] >= 55296 && str[i] <= 57343)
-		|| str[i] < 0))
+		|| str[i] < 0) || str[i] > 0x10FFFF)
 			return (-1);
 		if (!is_there(wflag, '.') || (is_there(wflag, '.') &&
 		ret + wchar_len(str[i]) <= get_preci(wflag)))
@@ -87,17 +87,17 @@ void	print_wstr(t_arg *lst, va_list ap, int *r)
 {
 	int			toprint;
 	int			ret;
-	int			i;
 	wchar_t		*s;
 
 	s = va_arg(ap, wchar_t *);
-	i = 0;
 	ret = ft_putwstr_preci(s, lst->wflag, wchar_len);
 	if (ret == -1)
 	{
 		*r = -1;
 		return ;
 	}
+	if (lst->buf != NULL)
+		ft_putstr(lst->buf);
 	toprint = get_pad(lst->wflag) - ret;
 	if (toprint > 0)
 		ret += toprint;
@@ -109,5 +109,5 @@ void	print_wstr(t_arg *lst, va_list ap, int *r)
 		to_print(' ', toprint);
 	if (!is_there(lst->wflag, '-'))
 		ft_putwstr_preci(s, lst->wflag, ft_putwchar);
-	*r += ret;
+	*r += ret + ft_strlen(lst->buf);
 }

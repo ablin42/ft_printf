@@ -6,11 +6,17 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:14 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 00:54:45 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 01:55:39 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
+
+/*
+** this function is called if the argument is a wide_char and if there was
+** a simple string without arguments before, it overrides the string's values
+** but keep the string intact
+*/
 
 t_arg	*add_buffer(t_arg *lst, char flag, char *wflag)
 {
@@ -26,8 +32,6 @@ t_arg	*add_buffer(t_arg *lst, char flag, char *wflag)
 		tmp->base = 16;
 	if (flag == 'o' || flag == 'O')
 		tmp->base = 8;
-	if (flag == '%')
-		tmp->type.c = '%';
 	return (lst);
 }
 
@@ -50,13 +54,11 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 	element->wflag = wflag;
 	element->flag = flag;
 	element->base = 10;
-	element->type.str = NULL;
+	element->buf = NULL;
 	if (flag == 'x' || flag == 'X' || flag == 'p')
 		element->base = 16;
 	if (flag == 'o' || flag == 'O')
 		element->base = 8;
-	if (flag == '%')
-		element->type.c = '%';
 	element->next = NULL;
 	if (lst == NULL)
 		return (element);
@@ -78,7 +80,7 @@ t_arg	*add_str(t_arg *lst, char *format, char *str)
 	tmp = lst;
 	element->wflag = "NOFLAG";
 	element->flag = ' ';
-	element->type.str = str;
+	element->buf = str;
 	element->next = NULL;
 	if (lst == NULL)
 		return (element);

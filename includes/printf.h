@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:13:03 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 00:53:02 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 02:06:59 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,8 @@
 # define HEX { "oOuUxXp", hex_handler }
 
 # define BUFF_EXC lst != NULL && ft_strcmp(tmp->wflag, "NOFLAG") == 0 && B2
-# define B2 (flag == 'C' || (flag == 'c' && is_there(wflag, 'l')))
-
-typedef union		u_type
-{
-	char			c;
-	char			*str;
-}					t_type;
+# define B2 (flag == 'C' || (flag == 'c' && is_there(wflag, 'l') || B3))
+# define B3 flag == 'S' || (flag == 's' && is_there(wflag, 'l'))
 
 typedef enum		e_mod
 {
@@ -52,9 +47,9 @@ typedef enum		e_mod
 typedef struct		s_arg
 {
 	char			*wflag;
+	char			*buf;
 	char			flag;
 	int				base;
-	t_type			type;
 	t_mod			mod;
 	struct s_arg	*next;
 }					t_arg;

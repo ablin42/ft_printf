@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:41 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 00:47:22 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 02:20:28 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,12 @@ void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 {
 	while (lst->flag != 0)
 	{
-		if (*retour == -1)
-			return ;
-		get_handler(lst, ap, retour);
+		if (*retour != -1)
+			get_handler(lst, ap, retour);
 		if (lst->flag != ' ')
 			free(lst->wflag);
-		else if (lst->flag == ' ')
-			free(lst->type.str);
+		if (lst->buf != NULL || lst->flag == ' ')
+			free(lst->buf);
 		free(lst);
 		if (lst->next == NULL)
 			break ;
