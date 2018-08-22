@@ -7,5 +7,6 @@ void	width_tests(void);
 void	conv_tests(void);
 void	length_mod_tests(void);
 void	ub_tests(void);
+void	random_tests(void);
 
 #endif

@@ -1,11 +1,12 @@
 SRC_NAME = conv_test.c length_mod_test.c mix_test.c preci_test.c width_test.c \
-ub_test.c
+ub_test.c random_test.c
+SRC_PATH = tests/
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 NAME = run_tests
 CC = gcc -g
 CFLAGS = -w
-SRC = $(SRC_NAME)
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 all: $(NAME)
