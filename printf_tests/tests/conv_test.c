@@ -1,7 +1,7 @@
 #include "../../includes/printf.h"
 
 void	conv_tests()
-{/*
+{
 	char *str;
 
 	// CHAR AND STR TESTS
@@ -64,7 +64,7 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("%U %U", 0, LONG_MAX));
 	printf(" %d\n\n", printf("%U %U", 0, LONG_MAX));
-*/
+
 	// WIDE CHAR TESTS
 	ft_printf("BASIC TESTS FOR WCHAR\n");
 

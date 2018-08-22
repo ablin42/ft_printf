@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 02:54:26 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 02:57:31 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/22 04:09:23 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		random_tests()
 	printf(" %d\n\n", printf("%6C et coco %C titi %C tyty", 3250, 0xd800, 'u'));
 	
 	printf(" %d\n", ft_printf("%C", (wint_t)-2));
-	printf(" %dwint_t\n\n", printf("%C", (wint_t)-2));
+	printf(" %d\n\n", printf("%C", (wint_t)-2));
 	
 	printf(" %d\n", ft_printf("%C", 0xd800));
 	printf(" %d\n\n", printf("%C", 0xd800));
