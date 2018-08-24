@@ -14,7 +14,7 @@
 
 /*
 ** this function is called if the argument is a wide_char and if there was
-** a simple string without arguments before, it overrides the string's values
+** a simple string without arguments before, it overrides the list's values
 ** but keep the string intact
 */
 
@@ -44,6 +44,8 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 	t_arg	*element;
 	t_arg	*tmp;
 
+	if (flag == '\0')
+		return (lst);
 	tmp = lst;
 	while (tmp != NULL && tmp->next != NULL)
 		tmp = tmp->next;
@@ -111,7 +113,8 @@ void	fetch_arg(t_arg **lst, const char *restrict format)
 			while (SPEC(format[i]))
 				i++;
 			*lst = add_arg(*lst, format[i], ft_strsub(format, st, (i - st)));
-			i++;
+			if (i < ft_strlen(format))
+				i++;
 		}
 		if (format[i] != '%' && format[i] != '\0')
 		{

@@ -72,7 +72,8 @@ void	str_handler(t_arg *lst, va_list ap, int *r)
 		str = ft_strdup(va_arg(ap, char *));
 	else if (lst->flag == ' ')
 		str = lst->buf;
-	if (str != NULL && is_there(lst->wflag, '.'))
+	if (str != NULL && is_there(lst->wflag, '.') &&
+	ft_strlen(str) >= get_preci(lst->wflag))
 		str[get_preci(lst->wflag)] = '\0';
 	toprint = get_pad(lst->wflag) - ft_strlen(str);
 	if (toprint >= 1)

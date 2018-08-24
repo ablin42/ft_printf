@@ -16,12 +16,13 @@
 
 int		main()
 {
-//	conv_tests();
+	conv_tests();
 //	width_tests();
 //	preci_tests();
 //	length_mod_tests();
 //	mix_tests();
 //	ub_tests();
 //	random_tests();
+
 	return (0);
 }

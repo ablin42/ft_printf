@@ -48,9 +48,10 @@ void	get_handler(t_arg *lst, va_list ap, int *retour)
 
 void	get_length_mod(t_arg *lst)
 {
-	while (lst->flag != 0)
+	while (lst != NULL && lst->flag != '\0')
 	{
-		if (lst->flag != ' ')
+		lst->mod = NONE;
+		if (lst->flag != ' ' && lst->wflag != NULL)
 		{
 			if (ft_strchr(lst->wflag, 'h'))
 				lst->mod = H;
@@ -80,23 +81,29 @@ void	get_length_mod(t_arg *lst)
 
 void	cycle_arg(t_arg *lst, va_list ap, int *retour)
 {
-	while (lst->flag != 0)
+	t_arg	*tmp;
+
+	tmp = lst;
+	while (lst != NULL && lst->flag != '\0')
 	{
+		tmp = lst;
 		if (*retour != -1)
 			get_handler(lst, ap, retour);
 		if (lst->flag != ' ')
 			free(lst->wflag);
 		if (lst->buf != NULL || lst->flag == ' ')
 			free(lst->buf);
-		free(lst);
 		if (lst->next == NULL)
 			break ;
 		lst = lst->next;
+		free(tmp);
 	}
+	if (tmp != NULL)
+		free(tmp);
 }
 
 /*
-** this function calls the other main functions, free the list and return
+** this function calls the other main functions and returns
 ** the total nb of characters printed
 */
 

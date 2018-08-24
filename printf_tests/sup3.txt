@@ -1,0 +1,996 @@
+==33486== Memcheck, a memory error detector
+==33486== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==33486== Using Valgrind-3.14.0.GIT and LibVEX; rerun with -h for copyright info
+==33486== Command: ./run_tests
+==33486== Parent PID: 3113
+==33486== 
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x1000097A1: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A6CF: divide_unb (in ./run_tests)
+==33486==    by 0x1000097C4: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A720: divide_unb (in ./run_tests)
+==33486==    by 0x1000097C4: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A6CF: divide_unb (in ./run_tests)
+==33486==    by 0x100009941: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A720: divide_unb (in ./run_tests)
+==33486==    by 0x100009941: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A6CF: divide_unb (in ./run_tests)
+==33486==    by 0x100009983: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A720: divide_unb (in ./run_tests)
+==33486==    by 0x100009983: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_unb
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000AA37: pf_itoa_base (in ./run_tests)
+==33486==    by 0x1000099EC: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:pf_itoa_base
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000A9D7: divide_nb_ubase (in ./run_tests)
+==33486==    by 0x10000AA5E: pf_itoa_base (in ./run_tests)
+==33486==    by 0x1000099EC: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:divide_nb_ubase
+   fun:pf_itoa_base
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x10000AAB2: pf_itoa_base (in ./run_tests)
+==33486==    by 0x1000099EC: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:pf_itoa_base
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Use of uninitialised value of size 8
+==33486==    at 0x10000AAC5: pf_itoa_base (in ./run_tests)
+==33486==    by 0x1000099EC: hex_handler (in ./run_tests)
+==33486==    by 0x1000077CB: get_handler (in ./run_tests)
+==33486==    by 0x1000079FA: cycle_arg (in ./run_tests)
+==33486==    by 0x100007C3E: ft_printf (in ./run_tests)
+==33486==    by 0x1000020C3: length_mod_tests (length_mod_test.c:14)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:pf_itoa_base
+   fun:hex_handler
+   fun:get_handler
+   fun:cycle_arg
+   fun:ft_printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x1002FCE4A: __ultoa (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100321090: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100002102: length_mod_tests (length_mod_test.c:15)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:__ultoa
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x1002FCE5B: __ultoa (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100321090: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100002102: length_mod_tests (length_mod_test.c:15)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:__ultoa
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x1002FCECB: __ultoa (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100321090: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100002102: length_mod_tests (length_mod_test.c:15)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:__ultoa
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Conditional jump or move depends on uninitialised value(s)
+==33486==    at 0x1000BB157: _platform_memchr$VARIANT$Haswell (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1002F2BA5: __sfvwrite (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002FC7B5: __vfprintf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100321090: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100002102: length_mod_tests (length_mod_test.c:15)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_platform_memchr$VARIANT$Haswell
+   fun:__sfvwrite
+   fun:__vfprintf
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== Syscall param write(buf) points to uninitialised byte(s)
+==33486==    at 0x1005A7592: write$NOCANCEL (in /usr/lib/system/libsystem_kernel.dylib)
+==33486==    by 0x1002F7951: _swrite (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F0578: __sflush (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F2C63: __sfvwrite (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002FC8EE: __vfprintf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100321090: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100002112: length_mod_tests (length_mod_test.c:15)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Address 0x100d62cc3 is 19 bytes inside a block of size 4,096 alloc'd
+==33486==    at 0x1000B95C6: malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1002F36BC: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100307373: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100320F0D: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100001FF8: length_mod_tests (length_mod_test.c:8)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486==  Uninitialised value was created by a stack allocation
+==33486==    at 0x100001FC4: length_mod_tests (length_mod_test.c:6)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   write(buf)
+   fun:write$NOCANCEL
+   fun:_swrite
+   fun:__sflush
+   fun:__sfvwrite
+   fun:__vfprintf
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== 
+==33486== HEAP SUMMARY:
+==33486==     in use at exit: 22,325 bytes in 163 blocks
+==33486==   total heap usage: 629 allocs, 466 frees, 39,796 bytes allocated
+==33486== 
+==33486== 32 bytes in 1 blocks are still reachable in loss record 3 of 44
+==33486==    at 0x1000B95C6: malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D09B6: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+}
+==33486== 32 bytes in 1 blocks are indirectly lost in loss record 5 of 44
+==33486==    at 0x1000B95C6: malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0B65: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0A50: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0950: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:NXCreateHashTableFromZone
+   fun:NXCreateHashTable
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+}
+==33486== 32 bytes in 1 blocks are indirectly lost in loss record 6 of 44
+==33486==    at 0x1000B95C6: malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D09B6: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2CF9: unattachedCategoriesForClass(objc_class*, bool) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2081: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL28unattachedCategoriesForClassP10objc_classb
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+}
+==33486== 48 bytes in 1 blocks are indirectly lost in loss record 9 of 44
+==33486==    at 0x1000B9DF5: malloc_zone_calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0F18: _NXHashRehashToCapacity (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0E96: NXHashInsert (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0B8F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0A50: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0950: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc_zone_calloc
+   fun:_NXHashRehashToCapacity
+   fun:NXHashInsert
+   fun:NXCreateHashTableFromZone
+   fun:NXCreateHashTable
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+}
+==33486== 48 bytes in 1 blocks are indirectly lost in loss record 10 of 44
+==33486==    at 0x1000B9DF5: malloc_zone_calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0F18: _NXHashRehashToCapacity (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0E96: NXHashInsert (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D09D7: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2CF9: unattachedCategoriesForClass(objc_class*, bool) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2081: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc_zone_calloc
+   fun:_NXHashRehashToCapacity
+   fun:NXHashInsert
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL28unattachedCategoriesForClassP10objc_classb
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+}
+==33486== 64 bytes in 1 blocks are definitely lost in loss record 16 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+}
+==33486== 64 bytes in 1 blocks are definitely lost in loss record 17 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+}
+==33486== 64 bytes in 1 blocks are definitely lost in loss record 18 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+}
+==33486== 64 bytes in 1 blocks are definitely lost in loss record 19 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+}
+==33486== 72 bytes in 3 blocks are possibly lost in loss record 20 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006CE7E2: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486==    by 0x1001B8AB3: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==33486==    by 0x1000C89C2: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+==33486==    by 0x100026A09: ImageLoaderMachO::doModInitFunctions(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==33486==    by 0x100026C39: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+   fun:libdispatch_init
+   fun:libSystem_initializer
+   fun:_ZN16ImageLoaderMachO18doModInitFunctionsERKN11ImageLoader11LinkContextE
+   fun:_ZN16ImageLoaderMachO16doInitializationERKN11ImageLoader11LinkContextE
+}
+==33486== 80 (32 direct, 48 indirect) bytes in 1 blocks are definitely lost in loss record 21 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0AA1: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0A50: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0950: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc_zone_malloc
+   fun:NXCreateHashTableFromZone
+   fun:NXCreateHashTable
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+}
+==33486== 128 bytes in 2 blocks are definitely lost in loss record 24 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486==    by 0x1001B8AB3: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+   fun:libdispatch_init
+}
+==33486== 128 bytes in 2 blocks are definitely lost in loss record 25 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+}
+==33486== 144 (32 direct, 112 indirect) bytes in 1 blocks are definitely lost in loss record 26 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0A80: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0A50: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0950: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc_zone_malloc
+   fun:NXCreateHashTableFromZone
+   fun:NXCreateHashTable
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+}
+==33486== 528 bytes in 1 blocks are indirectly lost in loss record 33 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D10FD: allocBuckets(void*, unsigned int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0A18: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2CF9: unattachedCategoriesForClass(objc_class*, bool) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D2081: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C5A: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc_zone_malloc
+   fun:_ZL12allocBucketsPvj
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL28unattachedCategoriesForClassP10objc_classb
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+}
+==33486== 1,472 bytes in 23 blocks are definitely lost in loss record 36 of 44
+==33486==    at 0x1000B9C32: calloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D1BA4: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1C72: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D0363: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486==    by 0x1001B8AB3: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_ZL12realizeClassP10objc_class
+   fun:_ZL12realizeClassP10objc_class
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+   fun:libdispatch_init
+}
+==33486== 2,064 bytes in 1 blocks are indirectly lost in loss record 40 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D10FD: allocBuckets(void*, unsigned int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1AC1: _NXMapRehash(_NXMapTable*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1954: NXMapInsert (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D014C: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc_zone_malloc
+   fun:_ZL12allocBucketsPvj
+   fun:_ZL12_NXMapRehashP11_NXMapTable
+   fun:NXMapInsert
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+}
+==33486== 4,096 bytes in 1 blocks are definitely lost in loss record 42 of 44
+==33486==    at 0x1000B95C6: malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1002F36BC: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100307373: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100320F0D: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F88FD: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x1002F6986: printf (in /usr/lib/system/libsystem_c.dylib)
+==33486==    by 0x100001FF8: length_mod_tests (length_mod_test.c:8)
+==33486==    by 0x1000012D3: main (main.c:22)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__smakebuf
+   fun:__swsetup
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:length_mod_tests
+   fun:main
+}
+==33486== 4,112 bytes in 1 blocks are indirectly lost in loss record 43 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D10FD: allocBuckets(void*, unsigned int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1AC1: _NXMapRehash(_NXMapTable*) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D1954: NXMapInsert (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF446: objc_opt::objc_selopt_t::get(char const*) const (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CFE61: _read_images (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CEAC4: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc_zone_malloc
+   fun:_ZL12allocBucketsPvj
+   fun:_ZL12_NXMapRehashP11_NXMapTable
+   fun:NXMapInsert
+   fun:_ZNK8objc_opt13objc_selopt_t3getEPKc
+   fun:_read_images
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+}
+==33486== 4,136 (24 direct, 4,112 indirect) bytes in 1 blocks are definitely lost in loss record 44 of 44
+==33486==    at 0x1000B9846: malloc_zone_malloc (in /usr/local/Cellar/valgrind/HEAD-5f900ed/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==33486==    by 0x1006D0928: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006D08FA: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF3CB: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CF0DA: sel_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006CE9AD: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1006E17DA: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x100014C64: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==33486==    by 0x100014E39: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==33486==    by 0x10022E81D: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==33486==    by 0x1006CE075: _objc_init (in /usr/lib/libobjc.A.dylib)
+==33486==    by 0x1001B8ACC: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==33486== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc_zone_malloc
+   fun:NXCreateMapTableFromZone
+   fun:NXCreateMapTableFromZone
+   fun:_ZL18__sel_registerNamePKcii
+   fun:sel_init
+   fun:map_images_nolock
+   fun:_ZN11objc_object21sidetable_retainCountEv
+   fun:_ZN4dyldL18notifyBatchPartialE17dyld_image_statesbPFPKcS0_jPK15dyld_image_infoEbb
+   fun:_ZN4dyld21registerObjCNotifiersEPFvjPKPKcPKPK11mach_headerEPFvS1_S6_ESC_
+   fun:_dyld_objc_notify_register
+   fun:_objc_init
+   fun:_os_object_init
+}
+==33486== LEAK SUMMARY:
+==33486==    definitely lost: 6,168 bytes in 35 blocks
+==33486==    indirectly lost: 6,864 bytes in 7 blocks
+==33486==      possibly lost: 72 bytes in 3 blocks
+==33486==    still reachable: 32 bytes in 1 blocks
+==33486==         suppressed: 9,189 bytes in 117 blocks
+==33486== 
+==33486== For counts of detected and suppressed errors, rerun with: -v
+==33486== ERROR SUMMARY: 118 errors from 28 contexts (suppressed: 11 from 11)

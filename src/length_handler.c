@@ -21,6 +21,7 @@ intmax_t	handle_length(t_arg *lst, va_list ap)
 {
 	intmax_t	nb;
 
+	nb = 0;
 	if (lst->mod == 3)
 		nb = va_arg(ap, long);
 	else if (lst->mod == 4 || lst->flag == 'D')
@@ -49,6 +50,7 @@ uintmax_t	handle_ulength(t_arg *lst, va_list ap)
 {
 	uintmax_t	nb;
 
+	nb = 0;
 	if (lst->mod == 3 || lst->flag == 'U' || lst->flag == 'O'
 		|| lst->flag == 'p')
 		nb = va_arg(ap, unsigned long);

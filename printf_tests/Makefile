@@ -4,7 +4,7 @@ SRC_PATH = tests/
 OBJ_PATH = obj/
 OBJ_NAME = $(SRC_NAME:.c=.o)
 NAME = run_tests
-CC = gcc -g
+CC = gcc -g3
 CFLAGS = -w
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
@@ -31,5 +31,9 @@ re: fclean all
 
 xd: re
 	clear
+
+val: re
+	clear
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=sup.txt ./run_tests
 
 .PHONY: all, clean, fclean, re

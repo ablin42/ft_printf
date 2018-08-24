@@ -21,7 +21,7 @@ int		is_there(char *wflag, char c)
 	int		i;
 
 	i = 0;
-	while (wflag[i] != '\0')
+	while (wflag != NULL && wflag[i] != '\0')
 	{
 		if (wflag[i] == c)
 			return (1);
@@ -39,9 +39,9 @@ int		is_z(char *wflag)
 	int		i;
 
 	i = 0;
-	if (wflag[0] == '0')
+	if (wflag != NULL && wflag[0] == '0')
 		return (1);
-	while (wflag[i] != '\0' && wflag[i] != '.')
+	while (wflag != NULL && wflag[i] != '\0' && wflag[i] != '.')
 	{
 		if (wflag[i] == '0' && i > 0 && (wflag[i - 1] < '0' ||
 				wflag[i - 1] > '9'))
