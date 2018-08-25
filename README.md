@@ -7,7 +7,7 @@ Recoding printf allows us to use it for our future projects and makes us discove
 ### It handles:
 > -  Conversion specifiers: sSpdDioOuUxXcC
 > - flags (#, 0, -, +, ' ')
-> - fields width 
+> - field width 
 > - precision
 > - length modifiers (hh, h, l, ll, j, z)
 
