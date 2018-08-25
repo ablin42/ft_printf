@@ -34,6 +34,6 @@ xd: re
 
 val: re
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=sup.txt ./run_tests
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=suppressions.txt ./run_tests
 
 .PHONY: all, clean, fclean, re
