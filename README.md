@@ -4,7 +4,12 @@
 Recoding printf allows us to use it for our future projects and makes us discover new C Features: *Variadic functions* and printing options with flags !
 
 ### Note: this version of printf doesn't handle floats/doubles nor the flags *, $, L, '.
-### It handles the conversions sSpdDioOuUxXcC, fields width, precision, length modifiers (hh, h, l, ll, j, z), flags (#0-+)
+### It handles:
+> -  Conversion specifiers: sSpdDioOuUxXcC
+> - flags (#, 0, -, +, ' ')
+> - fields width 
+> - precision
+> - length modifiers (hh, h, l, ll, j, z)
 
 ### Objectives
 > - Parsing
