@@ -1,4 +1,4 @@
-#include "../../includes/printf.h"
+#include "../main_test.h"
 
 void	length_mod_tests()
 {

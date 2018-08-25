@@ -1,6 +1,12 @@
 #ifndef MAIN_TEST_H
 #define MAIN_TEST_H
 
+#include "../includes/printf.h"
+#include <wchar.h>
+#include <limits.h>
+#include <locale.h>
+#include <stdio.h>
+
 void	mix_tests(void);
 void	preci_tests(void);
 void	width_tests(void);

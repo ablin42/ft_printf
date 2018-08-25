@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:14 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 01:55:39 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:33:44 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,31 @@ t_arg	*add_buffer(t_arg *lst, char flag, char *wflag)
 }
 
 /*
+** this function returns 1 or 0 depending on parameters, the mode variable
+** differentiate the call from add_arg and fetch_arg
+*/
+
+int		handle_exc(char *twflag, char *wflag, char flag, int mode)
+{
+	if (mode == 1)
+	{
+		if (ft_strcmp(twflag, "NOFLAG") == 0 && (flag == 'C' ||
+		(flag == 'c' && is_there(wflag, 'l')) || flag == 'S' ||
+		(flag == 's' && is_there(wflag, 'l'))))
+			return (1);
+	}
+	else if (mode == 2)
+	{
+		if (((flag == ' ' || flag == '#' || flag == '*' ||
+		flag == '+' || flag == '-' || flag == '.' || flag == 'l' ||
+		flag == 'j' || flag == 'h' || flag == 'z') ||
+		(flag >= '0' && flag <= '9')) && flag != '\0')
+			return (1);
+	}
+	return (0);
+}
+
+/*
 ** this function add each printf arg to a list with its corresponding flags
 */
 
@@ -49,7 +74,7 @@ t_arg	*add_arg(t_arg *lst, char flag, char *wflag)
 	tmp = lst;
 	while (tmp != NULL && tmp->next != NULL)
 		tmp = tmp->next;
-	if (BUFF_EXC)
+	if (lst != NULL && handle_exc(tmp->wflag, wflag, flag, 1))
 		return (add_buffer(lst, flag, wflag));
 	if ((element = (t_arg *)malloc(sizeof(t_arg))) == NULL)
 		return (NULL);
@@ -110,7 +135,7 @@ void	fetch_arg(t_arg **lst, const char *restrict format)
 		{
 			i++;
 			st = i;
-			while (SPEC(format[i]))
+			while (handle_exc(NULL, NULL, format[i], 2))
 				i++;
 			*lst = add_arg(*lst, format[i], ft_strsub(format, st, (i - st)));
 			if (i < ft_strlen(format))

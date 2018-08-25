@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:13:03 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/25 18:16:07 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:30:40 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,6 @@
 # define FT_PRINTF_H
 # include "libfunc.h"
 # include <stdarg.h>
-# include <stdio.h>
-# include <limits.h>
-# include <locale.h>
-# include <stdlib.h>
-
-# define SPEC(Val) (((Val == ' ' || Val == '#' || Val == '*' || S2(Val)
-# define S2(Val) Val == '+' || Val == '-' || Val == '.' || Val == 'l' || S3(Val)
-# define S3(Val) Val == 'j' || Val == 'h' || Val == 'z') || S4(Val)
-# define S4(Val) (Val >= '0' && Val <= '9')) && Val != '\0')
-
-# define FLAG_EXC lst->flag != 'o' && lst->flag != 'O' && lst->flag != 'x' F2
-# define F2 && lst->flag != 'X' && lst->flag != 'u' && lst->flag != 'U' && F3
-# define F3 lst->flag != 'p'
 
 # define C { "c%", c_padding }
 # define CC { "C", print_wchar }
@@ -34,10 +21,6 @@
 # define SS { "S", print_wstr }
 # define INT { "dDi", int_handler }
 # define HEX { "oOuUxXp", hex_handler }
-
-# define BUFF_EXC lst != NULL && ft_strcmp(tmp->wflag, "NOFLAG") == 0 && B2
-# define B2 (flag == 'C' || (flag == 'c' && is_there(wflag, 'l') || B3))
-# define B3 flag == 'S' || (flag == 's' && is_there(wflag, 'l'))
 
 typedef enum		e_mod
 {
@@ -74,11 +57,13 @@ void				get_length_mod(t_arg *lst);
 t_arg				*add_buffer(t_arg *lst, char flag, char *wflag);
 t_arg				*add_arg(t_arg *lst, char flag, char *wflag);
 t_arg				*add_str(t_arg *lst, char *format, char *str);
+int					handle_exc(char *twflag, char *wflag, char flag, int mode);
 void				fetch_arg(t_arg **lst, const char *restrict format);
 
 /*
 ** padding.c
 */
+int					flag_exc(char flag);
 int					blank_and_sign(t_arg *lst, uintmax_t size, int signe,
 					int toprint);
 int					precision_and_zero(t_arg *lst, uintmax_t size, int signe);

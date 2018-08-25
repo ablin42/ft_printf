@@ -6,11 +6,11 @@
 /*   By: ablin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 01:23:37 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 02:51:04 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:27:16 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/printf.h"
+#include "../main_test.h"
 
 void		width_tests()
 {

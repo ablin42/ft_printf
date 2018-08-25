@@ -6,11 +6,23 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:39:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 03:53:11 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:33:12 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
+
+/*
+** this function returns 1 if the flag is either oOxXuUp, else it returns 0
+*/
+
+int		flag_exc(char flag)
+{
+	if (flag != 'o' && flag != 'O' && flag != 'x' && flag != 'X' && flag != 'u'
+		&& flag != 'U' && flag != 'p')
+		return (1);
+	return (0);
+}
 
 /*
 ** this function handle the space and the '+' flag for numbers
@@ -22,22 +34,23 @@ int		blank_and_sign(t_arg *lst, uintmax_t size, int s, int toprint)
 
 	retour = 0;
 	if (((is_there(lst->wflag, '+')) || s == -1 ||
-	is_there(lst->wflag, ' ')) && FLAG_EXC)
+	is_there(lst->wflag, ' ')) && flag_exc(lst->flag))
 		toprint--;
 	if (is_there(lst->wflag, '+') && s != -1 && is_z(lst->wflag)
-	&& FLAG_EXC && get_preci(lst->wflag) <= 0)
+	&& flag_exc(lst->flag) && get_preci(lst->wflag) <= 0)
 		ft_putchar('+');
 	if (!is_there(lst->wflag, '-') && !is_z(lst->wflag))
 		to_print(' ', toprint);
-	if (is_there(lst->wflag, '+') && s != -1 && !is_z(lst->wflag) && FLAG_EXC)
+	if (is_there(lst->wflag, '+') && s != -1 && !is_z(lst->wflag) &&
+	flag_exc(lst->flag))
 		ft_putchar('+');
 	else if (is_there(lst->wflag, ' ') && !is_there(lst->wflag, '+')
-	&& s != -1 && FLAG_EXC)
+	&& s != -1 && flag_exc(lst->flag))
 		ft_putchar(' ');
 	if (toprint > 0)
 		retour += toprint;
 	if ((is_there(lst->wflag, ' ') || is_there(lst->wflag, '+') || s == -1)
-	&& FLAG_EXC)
+	&& flag_exc(lst->flag))
 		retour++;
 	return (retour);
 }
@@ -59,7 +72,7 @@ int		precision_and_zero(t_arg *lst, uintmax_t size, int signe)
 		ft_putchar('-');
 	to_print_s(lst, toprint, signe);
 	if (is_there(lst->wflag, '+') && signe != -1 && is_z(lst->wflag)
-	&& FLAG_EXC && get_preci(lst->wflag) > 0)
+	&& flag_exc(lst->flag) && get_preci(lst->wflag) > 0)
 		ft_putchar('+');
 	if (is_there(lst->wflag, '.') && signe == 0 &&
 	get_preci(lst->wflag) == 0)

@@ -6,15 +6,13 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:12:47 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 01:12:49 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:19:56 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __LIBFUNC_H
 # define __LIBFUNC_H
-# include <string.h>
 # include <unistd.h>
-# include <string.h>
 # include <stdlib.h>
 
 void				ft_putchar(char c);

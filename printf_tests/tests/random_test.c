@@ -6,12 +6,11 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 02:54:26 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 04:09:23 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/25 21:26:50 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/printf.h"
-#include <wchar.h>
+#include "../main_test.h"
 
 void		random_tests()
 {
@@ -30,24 +29,13 @@ void		random_tests()
 	printf(" %d\n", ft_printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
 	printf(" %d\n\n", printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
 
-	printf(" %d\n", ft_printf("yo%2C xd %-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
-	printf(" %d\n\n", printf("yo%2C xd %-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
-
-	printf(" %d\n", ft_printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
-	printf(" %d\n\n", printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
-
-
-	printf(" %d\n", ft_printf("%lc", 254));
-	printf(" %d\n\n", printf("%lc", 254));
-	
-	printf(" %d\n", ft_printf("%lc", 128));
-	printf(" %d\n\n", printf("%lc", 128));
-	
 	printf(" %d\n", ft_printf("%C", 0xdfff));
 	printf(" %d\n\n", printf("%C", 0xdfff));
 
 	printf(" %d\n", ft_printf("%C", 0xbffe));
 	printf(" %d\n\n", printf("%C", 0xbffe));
+
+	ft_printf("NOW WITH SETLOCALE\n");
 	setlocale(LC_ALL, "");
 	printf(" %d\n", ft_printf("%---8C et coco %1C titi", 3250, 0xffff));
 	printf(" %d\n\n", printf("%---8C et coco %1C titi", 3250, 0xffff));

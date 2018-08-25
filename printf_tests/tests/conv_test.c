@@ -1,4 +1,4 @@
-#include "../../includes/printf.h"
+#include "../main_test.h"
 
 void	conv_tests()
 {
