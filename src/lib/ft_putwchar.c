@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:49:38 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 00:59:11 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/27 18:44:11 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int		ft_putwchar(wchar_t c)
 {
-	if (c <= 0xFF && MB_CUR_MAX >= 1)
+	if ((c <= 0x7F && MB_CUR_MAX >= 1) ||
+	((c >= 128 && c <= 255) && MB_CUR_MAX == 1))
 		ft_putchar(c);
 	else if (c <= 0x7FF && MB_CUR_MAX >= 2)
 	{

@@ -64,7 +64,7 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("%U %U", 0, LONG_MAX));
 	printf(" %d\n\n", printf("%U %U", 0, LONG_MAX));
-
+	
 	// WIDE CHAR TESTS
 	ft_printf("BASIC TESTS FOR WCHAR\n");
 
@@ -100,8 +100,8 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
 	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
-	
-	setlocale(LC_ALL, "en_US.UTF-8");////////voir macro mb_cur_max
+
+	setlocale(LC_ALL, "en_US.UTF-8");
 	ft_printf("NOW WITH SETLOCALE\n");
 	// WIDE CHAR TESTS
 	ft_printf("BASIC TESTS FOR WCHAR\n");
@@ -138,5 +138,4 @@ void	conv_tests()
 	
 	printf(" %d\n", ft_printf("<--%S-->", L"flinguez \x1F92E  moi"));
 	printf(" %d\n\n", printf("<--%S-->", L"flinguez \x1F92E  moi"));
-
 }

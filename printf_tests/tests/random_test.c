@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 02:54:26 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/25 21:26:50 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/27 18:45:49 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,25 @@ void		random_tests()
 	
 	printf(" %d\n", ft_printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
 	printf(" %d\n\n", printf("%20.ld et %.4hhi !", 0x11ffaa147, (signed char)-8));
+
+	printf(" %d\n", ft_printf("%-+-12.7Dt%0 4i %04.2% et %lc titi", 125, 124, 256));
+	printf(" %d\n\n", printf("%-+-12.7Dt%0 4i %04.2% et %lc titi", 125, 124, 256));
+
+	printf(" %d\n", ft_printf("%C", 254));
+	printf(" %d\n\n", ft_printf("%C", 254));
+	
+	printf(" %d\n", ft_printf("yo%2C xd %-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
+	printf(" %d\n\n", printf("yo%2C xd %-12lc et %C titi %C tyty", 'u', 254, 256, 'a'));
+		
+	printf(" %d\n", ft_printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
+	printf(" %d\n\n", printf("yo%2C%-12lc et %s titi %C tyty", 'u', 254, "xd", 'a'));
+
+	printf(" %d\n", ft_printf("%lc", 254));
+	printf(" %d\n\n", printf("%lc", 254));
+					
+	printf(" %d\n", ft_printf("%lc", 128));
+	printf(" %d\n\n", printf("%lc", 128));
+
 
 	printf(" %d\n", ft_printf("%C", 0xdfff));
 	printf(" %d\n\n", printf("%C", 0xdfff));

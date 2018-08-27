@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:40:00 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/20 01:01:11 by ablin            ###   ########.fr       */
+/*   Updated: 2018/08/27 18:44:00 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,8 @@ void	to_print_s(t_arg *lst, int toprint, int signe)
 
 int		wchar_len(wchar_t c)
 {
-	if (c <= 0xFF && MB_CUR_MAX >= 1)
+	if ((c <= 0x7F && MB_CUR_MAX >= 1) ||
+	((c >= 128 && c <= 255) && MB_CUR_MAX == 1))
 		return (1);
 	else if (c <= 0x7FF && MB_CUR_MAX >= 2)
 		return (2);
