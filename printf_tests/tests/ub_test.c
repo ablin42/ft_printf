@@ -111,7 +111,7 @@ void	ub_tests()
 	printf(" %d\n", ft_printf("<%p><%p><%p>", 42, "42", '4', -42, 42));
 	printf(" %d\n\n", printf("<%p><%p><%p>", 42, "42", '4', -42, 42));
 
-	printf(" %d\n", ft_printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
-	printf(" %d\n\n", printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
+//	printf(" %d\n", ft_printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
+//	printf(" %d\n\n", printf("<%#0+ hhlljzhld><%#0+ hhlljzhlD><%#0+ hhlljzhlu><%#0+ hhlljzhlU><%#0+ hhlljzhls><%#0+ hhlljzhlc><%#0+ hhlljzhlS><%#0+ hhlljzhlC><%#0+ hhlljzhlo><%#0+ hhlljzhlO><%#0+ hhlljzhlx><%#0+ hhlljzhlX>", 42, 42, 42, 42, "OK", '4', L"YES", L'4', 42, 42, 42, 42));
 	//*/
 }
