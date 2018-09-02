@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:36:00 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/22 00:58:39 by ablin            ###   ########.fr       */
+/*   Updated: 2018/09/02 20:39:02 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	str_handler(t_arg *lst, va_list ap, int *r)
 	char	*str;
 
 	if (lst->flag == 's')
-		str = ft_strdup(va_arg(ap, char *));
+		str = pf_strdup(va_arg(ap, char *));
 	else if (lst->flag == ' ')
 		str = lst->buf;
 	if (str != NULL && is_there(lst->wflag, '.') &&

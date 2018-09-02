@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 02:23:02 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/27 19:05:18 by ablin            ###   ########.fr       */
+/*   Updated: 2018/09/02 20:40:07 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		main()
 {
 //	TO RUN ONE BY ONE
-//	conv_tests();
+	conv_tests();
 //	width_tests();
 //	preci_tests();
 //	length_mod_tests();

@@ -6,7 +6,7 @@
 /*   By: ablin <ablin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 01:12:47 by ablin             #+#    #+#             */
-/*   Updated: 2018/08/25 21:19:56 by ablin            ###   ########.fr       */
+/*   Updated: 2018/09/02 20:37:18 by ablin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void				pf_itoa_base(uintmax_t n, int base, char flag);
 char				*ft_itoa_base(unsigned int n, int base);
 size_t				ft_strlen(const char *s);
 char				*ft_strcpy(char *dst, const char *src);
-char				*ft_strdup(const char *s1);
+char				*pf_strdup(const char *s1);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
