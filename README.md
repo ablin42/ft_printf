@@ -1,5 +1,6 @@
 # ft_printf
 #### This is my own implementation of printf done @ 42 Paris.
+[105/100][Subject](https://github.com/ablin42/ft_printf/blob/master/ft_printf.pdf)
 
 Recoding printf allows us to use it for our future projects and makes us discover new C Features: *Variadic functions* and printing options with flags !
 
